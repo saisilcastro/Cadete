@@ -1,6 +1,7 @@
 NAME = philo
 INCLUDE = -I./
 SRC = utils.c \
+	  philo-status.c \
 	  action-of.c \
 	  philo.c \
 	  chained-of.c \
@@ -10,10 +11,11 @@ SRC = utils.c \
 OBJ = ./obj/
 SRCOBJ = $(SRC:%.c=${OBJ}%.o)
 CFLAG = -Wall -Wextra -Werror
+ENGINE = -pthread
 
 all: $(NAME)
 $(NAME): $(SRCOBJ)
-	$(CC) $^ -o $(NAME) $(CFLAG)
+	$(CC) $^ -o $(NAME) $(ENGINE) $(CFLAG)
 ${OBJ}%.o : %.c
 	mkdir -p ${OBJ}
 	$(CC) -c $< -o $@ $(INCLUDE) $(CFLAG)

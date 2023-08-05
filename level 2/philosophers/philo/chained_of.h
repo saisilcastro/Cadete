@@ -6,7 +6,7 @@
 /*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 21:36:15 by mister-code       #+#    #+#             */
-/*   Updated: 2023/07/29 00:48:14 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/07/30 19:56:00 by mister-code      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ struct s_chained{
 extern t_chained	*chained_push(void *data);
 extern int			chained_next_first(t_chained **head, t_chained *set);
 extern int			chained_next_last(t_chained **head, t_chained *set);
-extern void			chained_pop(t_chained **head);
+extern void			chained_pop(t_chained **head, void (*pop)(void *data));
 
 #endif

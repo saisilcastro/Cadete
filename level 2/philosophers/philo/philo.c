@@ -6,18 +6,34 @@
 /*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 20:42:59 by mister-code       #+#    #+#             */
-/*   Updated: 2023/07/28 21:18:39 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/07/31 00:17:01 by mister-code      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <philo.h>
+#include <stdlib.h>
 #include <stdio.h>
 
-void	philo_set(t_philo *set)
+t_philo	*philo_push(unsigned int id, unsigned hand, double interval)
+{
+	t_philo *set;
+
+	set = (t_philo *)malloc(sizeof(t_philo));
+	if (!set)
+		return (NULL);
+	set->id = id;
+	set->hand = hand;
+	timer_start(set->wait, interval);
+	return (set);
+}
+
+void	philo_set(t_philo *set, unsigned int id, unsigned hand, double interval)
 {
 	if (!set)
 		return ;
-	set->hand = 0x3;
+	set->id = id;
+	set->hand = hand;
+	set->wait->interval = interval;
 }
 
 int	philo_hand(t_philo *set, t_hand hand)
@@ -29,11 +45,12 @@ int	philo_hand(t_philo *set, t_hand hand)
 	return (0);
 }
 
-void	philo_status(t_philo *set)
+void	philo_pop(void *set)
 {
+	t_philo	*philo;
+
 	if (!set)
 		return ;
-	printf("Left hand: %i\n"
-		"Right hand: %i\n", philo_hand(set, LEFT_HAND),
-		philo_hand(set, RIGHT_HAND));
+	philo = set;
+	free(philo);
 }

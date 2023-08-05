@@ -6,7 +6,7 @@
 /*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 21:35:36 by mister-code       #+#    #+#             */
-/*   Updated: 2023/07/29 00:48:32 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/07/30 19:57:47 by mister-code      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,16 +56,18 @@ int	chained_next_last(t_chained **head, t_chained *set)
 	return (1);
 }
 
-void	chained_pop(t_chained **head)
+void	chained_pop(t_chained **head, void (*pop)(void *data))
 {
 	t_chained	*next;
+	t_chained	*current;
 
-	if (!*head)
-		return ;
-	while (*head)
+	current = *head;
+	while (current)
 	{
-		next = (*head)->next;
-		free(*head);
-		*head = next;
+		next = current->next;
+		if (pop)
+			pop(current->data);
+		free(current);
+		current = next;
 	}
 }

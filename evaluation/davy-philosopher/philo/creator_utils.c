@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   creator_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dapaulin <dapaulin@student.42sp.org.br     +#+  +:+       +#+        */
+/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 23:17:46 by dapaulin          #+#    #+#             */
-/*   Updated: 2023/06/15 17:53:29 by dapaulin         ###   ########.fr       */
+/*   Updated: 2023/07/30 18:50:51 by mister-code      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	end_the_supper(t_setting *s, long num_philos)
 }
 
 void	count_meals(t_setting *s, t_philo *disciple, long amount_eat)
-{	
+{
 	pthread_mutex_lock(&disciple->m_amount_eat);
 	if (!disciple->wine && disciple->amount_eat == amount_eat)
 	{

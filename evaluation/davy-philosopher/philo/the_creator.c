@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   the_creator.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dapaulin <dapaulin@student.42sp.org.br     +#+  +:+       +#+        */
+/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 21:57:55 by dapaulin          #+#    #+#             */
-/*   Updated: 2023/06/17 15:00:45 by dapaulin         ###   ########.fr       */
+/*   Updated: 2023/07/30 23:53:31 by mister-code      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
