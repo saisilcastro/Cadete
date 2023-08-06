@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   life.c                                             :+:      :+:    :+:   */
+/*   pipex-command-get.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/28 21:32:48 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/05 22:11:41 by lde-cast         ###   ########.fr       */
+/*   Created: 2023/06/24 23:32:59 by lde-cast          #+#    #+#             */
+/*   Updated: 2023/08/06 02:48:24 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <life.h>
-#include <philo.h>
-#include <utils.h>
+#include "pipex.h"
+#include "command_of.h"
 
-void	life_set(t_life *set)
+void	pipe_command_get(t_pipe *set, int argc, char **argv)
 {
-	if (!set)
-		return ;
-	set->man = NULL;
-	set->philo = NULL;
-	set->max_philo = 0;
-	agenda_set(set->action, 0, 0, 0);
-	pthread_mutex_init(&set->run, NULL);
-	set->running = 1;
-}
+	int	pos;
 
-void	life_pop(t_life *set)
-{
-	if (!set)
+	if (!set || set->descriptor->input <= 0)
 		return ;
-	chained_pop(&set->man, philo_pop);
-	pthread_mutex_destroy(&set->run);
+	pos = 2;
+	while (pos < argc - 1)
+	{
+		pipe_command_break(set, *(argv + pos));
+		pos++;
+	}
 }

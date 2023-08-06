@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   life.c                                             :+:      :+:    :+:   */
+/*   pipex-command-pop.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/28 21:32:48 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/05 22:11:41 by lde-cast         ###   ########.fr       */
+/*   Created: 2023/06/25 00:26:01 by lde-cast          #+#    #+#             */
+/*   Updated: 2023/06/28 21:54:30 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <life.h>
-#include <philo.h>
-#include <utils.h>
+#include "pipex.h"
+#include "command_of.h"
 
-void	life_set(t_life *set)
+void	pipe_command_pop(t_chained **chained)
 {
-	if (!set)
-		return ;
-	set->man = NULL;
-	set->philo = NULL;
-	set->max_philo = 0;
-	agenda_set(set->action, 0, 0, 0);
-	pthread_mutex_init(&set->run, NULL);
-	set->running = 1;
-}
+	t_chained	*next;
 
-void	life_pop(t_life *set)
-{
-	if (!set)
+	if (!*chained)
+	{
+		printf("there is no command\n");
 		return ;
-	chained_pop(&set->man, philo_pop);
-	pthread_mutex_destroy(&set->run);
+	}
+	while (*chained)
+	{
+		next = (*chained)->next;
+		command_pop((*chained)->data);
+		free(*chained);
+		*chained = next;
+	}
 }

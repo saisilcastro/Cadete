@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
+/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 20:42:59 by mister-code       #+#    #+#             */
-/*   Updated: 2023/07/31 00:17:01 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/08/05 20:59:55 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_philo	*philo_push(unsigned int id, unsigned hand, double interval)
 		return (NULL);
 	set->id = id;
 	set->hand = hand;
-	timer_start(set->wait, interval);
+	timer_start(set->does, interval);
 	return (set);
 }
 
@@ -33,7 +33,7 @@ void	philo_set(t_philo *set, unsigned int id, unsigned hand, double interval)
 		return ;
 	set->id = id;
 	set->hand = hand;
-	set->wait->interval = interval;
+	set->does->interval = interval;
 }
 
 int	philo_hand(t_philo *set, t_hand hand)

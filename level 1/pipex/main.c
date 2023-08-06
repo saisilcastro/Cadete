@@ -5,30 +5,38 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/28 20:23:50 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/05 22:07:09 by lde-cast         ###   ########.fr       */
+/*   Created: 2023/06/18 10:55:56 by lde-cast          #+#    #+#             */
+/*   Updated: 2023/08/06 04:34:12 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <life.h>
-#include <timer_of.h>
+#include "pipex.h"
+#include <stdlib.h>
 #include <stdio.h>
 
-void	philosophe_loop(t_life *set, char **argv);
+void	execute(int argc, char **argv);
 
 int	main(int argc, char **argv)
 {
-	t_life	tales;
-
-	if (argc > 3 && argv)
-		philosophe_loop(&tales, argv);
+	if (argc < 5 || !argv)
+		return (-1);
+	execute(argc, argv);
 	return (0);
 }
 
-void	philosophe_loop(t_life *set, char **argv)
+void	execute(int argc, char **argv)
 {
-	life_set(set);
-	life_command(set, argv);
-	life_update(set);
-	life_pop(set);
+	t_pipe		pipe;
+	extern char	**__environ;
+
+	if (argc != 2)
+	{
+		pipe_start(&pipe);
+		pipe_file_get(&pipe, argc, argv);
+		pipe_command_get(&pipe, argc, argv);
+		pipe_environment_get(&pipe, __environ);
+		pipe_process_get(&pipe);
+		pipe_execute(&pipe);
+		pipe_pop(&pipe);
+	}
 }
