@@ -2,14 +2,16 @@ MAKEFLAGS += --silent
 NAME = push_swap
 INCLUDE = -I./include -I./ft_printf/include/
 VPATH = src: ./src
-SRC = command-of.c \
-	  command-get.c \
-	  command-validate.c \
-	  ft_atoi_base.c \
-	  list-of.c \
-	  swap-of.c \
-	  rotate-of.c \
+SRC = ft_atoi_base.c \
 	  push-swap.c \
+	  stack-of.c \
+	  stack-check.c \
+	  stack-rotate.c \
+	  sort-of.c \
+	  sort-push.c \
+	  sort-swap.c \
+	  sort-rotate.c \
+	  sort-reverse-rotate.c \
 	  main.c
 OBJ = ./obj/
 SRCOBJ = $(SRC:%.c=${OBJ}%.o)

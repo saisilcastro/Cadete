@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo-status.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 10:18:48 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/05 22:19:29 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/07/31 00:26:28 by mister-code      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ int	philo_has_taken(t_philo *set)
 {
 	if (!set)
 		return (0);
-	if (timer_get(set->does))
+	if (timer_get(set->wait))
 	{
-		printf("%.0f %i has taken a fork\n", set->does->interval, set->id);
+		printf("%.0f %i has taken a fork\n", set->wait->interval, set->id);
 		return (1);
 	}
 	return (0);
@@ -37,23 +37,10 @@ int	philo_is(t_philo *set, int pos)
 {
 	if (!set)
 		return (0);
-	if (timer_get(set->does))
+	if (timer_get(set->wait))
 	{
-		printf("%.0f %i is %s\n", set->does->interval, set->id, msg_load(pos));
+		printf("%.0f %i is %s\n", set->wait->interval, set->id, msg_load(pos));
 		return (1);
 	}
-	return (0);
-}
-
-int	philo_death(t_philo *set)
-{
-	if (!set)
-		return (0);
-	if (timer_get(set->death))
-	{
-		printf("%.0f %i died\n", set->death->interval, set->id);
-		return (1);
-	}
-	printf("waiting...");
 	return (0);
 }

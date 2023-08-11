@@ -5,33 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/22 01:46:15 by lde-cast          #+#    #+#             */
-/*   Updated: 2023/07/23 13:26:59 by mister-code      ###   ########.fr       */
+/*   Created: 2023/08/09 00:05:32 by mister-code       #+#    #+#             */
+/*   Updated: 2023/08/09 19:38:34 by mister-code      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
-#include <command_of.h>
+#include <sort_of.h>
 
 void	push_swap(char **argv)
 {
-	t_command	*head;
-	t_list		list;
+	t_sort	sort;
 
-	head = NULL;
-	argv++;
-	list_set(&list);
-	while (*argv)
-	{
-		command_get(&head, *argv);
-		argv++;
-	}
-	if (!command_validate(head, &list))
-	{
-		command_pop(&head);
-		ft_printf("Error\n");
-	}
-	else
-		list_sort(&list);
-	list_pop(&list);
+	sort_set(&sort);
+	sort_populate(&sort, argv);
+	sort_sa(&sort);
+	sort_pb(&sort);
+	sort_pb(&sort);
+	sort_pb(&sort);
+	stack_print(sort.b);
+	sort_sa(&sort);
+	sort_pa(&sort);
+	sort_pa(&sort);
+	sort_pa(&sort);
+	stack_print(sort.a);
+	ft_printf("\n");
+	sort_pop(&sort);
 }

@@ -23,37 +23,56 @@ void	agenda_set(t_agenda *set, double eat, double sleep, double die)
 	set->eat = eat;
 	set->sleep = sleep;
 	set->die = die;
-	set->think = 100;
 	set->eat_times = 0;
 }
 
-void	life_update(t_life *life)
+static void	*life_update(void *data)
 {
+	t_life		*life;
 	t_chained	*upd;
+	int			act;
 
-	while (life->running)
+	life = data;
+	while (1)
 	{
 		upd = life->man;
 		while (upd)
 		{
-			life->philo = upd->data;
+			pthread_mutex_lock(&life->change);
+			act = 0;
+			while (act < 3)
+			{
+				if (act == 0)
+				{
+					((t_philo *)upd->data)->wait->interval = life->action->eat;
+					philo_has_taken(upd->data);
+					if (philo_is(upd->data, 0))
+						act++;
+				}
+				else if (act == 1)
+				{
+					((t_philo *)upd->data)->wait->interval = life->action->sleep;
+					if (philo_is(upd->data, 1))
+						act++;
+				}				
+				else if (act == 2)
+				{
+					((t_philo *)upd->data)->wait->interval = life->action->die;
+					if (philo_is(upd->data, 2))
+						act++;
+				}
+			}
+			pthread_mutex_unlock(&life->change);
 			upd = upd->next;
 		}
 	}
-}
-
-void	*life_time(t_life *set)
-{
-	if (!set)
-		return (NULL);
-	if (philo_death(set->philo))
-		set->running = 0;
 	return (NULL);
 }
 
 static void	philo_create(t_life *set)
 {
 	t_philo		*man;
+	t_chained	*upd;
 	int		i;
 
 	if (!set)
@@ -62,13 +81,17 @@ static void	philo_create(t_life *set)
 	while (++i < set->max_philo)
 	{
 		man = philo_push(i, 0x00, set->action->eat);
-		if (man)
-		{
-			timer_start(man->death, set->action->die);
-			pthread_create(&man->state, NULL, (void *)life_time, set);
-			chained_next_last(&set->man, chained_push(man));
-		}
+		pthread_create(&man->state, NULL, life_update, set);
+		chained_next_last(&set->man, chained_push(man));
+	}		
+	upd = set->man;
+	while (upd)
+	{
+		man = upd->data;
+		pthread_join(man->state, NULL);
+		upd = upd->next;
 	}
+
 }
 
 void	 life_command(t_life *set, char **command)

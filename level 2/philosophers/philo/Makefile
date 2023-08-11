@@ -20,7 +20,7 @@ ${OBJ}%.o : %.c
 	mkdir -p ${OBJ}
 	$(CC) -c $< -o $@ $(INCLUDE) $(CFLAG)
 clean:
-	rm -rf ./obj/*.o
+	rm -rf *.o
 fclean: clean
 	rm -rf $(NAME)
 re: fclean all
