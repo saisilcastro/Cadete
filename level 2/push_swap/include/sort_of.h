@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_of.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
+/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 00:12:06 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/09 07:49:54 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/08/11 19:44:48 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ extern void	sort_rr(t_sort *set);
 extern void	sort_rra(t_sort *set);
 extern void	sort_rrb(t_sort *set);
 extern void	sort_rrr(t_sort *set);
+extern void	sort_a_apply(t_sort *set);
+extern void	sort_b_apply(t_sort *set);
 extern void	sort_pop(t_sort *set);
 
 #endif

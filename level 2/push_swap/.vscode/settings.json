@@ -11,6 +11,7 @@
 		"vector": "c",
 		"initializer_list": "c",
 		"stack_of.h": "c",
-		"random": "c"
+		"random": "c",
+		"concepts": "c"
 	}
 }

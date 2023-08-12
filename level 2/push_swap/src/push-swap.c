@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push-swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
+/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 00:05:32 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/09 19:38:34 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/08/11 22:29:04 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,19 @@ void	push_swap(char **argv)
 
 	sort_set(&sort);
 	sort_populate(&sort, argv);
-	sort_sa(&sort);
-	sort_pb(&sort);
-	sort_pb(&sort);
-	sort_pb(&sort);
-	stack_print(sort.b);
-	sort_sa(&sort);
-	sort_pa(&sort);
-	sort_pa(&sort);
-	sort_pa(&sort);
-	stack_print(sort.a);
-	ft_printf("\n");
+	if (!stack_dup(sort.a))
+	{
+		sort_pb(&sort);
+		sort_pb(&sort);
+		sort_pb(&sort);
+		stack_sort_three(&sort.b, 'b');
+		//sort_b_apply(&sort);
+		//sort_b_apply(&sort);
+		stack_print(sort.b);
+		stack_print(sort.a);
+		//ft_printf("\n");	
+	}
+	else
+		ft_printf("Error\n");
 	sort_pop(&sort);
 }

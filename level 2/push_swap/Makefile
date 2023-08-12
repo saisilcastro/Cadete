@@ -5,8 +5,10 @@ VPATH = src: ./src
 SRC = ft_atoi_base.c \
 	  push-swap.c \
 	  stack-of.c \
+	  stack-next.c \
 	  stack-check.c \
 	  stack-rotate.c \
+	  stack-sort.c \
 	  sort-of.c \
 	  sort-push.c \
 	  sort-swap.c \

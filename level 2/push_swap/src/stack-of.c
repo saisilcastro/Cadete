@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack-of.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
+/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 00:18:23 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/09 06:29:15 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/08/11 22:26:47 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <ft_printf.h>
 #include <stdlib.h>
 
-t_stack	*stack_push(int data)
+t_stack	*stack_push(long data)
 {
 	t_stack	*set;
 
@@ -25,20 +25,19 @@ t_stack	*stack_push(int data)
 	return (set);
 }
 
-void	stack_next_last(t_stack	**head, t_stack *set)
+int	stack_size(t_stack *head)
 {
-	t_stack	*last;
-
-	if (!*head)
+	t_stack	*upd;
+	int		max;
+	
+	max = 0;
+	upd = head;
+	while (upd)
 	{
-		*head = set;
-		return ;
+		max++;
+		upd = upd->next;
 	}
-	last = *head;
-	while (last->next)
-		last = last->next;
-	set->prev = last;
-	last->next = set;
+	return (max);
 }
 
 void	stack_print(t_stack *head)
