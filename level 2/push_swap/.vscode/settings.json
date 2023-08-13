@@ -12,6 +12,7 @@
 		"initializer_list": "c",
 		"stack_of.h": "c",
 		"random": "c",
-		"concepts": "c"
+		"concepts": "c",
+		"sort_of.h": "c"
 	}
 }

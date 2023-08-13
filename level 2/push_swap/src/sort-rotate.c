@@ -3,33 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   sort-rotate.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
+/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 06:48:36 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/09 07:19:11 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/08/13 00:44:23 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <sort_of.h>
 #include <ft_printf.h>
 
-void	sort_ra(t_sort *set)
+void	sort_ra(t_sort *set, int i)
 {
 	if (!set || !stack_rotate_up(&set->a))
 		return ;
-	ft_printf("ra\n");
+	if (i == 0)
+		ft_printf("ra\n");
 }
 
-void	sort_rb(t_sort *set)
+void	sort_rb(t_sort *set, int i)
 {
 	if (!set || !stack_rotate_up(&set->b))
 		return ;
-	ft_printf("rb\n");
+	if (i == 0)
+		ft_printf("rb\n");
 }
 
-void	sort_rr(t_sort *set)
+void	sort_rr(t_sort *set, int i)
 {
 	if (!set || !stack_rotate_up(&set->b) || !stack_rotate_up(&set->a))
 		return ;
-	ft_printf("rr\n");
+	if (i == 0)
+		ft_printf("rr\n");
 }

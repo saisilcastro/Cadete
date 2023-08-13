@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
+/*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/13 11:31:13 by lde-cast          #+#    #+#             */
-/*   Updated: 2023/06/13 13:37:17 by lde-cast         ###   ########.fr       */
+/*   Created: 2023/05/10 11:27:37 by luizedua          #+#    #+#             */
+/*   Updated: 2023/05/10 11:37:02 by luizedua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include "ft_itoa_base.h"
-
-extern int	ft_printf(const char *str, ...);
-
-#endif // FT_PRINTF_H
+void	ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
+}

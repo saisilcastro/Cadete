@@ -6,7 +6,7 @@
 /*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 00:18:23 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/11 22:26:47 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/08/12 21:33:09 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,15 @@ int	stack_size(t_stack *head)
 		upd = upd->next;
 	}
 	return (max);
+}
+
+void	stack_push_message(t_stack **head, t_stack *set, int *max, char *message)
+{
+	if (stack_next_last(head, set))
+	{
+		*max += 1;
+		ft_printf("%s", message);
+	}
 }
 
 void	stack_print(t_stack *head)

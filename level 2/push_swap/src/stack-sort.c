@@ -6,7 +6,7 @@
 /*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 19:46:01 by lde-cast          #+#    #+#             */
-/*   Updated: 2023/08/11 22:28:01 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/08/12 20:00:00 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ void	print_swap(char stack)
 		ft_printf("sb\n");
 }
 
-int	stack_sort_three(t_stack **head, char stack)
+int	stack_buble_sort(t_stack **head, char *message)
 {
 	t_stack	*outter;
 	t_stack	*inner;
-	int		swap;
+	char	swap;
 
-	if (stack_size(*head) != 3)
+	if (!head)
 		return (0);
 	outter = *head;
 	while (outter)
@@ -48,13 +48,27 @@ int	stack_sort_three(t_stack **head, char stack)
 			if (inner->data > outter->data)
 			{
 				swap = 1;
-				swap_int(&inner->data, &outter->data);	
-			}
+				swap_int(&inner->data, &outter->data);
+			}				
 			inner = inner->next;
 		}
 		if (swap)
-			print_swap(stack);
+			ft_printf("%s\n", message);
 		outter = outter->next;
 	}
+	return (0);
+}
+
+int	stack_sort_three(t_stack **head, char stack)
+{
+	char	*message;
+
+	if (stack_size(*head) != 3)
+		return (0);
+	if (stack == 'a')
+		message = "sa";
+	else
+		message = "sb";
+	stack_buble_sort(head, message);
 	return (1);
 }

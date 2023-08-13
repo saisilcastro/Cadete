@@ -6,6 +6,7 @@ SRC = ft_atoi_base.c \
 	  push-swap.c \
 	  stack-of.c \
 	  stack-next.c \
+	  stack-search.c \
 	  stack-check.c \
 	  stack-rotate.c \
 	  stack-sort.c \
