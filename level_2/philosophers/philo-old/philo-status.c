@@ -12,6 +12,18 @@
 
 #include <philo.h>
 
+int	philo_has_taken(t_philo *set)
+{
+	if (!set)
+		return (0);
+	if (timer_get(set->wait))
+	{
+		printf("%.0f %i has taken a fork\n", set->wait->interval, set->id);
+		return (1);
+	}
+	return (0);
+}
+
 static char	*msg_load(int pos)
 {
 	if (pos == 0)
@@ -23,20 +35,11 @@ static char	*msg_load(int pos)
 
 int	philo_is(t_philo *set, int pos)
 {
-	static char	show;
-
 	if (!set)
 		return (0);
-	if (!show)
-	{
-		if (pos == 0)
-			printf("%.0f %i has taken a fork\n", set->wait->interval, set->id);
-		printf("%.0f %i is %s\n", set->wait->interval, set->id, msg_load(pos));
-		show = 1;
-	}
 	if (timer_get(set->wait))
 	{
-		show = 0;
+		printf("%.0f %i is %s\n", set->wait->interval, set->id, msg_load(pos));
 		return (1);
 	}
 	return (0);

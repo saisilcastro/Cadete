@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include <timer_of.h>
-#include <stdio.h>
 #include <stdlib.h>
 
 void	timer_start(t_timer *set, double interval)

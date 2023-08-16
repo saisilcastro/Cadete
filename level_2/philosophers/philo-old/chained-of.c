@@ -12,7 +12,6 @@
 
 #include <chained_of.h>
 #include <stdlib.h>
-#include <stdio.h>
 
 t_chained	*chained_push(void *data)
 {
@@ -57,7 +56,7 @@ int	chained_next_last(t_chained **head, t_chained *set)
 	return (1);
 }
 
-void	chained_pop(t_chained **head, void (*pop)(void **data))
+void	chained_pop(t_chained **head, void (*pop)(void *data))
 {
 	t_chained	*next;
 	t_chained	*current;
@@ -67,7 +66,7 @@ void	chained_pop(t_chained **head, void (*pop)(void **data))
 	{
 		next = current->next;
 		if (pop)
-			pop((void **)&current->data);
+			pop(current->data);
 		free(current);
 		current = next;
 	}

@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   chained_of.h                                       :+:      :+:    :+:   */
+/*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/28 21:36:15 by mister-code       #+#    #+#             */
-/*   Updated: 2023/07/30 19:56:00 by mister-code      ###   ########.fr       */
+/*   Created: 2023/07/29 13:59:42 by mister-code       #+#    #+#             */
+/*   Updated: 2023/07/29 22:45:38 by mister-code      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHAINED_OF_H
-# define CHAINED_OF_H
+#ifndef UTILS_H
+# define UTILS_H
 
-typedef struct s_chained	t_chained;
-struct s_chained{
-	void		*data;
-	t_chained	*prev;
-	t_chained	*next;
-};
-
-extern t_chained	*chained_push(void *data);
-extern int			chained_next_first(t_chained **head, t_chained *set);
-extern int			chained_next_last(t_chained **head, t_chained *set);
-extern void			chained_pop(t_chained **head, void (*pop)(void **data));
+extern long	ft_atol_base_unsigned(char *str, unsigned char base);
 
 #endif

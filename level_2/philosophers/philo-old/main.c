@@ -29,6 +29,6 @@ void	philosophe_loop(t_life *set, char **argv)
 {
 	life_set(set);
 	life_command(set, argv);
-	//life_update(set);
+	life_update(set);
 	life_pop(set);
 }

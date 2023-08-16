@@ -23,6 +23,6 @@ struct s_chained{
 extern t_chained	*chained_push(void *data);
 extern int			chained_next_first(t_chained **head, t_chained *set);
 extern int			chained_next_last(t_chained **head, t_chained *set);
-extern void			chained_pop(t_chained **head, void (*pop)(void **data));
+extern void			chained_pop(t_chained **head, void (*pop)(void *data));
 
 #endif
