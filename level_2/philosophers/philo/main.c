@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
+/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 20:23:50 by mister-code       #+#    #+#             */
-/*   Updated: 2023/07/31 00:14:01 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/08/16 12:23:39 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ void	philosophe_loop(t_life *set, char **argv)
 {
 	life_set(set);
 	life_command(set, argv);
-	//life_update(set);
+	life_update(set);
 	life_pop(set);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   life.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
+/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 21:24:52 by mister-code       #+#    #+#             */
-/*   Updated: 2023/07/30 23:45:19 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/08/16 11:43:43 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct s_agenda	t_agenda;
 struct s_agenda{
 	double	eat;
 	double	sleep;
+	double	think;
 	double	die;
 	int		eat_times;
 };
@@ -41,7 +42,7 @@ struct s_life{
 
 extern void	life_set(t_life *set);
 extern void	life_command(t_life *set, char **command);
-//extern void life_update(t_life *set);
+extern void	life_update(t_life *set);
 extern void	life_pop(t_life *set);
 
 #endif

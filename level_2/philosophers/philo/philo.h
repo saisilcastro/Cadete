@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
+/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 20:36:53 by mister-code       #+#    #+#             */
-/*   Updated: 2023/07/31 00:26:55 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/08/16 10:53:41 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <pthread.h>
 # include <timer_of.h>
-#include <stdio.h>
+# include <stdio.h>
 
 typedef enum e_hand{
 	LEFT_HAND,
@@ -30,8 +30,10 @@ struct s_philo{
 	unsigned		hand:RIGHT_HAND + 1;
 };
 
-extern t_philo	*philo_push(unsigned int id, unsigned hand, double interval, double died);
-extern void		philo_set(t_philo *set, unsigned int id, unsigned hand, double interval, double died);
+extern t_philo	*philo_push(unsigned int id, unsigned int hand,
+					double interval, double died);
+extern void		philo_set(t_philo *set, unsigned int id,
+					double interval, double died);
 extern int		philo_hand(t_philo *set, t_hand hand);
 extern int		philo_is(t_philo *set, int pos);
 extern int		philo_died(t_philo *set);

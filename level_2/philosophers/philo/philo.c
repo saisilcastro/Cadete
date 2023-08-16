@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
+/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 20:42:59 by mister-code       #+#    #+#             */
-/*   Updated: 2023/07/31 00:17:01 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/08/16 10:52:43 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-t_philo	*philo_push(unsigned int id, unsigned hand, double interval, double died)
+t_philo	*philo_push(unsigned int id, unsigned int hand,
+	double interval, double died)
 {
-	t_philo *set;
+	t_philo	*set;
 
 	set = (t_philo *)malloc(sizeof(t_philo));
 	if (!set)
@@ -28,12 +29,12 @@ t_philo	*philo_push(unsigned int id, unsigned hand, double interval, double died
 	return (set);
 }
 
-void	philo_set(t_philo *set, unsigned int id, unsigned hand, double interval, double died)
+void	philo_set(t_philo *set, unsigned int id, double interval, double died)
 {
 	if (!set)
 		return ;
 	set->id = id;
-	set->hand = hand;
+	set->hand = 0x00;
 	set->wait->interval = interval;
 	set->died->interval = died;
 }
