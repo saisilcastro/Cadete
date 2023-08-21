@@ -13,6 +13,7 @@
 		"stack_of.h": "c",
 		"random": "c",
 		"concepts": "c",
-		"sort_of.h": "c"
+		"sort_of.h": "c",
+		"push_swap.h": "c"
 	}
 }

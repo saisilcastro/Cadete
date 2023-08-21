@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_of.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 00:12:06 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/13 00:41:24 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/08/19 20:31:08 by mister-code      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define SORT_OF_H
 
 # include <stack_of.h>
+# include <ft_printf.h>
 
 typedef struct s_sort	t_sort;
 struct s_sort{
@@ -35,6 +36,7 @@ extern void	sort_rr(t_sort *set, int i);
 extern void	sort_rra(t_sort *set, int i);
 extern void	sort_rrb(t_sort *set, int i);
 extern void	sort_rrr(t_sort *set, int i);
+extern int	sort_resolve(t_sort *set);
 extern void	sort_a_apply(t_sort *set);
 extern void	sort_b_apply(t_sort *set);
 extern void	sort_pop(t_sort *set);

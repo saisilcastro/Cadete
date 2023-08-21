@@ -22,11 +22,9 @@ int	stack_pos(t_stack *head, long data)
 	while (upd)
 	{
 		if (upd->data == data)
-			break ;
+			return (i);
 		upd = upd->next;
 		i++;
 	}
-	if (i > 0)
-		i++;
-	return (i);
+	return (-1);
 }
