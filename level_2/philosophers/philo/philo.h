@@ -6,7 +6,7 @@
 /*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 20:36:53 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/16 10:53:41 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/08/21 15:49:49 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef enum e_hand{
 typedef struct s_philo	t_philo;
 struct s_philo{
 	int				id;
-	t_timer			wait[1];
+	t_timer			wait[3];
 	t_timer			died[1];
 	unsigned		hand:RIGHT_HAND + 1;
 };

@@ -35,6 +35,8 @@ void	agenda_set(t_agenda *set, double eat, double sleep, double die)
 //	static int	act;
 
 //	life = (t_life *)data;
+//	if (!life)
+//		return (NULL);
 //	pthread_mutex_lock(&life->change);
 //	philo = life->thinker->data;
 //	if (act == 0)
@@ -65,13 +67,19 @@ static void	philo_create(t_life *set)
 	i = -1;
 	while (++i < set->max_philo)
 	{
-		man = philo_push(i, 0x00, set->action->eat, set->action->die);
+		man = philo_push(i, 0x1, set->action->eat, set->action->die);
+		timer_start(&man->wait[1], set->action->sleep);
+		timer_start(&man->wait[2], set->action->think);
 		chained_next_last(&set->thinker, chained_push(man));
 		if (i == 0)
 			set->man = set->thinker;
 		//if (pthread_create(&set->state[i], NULL, &life_action, set) != 0)
 		//	perror("failure creating pthread");
 	}
+}
+
+void join(void)
+{
 	//i = -1;
 	//while (++i < set->max_philo)
 	//{
@@ -86,9 +94,7 @@ void	life_update(t_life *set)
 	t_chained	*upd;
 	int			i;
 
-	if (!set)
-		return ;
-	while (!set->died)
+	while (set && !set->died)
 	{
 		upd = set->thinker;
 		while (upd)
@@ -96,21 +102,17 @@ void	life_update(t_life *set)
 			i = -1;
 			while (++i < 3)
 			{
-				if (i == 0)
-				{
-					((t_philo*)upd->data)->wait->interval = set->action->eat;
-					philo_is(upd->data, i);
-				}
-				if (i == 1)
-				{
-					((t_philo*)upd->data)->wait->interval = set->action->sleep;
-					philo_is(upd->data, i);
-				}
+				philo_is(upd->data, i);
 				if (i == 2)
-				{
-					((t_philo*)upd->data)->wait->interval = set->action->think;
-					philo_is(upd->data, i);
-				}
+					timer_set(((t_philo *)upd->data)->died);
+			}
+			if (timer_get(((t_philo *)upd->data)->died))
+			{
+				set->died = 1;
+				printf("%.lf %i has died\n",
+				((t_philo *)upd->data)->died->interval,
+				((t_philo *)upd->data)->id);
+				break ;
 			}
 			upd = upd->next;
 		}
@@ -139,5 +141,7 @@ void	life_command(t_life *set, char **command)
 	}
 	set->action->think = set->action->die
 		- (set->action->eat + set->action->sleep);
+	if (set->action->think < 0)
+		set->action->think = 0;
 	philo_create(set);
 }

@@ -7,6 +7,7 @@ SRC = utils.c \
 	  chained-of.c \
 	  timer-of.c \
 	  life.c \
+	  life-action.c \
 	  main.c
 OBJ = ./obj/
 SRCOBJ = $(SRC:%.c=${OBJ}%.o)

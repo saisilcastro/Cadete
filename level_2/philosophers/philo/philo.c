@@ -6,7 +6,7 @@
 /*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 20:42:59 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/16 10:52:43 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/08/21 17:52:57 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <stdio.h>
 
 t_philo	*philo_push(unsigned int id, unsigned int hand,
-	double interval, double died)
+	double eat, double died)
 {
 	t_philo	*set;
 
@@ -24,7 +24,7 @@ t_philo	*philo_push(unsigned int id, unsigned int hand,
 		return (NULL);
 	set->id = id;
 	set->hand = hand;
-	timer_start(set->wait, interval);
+	timer_start(&set->wait[0], eat);
 	timer_start(set->died, died);
 	return (set);
 }
@@ -34,8 +34,8 @@ void	philo_set(t_philo *set, unsigned int id, double interval, double died)
 	if (!set)
 		return ;
 	set->id = id;
-	set->hand = 0x00;
-	set->wait->interval = interval;
+	set->hand = 0x1;
+	set->wait[0].interval = interval;
 	set->died->interval = died;
 }
 
