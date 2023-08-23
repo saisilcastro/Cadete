@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo-status.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
+/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 10:18:48 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/22 16:43:10 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/08/23 17:15:20 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,48 @@ static char	*msg_load(int pos)
 		return ("eating");
 	else if (pos == 1)
 		return ("sleeping");
-	return ("thinking\n");
+	return ("thinking");
 }
 
-int	philo_is(t_philo *set)
+int	philo_is(t_philo *set, long acc)
 {
+	static char	show[1024];
 
 	if (!set)
 		return (0);
-	if (set->action == EATING)
-		printf("%lu %i has taken a fork\n", timer_elapsed(&set->wait[set->action]),
-			set->id);
-	printf("%lu %i is %s\n", timer_elapsed(&set->wait[set->action]), set->id,
-		msg_load(set->action));
-	if (timer_get(&set->wait[set->action]))
+	if (!show[set->id])
+	{
+		if (set->action == FLOATING)
+			set->action = EATING;
+		if (set->action == EATING)
+			printf("%lu %i has taken a fork\n",
+				set->wait[set->action - 1].begin - acc,
+				set->id + 1);
+		if (set->action != FLOATING)
+		printf("%lu %i is %s\n", set->wait[set->action - 1].begin - acc,
+			set->id + 1, msg_load(set->action - 1));
+		show[set->id] = 1;
+	}
+	if (set->action != FLOATING && timer_get(&set->wait[set->action - 1]))
 	{
 		set->action++;
 		if (set->action > THINKING)
 			set->action = EATING;
+		show[set->id] = 0;
+		return (1);
+	}
+	return (0);
+}
+
+int	philo_died(t_philo	*set, long acc)
+{
+	if (!set)
+		return (0);
+	if (timer_get(set->died))
+	{
+		printf("%lu %i has died\n",
+				set->died->begin - acc,
+				set->id + 1);
 		return (1);
 	}
 	return (0);

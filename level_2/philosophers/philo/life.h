@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   life.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
+/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 21:24:52 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/22 11:33:44 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/08/23 12:11:29 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ struct s_life{
 	int				max_philo;
 	int				disposable_fork;
 	char			died;
+	long			begin;
 };
 
 extern void	life_set(t_life *set);

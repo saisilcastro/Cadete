@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
+/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 20:36:53 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/22 11:24:02 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/08/23 16:03:27 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef enum e_hand{
 }t_hand;
 
 typedef enum e_action{
+	FLOATING,
 	EATING,
 	SLEEPING,
 	THINKING
@@ -40,8 +41,8 @@ struct s_philo{
 extern t_philo	*philo_push(int id, long eat, long sleep, long died);
 extern void		philo_set(t_philo *set, int id, long eat, long died);
 extern int		philo_hand(t_philo *set, t_hand hand);
-extern int		philo_is(t_philo *set);
-extern int		philo_died(t_philo *set);
+extern int		philo_is(t_philo *set, long begin);
+extern int		philo_died(t_philo	*set, long begin);
 extern void		philo_pop(void **set);
 
 #endif

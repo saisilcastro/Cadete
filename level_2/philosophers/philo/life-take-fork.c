@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   life-take-fork.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
+/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 16:12:25 by lde-cast          #+#    #+#             */
-/*   Updated: 2023/08/22 11:29:08 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/08/23 17:13:10 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 static int	left_hand(t_philo *thinker, t_philo *left)
 {
-	if (thinker->action == EATING)
+	if (left->action == EATING)
 		return (0);
 	if (!(thinker->hand & (1 << LEFT_HAND))
 		&& (left->hand & (1 << RIGHT_HAND)))
@@ -29,7 +29,7 @@ static int	left_hand(t_philo *thinker, t_philo *left)
 
 static int	right_hand(t_philo *thinker, t_philo *right)
 {
-	if (thinker->action == EATING)
+	if (right->action == EATING)
 		return (0);
 	if (thinker && right && !(thinker->hand & (1 << RIGHT_HAND))
 		&& (right->hand & (1 << LEFT_HAND)))

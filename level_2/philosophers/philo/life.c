@@ -6,7 +6,7 @@
 /*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 21:32:48 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/21 11:13:52 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/08/23 12:12:37 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	life_set(t_life *set)
 	set->max_philo = 0;
 	set->disposable_fork = 0;
 	set->died = 0;
+	set->begin = 0;
 	agenda_set(set->action, 0, 0, 0);
 	//pthread_mutex_init(&set->change, NULL);
 }

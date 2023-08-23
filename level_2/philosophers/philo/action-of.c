@@ -57,8 +57,9 @@ void	agenda_set(t_agenda *set, double eat, double sleep, double die)
 
 static void	philo_create(t_life *set)
 {
-	t_philo		*man;
-	int			i;
+	t_philo			*man;
+	int				i;
+	t_timer			time;
 
 	if (!set)
 		return ;
@@ -73,6 +74,8 @@ static void	philo_create(t_life *set)
 		//if (pthread_create(&set->state[i], NULL, &life_action, set) != 0)
 		//	perror("failure creating pthread");
 	}
+	time.begin = 0;
+	set->begin = timer_elapsed(&time);
 }
 
 void join(void)
@@ -95,18 +98,17 @@ void	life_update(t_life *set)
 		upd = set->thinker;
 		while (upd)
 		{
-			if (timer_get(((t_philo *)upd->data)->died))
+			if (philo_died(upd->data, set->begin))
 			{
 				set->died = 1;
-				printf("%lu %i has died\n",
-				((t_philo *)upd->data)->died->interval,
-				((t_philo *)upd->data)->id);
 				break ;
 			}
 			if (life_take_fork(set, upd->prev, upd, upd->next)
-				&& philo_is(upd->data)
+				&& philo_is(upd->data, set->begin)
 				&& ((t_philo *)upd->data)->action == THINKING)
+			{
 				timer_set(((t_philo *)upd->data)->died);
+			}
 			upd = upd->next;
 		}
 	}

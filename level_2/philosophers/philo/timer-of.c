@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   timer-of.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
+/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 22:07:09 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/22 16:30:55 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/08/23 12:41:22 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ long	times_thousand(long i)
 void	timer_start(t_timer *set, unsigned long interval)
 {
 	struct timeval	now;
+
 	if (!set)
 		return ;
 	set->interval = interval;
@@ -38,8 +39,9 @@ int	timer_get(t_timer *set)
 		return (0);
 	gettimeofday(&now, NULL);
 	end = (times_thousand(now.tv_sec) + (now.tv_usec * 1e-3));
+	//printf("%li %li\n", (end - set->begin), set->interval);
 	if ((end - set->begin) < set->interval)
-	 	return (0);
+		return (0);
 	timer_set(set);
 	return (1);
 }
@@ -48,6 +50,7 @@ long	timer_elapsed(t_timer *set)
 {
 	struct timeval	timer;
 	long			now;
+
 	gettimeofday(&timer, NULL);
 	now = (times_thousand(timer.tv_sec) + (timer.tv_usec * 1e-3));
 	return (now - set->begin);

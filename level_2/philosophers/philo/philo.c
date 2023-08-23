@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
+/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 20:42:59 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/22 11:42:38 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/08/23 16:03:49 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_philo	*philo_push(int id, long eat, long sleep, long died)
 		return (NULL);
 	set->id = id;
 	set->hand = 0x1;
-	set->action = THINKING;
+	set->action = FLOATING;
 	timer_start(&set->wait[0], eat);
 	timer_start(&set->wait[1], sleep);
 	if ((eat + sleep) * 0.5 > 0)
