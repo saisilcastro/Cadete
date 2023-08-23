@@ -24,7 +24,6 @@ void	agenda_set(t_agenda *set, double eat, double sleep, double die)
 	set->eat = eat;
 	set->sleep = sleep;
 	set->die = die;
-	set->think = set->die - (set->eat + set->sleep);
 	set->eat_times = 0;
 }
 
@@ -67,9 +66,7 @@ static void	philo_create(t_life *set)
 	i = -1;
 	while (++i < set->max_philo)
 	{
-		man = philo_push(i, 0x1, set->action->eat, set->action->die);
-		timer_start(&man->wait[1], set->action->sleep);
-		timer_start(&man->wait[2], set->action->think);
+		man = philo_push(i, set->action->eat, set->action->sleep, set->action->die);
 		chained_next_last(&set->thinker, chained_push(man));
 		if (i == 0)
 			set->man = set->thinker;
@@ -92,28 +89,24 @@ void join(void)
 void	life_update(t_life *set)
 {
 	t_chained	*upd;
-	int			i;
 
 	while (set && !set->died)
 	{
 		upd = set->thinker;
 		while (upd)
 		{
-			i = -1;
-			while (++i < 3)
-			{
-				philo_is(upd->data, i);
-				if (i == 2)
-					timer_set(((t_philo *)upd->data)->died);
-			}
 			if (timer_get(((t_philo *)upd->data)->died))
 			{
 				set->died = 1;
-				printf("%.lf %i has died\n",
+				printf("%lu %i has died\n",
 				((t_philo *)upd->data)->died->interval,
 				((t_philo *)upd->data)->id);
 				break ;
 			}
+			if (life_take_fork(set, upd->prev, upd, upd->next)
+				&& philo_is(upd->data)
+				&& ((t_philo *)upd->data)->action == THINKING)
+				timer_set(((t_philo *)upd->data)->died);
 			upd = upd->next;
 		}
 	}
@@ -139,9 +132,5 @@ void	life_command(t_life *set, char **command)
 			set->action->sleep = ft_atol_base_unsigned(*(command + i), 10);
 		i++;
 	}
-	set->action->think = set->action->die
-		- (set->action->eat + set->action->sleep);
-	if (set->action->think < 0)
-		set->action->think = 0;
 	philo_create(set);
 }

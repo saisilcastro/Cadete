@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 20:42:59 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/21 17:52:57 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/08/22 11:42:38 by mister-code      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-t_philo	*philo_push(unsigned int id, unsigned int hand,
-	double eat, double died)
+t_philo	*philo_push(int id, long eat, long sleep, long died)
 {
 	t_philo	*set;
 
@@ -23,19 +22,26 @@ t_philo	*philo_push(unsigned int id, unsigned int hand,
 	if (!set)
 		return (NULL);
 	set->id = id;
-	set->hand = hand;
+	set->hand = 0x1;
+	set->action = THINKING;
 	timer_start(&set->wait[0], eat);
+	timer_start(&set->wait[1], sleep);
+	if ((eat + sleep) * 0.5 > 0)
+		timer_start(&set->wait[2], (eat + sleep) * 0.5);
+	else
+		timer_start(&set->wait[2], 1000);
 	timer_start(set->died, died);
 	return (set);
 }
 
-void	philo_set(t_philo *set, unsigned int id, double interval, double died)
+void	philo_set(t_philo *set, int id, long eat, long died)
 {
 	if (!set)
 		return ;
 	set->id = id;
 	set->hand = 0x1;
-	set->wait[0].interval = interval;
+	set->action = 0x0;
+	set->wait[0].interval = eat;
 	set->died->interval = died;
 }
 

@@ -6,7 +6,7 @@
 /*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 21:57:55 by dapaulin          #+#    #+#             */
-/*   Updated: 2023/07/30 23:53:31 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/08/22 16:33:32 by mister-code      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,5 +98,6 @@ void	*watching_life(void *set)
 			return (NULL);
 		usleep(5000);
 	}
+	(void)i;
 	return (NULL);
 }

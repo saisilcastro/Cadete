@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo-status.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 10:18:48 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/21 16:03:00 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/08/22 16:43:10 by mister-code      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,27 +18,24 @@ static char	*msg_load(int pos)
 		return ("eating");
 	else if (pos == 1)
 		return ("sleeping");
-	return ("thinking");
+	return ("thinking\n");
 }
 
-int	philo_is(t_philo *set, int pos)
+int	philo_is(t_philo *set)
 {
-	static char	show[128];
 
 	if (!set)
 		return (0);
-	if (!show[set->id])
+	if (set->action == EATING)
+		printf("%lu %i has taken a fork\n", timer_elapsed(&set->wait[set->action]),
+			set->id);
+	printf("%lu %i is %s\n", timer_elapsed(&set->wait[set->action]), set->id,
+		msg_load(set->action));
+	if (timer_get(&set->wait[set->action]))
 	{
-		if (pos == 0)
-			printf("%.0f %i has taken a fork\n", set->wait[pos].interval,
-				set->id);
-		printf("%.0f %i is %s\n", set->wait[pos].interval, set->id,
-			msg_load(pos));
-		show[set->id] = 1;
-	}
-	if (timer_get(&set->wait[pos]))
-	{
-		show[set->id] = 0;
+		set->action++;
+		if (set->action > THINKING)
+			set->action = EATING;
 		return (1);
 	}
 	return (0);

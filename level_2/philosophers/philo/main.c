@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 20:23:50 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/21 17:53:52 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/08/22 09:49:46 by mister-code      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,20 @@ int	main(int argc, char **argv)
 {
 	t_life	tales;
 
-	if (argc > 3 && argv)
+	if (argc > 4 && argv)
 		philosophe_loop(&tales, argv);
 	return (0);
+}
+
+long divided_thousand(long i)
+{
+	return ((i >> 10) + 1);
 }
 
 void	philosophe_loop(t_life *set, char **argv)
 {
 	life_set(set);
 	life_command(set, argv);
-	if (life_take_fork(set, set->thinker->prev, set->thinker, set->thinker->next))
-	{
-		//printf("taken a fork");
-	}
-	//life_update(set);
+	life_update(set);
 	life_pop(set);
 }

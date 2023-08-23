@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   life.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 21:24:52 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/21 17:23:58 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/08/22 11:33:44 by mister-code      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,9 @@
 
 typedef struct s_agenda	t_agenda;
 struct s_agenda{
-	double	eat;
-	double	sleep;
-	double	think;
-	double	die;
+	long	eat;
+	long	sleep;
+	long	die;
 	int		eat_times;
 };
 

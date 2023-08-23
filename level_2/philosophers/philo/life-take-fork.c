@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   life-action.c                                      :+:      :+:    :+:   */
+/*   life-take-fork.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 16:12:25 by lde-cast          #+#    #+#             */
-/*   Updated: 2023/08/21 17:58:52 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/08/22 11:29:08 by mister-code      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 
 static int	left_hand(t_philo *thinker, t_philo *left)
 {
+	if (thinker->action == EATING)
+		return (0);
 	if (!(thinker->hand & (1 << LEFT_HAND))
 		&& (left->hand & (1 << RIGHT_HAND)))
 	{
 		thinker->hand |= (1 << LEFT_HAND);
 		left->hand &= ~(1 << RIGHT_HAND);
-		printf("left hand filled\n");
 		return (1);
 	}
 	return (0);
@@ -28,6 +29,8 @@ static int	left_hand(t_philo *thinker, t_philo *left)
 
 static int	right_hand(t_philo *thinker, t_philo *right)
 {
+	if (thinker->action == EATING)
+		return (0);
 	if (thinker && right && !(thinker->hand & (1 << RIGHT_HAND))
 		&& (right->hand & (1 << LEFT_HAND)))
 	{
