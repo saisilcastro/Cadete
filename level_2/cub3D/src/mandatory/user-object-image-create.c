@@ -6,11 +6,11 @@
 /*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 18:06:43 by lde-cast          #+#    #+#             */
-/*   Updated: 2023/07/18 22:14:42 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/08/25 16:38:27 by mister-code      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_long.h>
+#include <cub3D.h>
 
 void	image_create(t_place *set, t_map *map, t_vi2d *pos, t_vi2d id)
 {

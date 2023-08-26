@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   user-update.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 00:03:07 by mister-code       #+#    #+#             */
-/*   Updated: 2023/07/20 01:19:34 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/08/25 16:38:53 by mister-code      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_long.h>
+#include <cub3D.h>
 #include <mlx.h>
 
 static void	ft_putnbr_fd(int n, int fd)

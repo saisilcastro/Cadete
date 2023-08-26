@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   life.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 21:24:52 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/23 12:11:29 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/08/25 20:07:52 by mister-code      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ struct s_life{
 
 extern void	life_set(t_life *set);
 extern void	life_command(t_life *set, char **command);
+extern char	life_going(t_life *set);
 extern int	life_take_fork(t_life *set, t_chained *prev,
 				t_chained *thinker, t_chained *next);
 extern void	life_update(t_life *set);

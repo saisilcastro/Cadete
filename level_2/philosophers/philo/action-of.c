@@ -27,33 +27,34 @@ void	agenda_set(t_agenda *set, double eat, double sleep, double die)
 	set->eat_times = 0;
 }
 
-//static void	*life_action(void *data)
-//{
-//	t_life		*life;
-//	t_philo		*philo;
-//	static int	act;
+static void	*life_action(void *data)
+{
+	t_life		*life;
+	t_chained	*upd;
+	//static int	act;
 
-//	life = (t_life *)data;
-//	if (!life)
-//		return (NULL);
-//	pthread_mutex_lock(&life->change);
-//	philo = life->thinker->data;
-//	if (act == 0)
-//		philo->wait->interval = life->action->eat;
-//	else if (act == 1)
-//		philo->wait->interval = life->action->sleep;
-//	else if (act == 2)
-//		philo->wait->interval = life->action->die;
-//	else
-//		act = 0;
-//	philo_is(philo, act);
-//	act++;
-//	 if (timer_get(philo->died))
-//	 	printf("philo %i died\n", philo->id);
-//	life->thinker = life->thinker->next;
-//	pthread_mutex_unlock(&life->change);
-//	return (life);
-//}
+	life = (t_life *)data;
+	if (!life_going(data))
+		return (NULL);
+	upd = life->thinker;
+	pthread_mutex_lock(&life->change);
+	if (philo_died(life->thinker->data, life->begin))
+	{
+		life->died = 1;
+		return (life);
+	}
+	if (life_take_fork(life, upd->prev, upd, upd->next)
+				&& philo_is(upd->data, life->begin)
+				&& ((t_philo *)upd->data)->action == THINKING)
+	{
+		timer_set(((t_philo *)upd->data)->died);
+	}
+	life->thinker = life->thinker->next;
+	if (life->thinker == NULL)
+		life->thinker = life->man;
+	pthread_mutex_unlock(&life->change);
+	return (life);
+}
 
 static void	philo_create(t_life *set)
 {
@@ -71,8 +72,8 @@ static void	philo_create(t_life *set)
 		chained_next_last(&set->thinker, chained_push(man));
 		if (i == 0)
 			set->man = set->thinker;
-		//if (pthread_create(&set->state[i], NULL, &life_action, set) != 0)
-		//	perror("failure creating pthread");
+		if (pthread_create(&set->state[i], NULL, &life_action, set) != 0)
+			perror("failure creating pthread");
 	}
 	time.begin = 0;
 	set->begin = timer_elapsed(&time);
@@ -92,24 +93,19 @@ void join(void)
 void	life_update(t_life *set)
 {
 	t_chained	*upd;
+	static int	i;
 
 	while (set && !set->died)
 	{
 		upd = set->thinker;
-		while (upd)
+		if (((t_philo*)upd->data)->action == FLOATING)
+			((t_philo*)upd->data)->action = EATING;
+		if (pthread_join(set->state[i], (void **)&set) != 0)
 		{
-			if (philo_died(upd->data, set->begin))
-			{
-				set->died = 1;
-				break ;
-			}
-			if (life_take_fork(set, upd->prev, upd, upd->next)
-				&& philo_is(upd->data, set->begin)
-				&& ((t_philo *)upd->data)->action == THINKING)
-			{
-				timer_set(((t_philo *)upd->data)->died);
-			}
-			upd = upd->next;
+			i++;
+			if (i >= set->max_philo)
+				i = 0;
+			upd = set->thinker;
 		}
 	}
 }

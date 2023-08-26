@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   user-object-create.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 08:37:38 by mister-code       #+#    #+#             */
-/*   Updated: 2023/07/24 18:19:56 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/08/25 16:38:37 by mister-code      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_long.h>
+#include <cub3D.h>
 
 void	start_item_image(char *array)
 {
