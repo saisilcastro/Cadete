@@ -6,7 +6,7 @@
 /*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 07:32:33 by mister-code       #+#    #+#             */
-/*   Updated: 2023/07/21 16:56:52 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/08/26 14:54:26 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,14 @@ struct s_place
 	int			step;
 	t_status	(*start)(t_place *);
 	t_image		*(*image_select)(t_place *set, int id);
-	int			(*image_load_first)(t_place *set, char *path, int id);
-	int			(*image_load_last)(t_place *set, char *path, int id);
+	t_image		*(*image_create)(t_place *set, int id, t_vi2d size);
+	t_image		*(*image_load)(t_place *set, char *path, int id);
+	int			(*image_next_first)(t_place *set, t_image *image);
+	int			(*image_next_last)(t_place *set, t_image *image);
 	t_object	*(*object_select)(t_place *set, int id);
 	void		(*object_next_first)(t_place *set, t_object *obj);
 	void		(*object_next_last)(t_place *set, t_object *obj);
-	void		(*map_create)(t_place *set, int id, t_vi2d size);
+	void		(*map_create)(t_place *set, t_image *image);
 	void		(*map_set)(t_place *set, int id);
 	void		(*init)(t_place *set, void *data);
 	int			(*key_down)(t_place *set, t_keyboard_map key);
@@ -54,14 +56,16 @@ struct s_place
 
 extern void		place_set(t_place *set, t_SystemSet up, t_vi2d size);
 extern t_image	*place_image_select(t_place *set, int id);
-extern int		place_image_load_first(t_place *set, char *path, int id);
-extern int		place_image_load_last(t_place *set, char *path, int id);
+extern t_image	*place_image_create(t_place *set, int id, t_vi2d size);
+extern t_image	*place_image_load(t_place *set, char *path, int id);
+extern int		place_image_next_first(t_place *set, t_image *image);
+extern int		place_image_next_last(t_place *set, t_image *image);
 extern t_object	*place_object_select(t_place *set, int id);
 extern void		place_object_next_first(t_place *set, t_object *obj);
 extern void		place_object_next_last(t_place *set, t_object *obj);
 extern t_object	*place_object_collision(t_place *set, t_object *selected);
 extern void		place_object_pop(t_chained **set, t_object *rem);
-extern void		place_map_create(t_place *set, int id, t_vi2d size);
+extern void		place_map_create(t_place *set, t_image *image);
 extern void		place_map_set(t_place *set, int id);
 extern void		place_run(t_place *set, void *data);
 extern void		place_camera_object(t_place *set, t_object *obj);

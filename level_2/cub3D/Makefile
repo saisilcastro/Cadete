@@ -28,7 +28,8 @@ SRC_FILE_COMMON = chained-of.c chained-next.c \
 				place-set.c \
 				place-key-get.c \
 				place-image.c \
-				place-image-load.c \
+				place-image-process.c \
+				place-image-next.c \
 				place-object.c \
 				place-object-collision.c \
 				place-camera.c \

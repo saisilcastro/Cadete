@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   user-init.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
+/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 17:38:43 by lde-cast          #+#    #+#             */
-/*   Updated: 2023/08/25 16:42:55 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/08/26 18:48:44 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,4 +17,7 @@ void	user_init(t_place *set, void *data)
 	(void)data;
 	if (!set)
 		return ;
+	set->image_next_last(set, set->image_create(set, 0,
+			vi2d_start(set->gear->size->x, set->gear->size->y)));
+	set->map_set(set, 0);
 }

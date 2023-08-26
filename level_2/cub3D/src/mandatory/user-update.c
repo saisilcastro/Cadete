@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   user-update.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
+/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 00:03:07 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/25 16:38:53 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/08/26 15:54:12 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,25 +90,10 @@ void	hero_update(t_place *set, t_object *object)
 
 int	user_update(t_place *set)
 {
-	t_chained	*update;
-	t_object	*object;
-
 	if (!set)
 		return (0);
 	if (set->key_down(set, KEY_ESC))
 		set->stop(set);
-	update = set->gear->object;
-	while (update)
-	{
-		object = update->data;
-		hero_update(set, object);
-		if (object_name_is(object, "exit"))
-		{
-			if (set->collect->current == set->collect->max)
-				object->status |= (1 << OBJECT_VISIBLE);
-		}
-		update = update->next;
-	}
 	set->draw_bg(set);
 	return (!set->destroy(set));
 }

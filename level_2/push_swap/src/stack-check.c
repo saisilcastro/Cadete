@@ -6,7 +6,7 @@
 /*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 12:25:11 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/11 22:03:25 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/08/26 12:36:53 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	stack_min(t_stack *head)
 	return (min);
 }
 
-int		stack_max(t_stack *head)
+int	stack_max(t_stack *head)
 {
 	int		max;
 	t_stack	*upd;
@@ -65,7 +65,7 @@ int	stack_dup(t_stack *head)
 {
 	t_stack	*outter;
 	t_stack	*inner;
-	
+
 	outter = head;
 	while (outter)
 	{

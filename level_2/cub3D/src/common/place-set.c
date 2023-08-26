@@ -6,7 +6,7 @@
 /*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 19:22:54 by lde-cast          #+#    #+#             */
-/*   Updated: 2023/07/20 01:01:57 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/08/26 14:43:04 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,11 @@ static void	place_function(t_place *set)
 	if (!set)
 		return ;
 	set->start = place_start;
+	set->image_create = place_image_create;
+	set->image_load = place_image_load;
 	set->image_select = place_image_select;
-	set->image_load_first = place_image_load_first;
-	set->image_load_last = place_image_load_last;
+	set->image_next_first = place_image_next_first;
+	set->image_next_last = place_image_next_last;
 	set->object_select = place_object_select;
 	set->object_next_first = place_object_next_first;
 	set->object_next_last = place_object_next_last;
