@@ -3,89 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   user-update.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 00:03:07 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/26 15:54:12 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/08/27 23:18:59 by mister-code      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3D.h>
 #include <mlx.h>
+#include <stdio.h>
+#include <math.h>
 
-static void	ft_putnbr_fd(int n, int fd)
+static void	mouse_radius(t_place *set, t_vi2d pos)
 {
-	char	multiply;
-	char	number;
+	t_vi2d	begin;
+	t_vi2d	end;
+	t_vf2d	normal;
+	float	angle;
 
-	multiply = 1;
-	if (n > -10 && n < 0)
-		write(fd, "-", 1);
-	while (n <= -10 || n >= 10)
-	{
-		ft_putnbr_fd(n / 10, fd);
-		n %= 10;
-	}
-	if (n < 0)
-		multiply = -1;
-	number = (n * multiply) + 48;
-	write(fd, &number, 1);
-}
-
-static void	show_step(t_place *set, t_object *hero)
-{
-	if (hero->status & (1 << OBJECT_VISIBLE))
-	{
-		write(1, "moves ", 6);
-		ft_putnbr_fd(set->step++, 1);
-		write(1, "\n", 1);
-	}
-}
-
-static void	hero_control(t_place *set, t_object *hero)
-{
-	place_camera_object(set, hero);
-	if (set->key_down(set, KEY_LEFT) || set->key_down(set, KEY_A))
-	{
-		show_step(set, hero);
-		hero->dest->x -= hero->vel->x;
-	}
-	if (set->key_down(set, KEY_RIGHT) || set->key_down(set, KEY_D))
-	{
-		show_step(set, hero);
-		hero->dest->x += hero->vel->x;
-	}
-	if (set->key_down(set, KEY_UP) || set->key_down(set, KEY_W))
-	{
-		show_step(set, hero);
-		hero->dest->y -= hero->vel->y;
-	}
-	if (set->key_down(set, KEY_DOWN) || set->key_down(set, KEY_S))
-	{
-		show_step(set, hero);
-		hero->dest->y += hero->vel->y;
-	}
-}
-
-void	hero_update(t_place *set, t_object *object)
-{
-	t_object	*collider;
-
-	if (object->id == set->hero_id)
-	{
-		if (place_block_move(set, object))
-			return ;
-		hero_control(set, object);
-		object_route(object);
-		collider = place_object_collision(set, object);
-		if (object_name_is(collider, "collect"))
-		{
-			collider->status &= ~(1 << OBJECT_VISIBLE);
-			set->collect->current++;
-		}
-		else if (object_name_is(collider, "exit"))
-			object->status &= ~(1 << OBJECT_VISIBLE);
-	}
+	if (!set)
+		return ;
+	begin = vi2d_start(pos.x, pos.y);
+	end = vi2d_start(set->gear->mouse->x, set->gear->mouse->y);
+	normal.x = ((end.x - begin.x) / (float)set->gear->size->x);
+	normal.y = ((end.y - begin.y) / (float)set->gear->size->y) * -1;
+	printf("%f %f\n", normal.x, normal.y);
+	// set->draw_line(set, begin, end, pixel_rgba_local(255, 0, 0, 255));
 }
 
 int	user_update(t_place *set)
@@ -94,6 +38,7 @@ int	user_update(t_place *set)
 		return (0);
 	if (set->key_down(set, KEY_ESC))
 		set->stop(set);
+	mouse_radius(set, vi2d_start(set->gear->size->x / 2, set->gear->size->y / 2));
 	set->draw_bg(set);
 	return (!set->destroy(set));
 }

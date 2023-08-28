@@ -6,7 +6,7 @@
 /*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 17:41:41 by mister-code       #+#    #+#             */
-/*   Updated: 2023/07/20 23:38:19 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/08/27 10:07:47 by mister-code      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ void	mlx_plugin_pop(t_machine *set)
 	if (!set || !set->plugin)
 		return ;
 	plugin = set->plugin;
+	if (set->bg->image)
+		mlx_image_pop(set->bg->image, plugin->mlx);
 	while (set->image)
 	{
 		next = set->image->next;

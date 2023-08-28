@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   place-draw-bg.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 18:14:32 by lde-cast          #+#    #+#             */
-/*   Updated: 2023/07/21 14:54:30 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/08/27 21:56:04 by mister-code      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ void	place_draw_bg(t_place *set)
 			y = -set->gear->bg->pos->y;
 			mlx_plugin_draw(set->gear, buffer, vi2d_start(x, y));
 		}
+		mlx_mouse_get_pos(plugin->mlx, plugin->window, &set->gear->mouse->x, &set->gear->mouse->y);
 	}
 	set->draw(set);
 }

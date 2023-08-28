@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   place-set.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 19:22:54 by lde-cast          #+#    #+#             */
-/*   Updated: 2023/08/26 14:43:04 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/08/27 21:26:53 by mister-code      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ static void	place_function(t_place *set)
 	set->object_next_last = place_object_next_last;
 	set->map_create = place_map_create;
 	set->map_set = place_map_set;
+	set->map_limit = place_map_limit;
+	set->draw_line = place_draw_line;
 	set->draw_sub_bg = place_draw_sub_bg;
 	set->draw_bg = place_draw_bg;
 	set->draw = place_draw;

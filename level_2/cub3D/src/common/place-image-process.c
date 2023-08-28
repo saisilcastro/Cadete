@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   place-image-process.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 16:14:55 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/26 19:00:11 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/08/27 09:35:28 by mister-code      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <place.h>
 
-t_image	*place_image_create(t_place *set, int id, t_vi2d size)
+t_image	*place_image_create(t_place *set, int id, t_vi2d size, int color)
 {
 	t_image			*image;
 	t_mlx_plugin	*plugin;
@@ -21,7 +21,7 @@ t_image	*place_image_create(t_place *set, int id, t_vi2d size)
 	{
 		plugin = set->gear->plugin;
 		image = image_of_push(id, NULL, size);
-		if (image && mlx_image_create(image, plugin->mlx))
+		if (image && mlx_image_create(image, plugin->mlx, color))
 			return (image);
 	}
 	return (NULL);
@@ -40,6 +40,7 @@ t_image	*place_image_load(t_place *set, char *path, int id)
 		plugin = set->gear->plugin;
 		if (mlx_image_load(image, plugin->mlx, path))
 			return (image);
+		mlx_image_pop(image, plugin->mlx);
 	}
 	return (NULL);
 }

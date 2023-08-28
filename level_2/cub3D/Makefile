@@ -34,6 +34,7 @@ SRC_FILE_COMMON = chained-of.c chained-next.c \
 				place-object-collision.c \
 				place-camera.c \
 				place-map.c \
+				place-primitive.c \
 				place-block-move.c \
 				place-draw-bg.c \
 				place-draw.c \
