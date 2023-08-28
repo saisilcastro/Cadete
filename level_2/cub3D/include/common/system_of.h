@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   system_of.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
+/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 07:38:36 by mister-code       #+#    #+#             */
-/*   Updated: 2023/07/20 09:09:08 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/08/28 12:16:30 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ typedef enum s_machine_event{
 	MACHINE_RUNNING = 0,
 	MACHINE_FULLSCREEN = 1,
 	MACHINE_MOUSE_MOVE = 2,
-	MACHINE_FOCUS_ON = 3,
+	MACHINE_FOCUS_IN = 3,
 	MACHINE_MOUSE_IN = 4,
 	MACHINE_KEY_PRESSED = 5,
 	MACHINE_CAMERA_MOUSE = 6,

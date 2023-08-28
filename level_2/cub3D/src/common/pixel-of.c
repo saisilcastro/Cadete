@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pixel-of.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
+/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 16:39:54 by mister-code       #+#    #+#             */
-/*   Updated: 2023/07/20 09:28:03 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/08/28 17:42:08 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,17 @@ void	pixel_rgb_set(t_pixel *set, unsigned char r,
 	set->g = g;
 	set->b = b;
 	set->a = 255;
+}
+
+t_pixel	pixel_rgb_local(unsigned char r, unsigned char g, unsigned char b)
+{
+	t_pixel	color;
+
+	color.r = r;
+	color.r = g;
+	color.r = b;
+	color.a = 255;
+	return (color);
 }
 
 t_pixel	pixel_rgba_local(unsigned char r,

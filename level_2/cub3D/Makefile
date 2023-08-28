@@ -50,6 +50,7 @@ SRC_FILE_COMMON = chained-of.c chained-next.c \
 				object-collision.c \
 				object-block.c
 SRC_FILE_PLUGIN = mlx-plugin.c \
+				mlx-focus.c \
 				mlx-plugin-keyboard.c \
 				mlx-plugin-mouse.c \
 				mlx-plugin-image.c \

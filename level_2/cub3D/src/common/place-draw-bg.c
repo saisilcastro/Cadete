@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   place-draw-bg.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
+/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 18:14:32 by lde-cast          #+#    #+#             */
-/*   Updated: 2023/08/27 21:56:04 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/08/28 13:08:14 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <place.h>
+#include <stdio.h>
 
 static void	map_lock(t_place *set)
 {
@@ -51,6 +52,8 @@ void	place_draw_sub_bg(t_place *set, int id, t_vi2d begin)
 	}
 }
 
+#define BIT_IS_ON(var, bit)(var & (1 << bit) ? 1 : 0)
+
 void	place_draw_bg(t_place *set)
 {
 	t_mlx_plugin	*plugin;
@@ -71,8 +74,10 @@ void	place_draw_bg(t_place *set)
 			x = -set->gear->bg->pos->x;
 			y = -set->gear->bg->pos->y;
 			mlx_plugin_draw(set->gear, buffer, vi2d_start(x, y));
-		}
-		mlx_mouse_get_pos(plugin->mlx, plugin->window, &set->gear->mouse->x, &set->gear->mouse->y);
+		}	
+		if ((set->gear->event & (1 << MACHINE_FOCUS_IN)))
+			mlx_mouse_get_pos(plugin->mlx, plugin->window,
+				&set->gear->mouse->x, &set->gear->mouse->y);
 	}
 	set->draw(set);
 }

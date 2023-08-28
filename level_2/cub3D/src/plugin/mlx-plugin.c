@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx-plugin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
+/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 17:41:41 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/27 10:07:47 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/08/28 12:19:40 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ static int	mlx_expose(t_machine *set)
 
 extern int	mlx_key_up(int keycode, t_machine *set);
 extern int	mlx_key_down(int keycode, t_machine *set);
+extern int	mlx_focus_in(t_machine *set);
+extern int	mlx_focus_out(t_machine *set);
 extern int	mlx_mouse_update(int button, int x, int y, t_machine *set);
 extern int	mlx_mouse_press(int button, int x, int y, t_machine *set);
 extern int	mlx_mouse_release(int button, int x, int y, t_machine *set);
@@ -66,6 +68,8 @@ void	mlx_start_event(t_machine *set)
 	plugin = set->plugin;
 	mlx_hook(plugin->window, ON_KEYUP, KEY_PRESS_MASK, mlx_key_up, set);
 	mlx_hook(plugin->window, ON_KEYDOWN, KEY_RELEASE_MASK, mlx_key_down, set);
+	mlx_hook(plugin->window, NOTIFY_IN, ENTER_WINDOW_MASK, mlx_focus_in, set);
+	mlx_hook(plugin->window, NOTIFY_OUT, LEAVE_WINDOW_MASK, mlx_focus_out, set);
 	mlx_expose_hook(plugin->window, mlx_expose, set);
 	mlx_mouse_hook(plugin->window, mlx_mouse_update, set);
 	mlx_hook(plugin->window, ON_MOUSEDOWN, MOUSE_PRESS_MASK,

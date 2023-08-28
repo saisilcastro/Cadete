@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pixel_of.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
+/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 08:20:02 by mister-code       #+#    #+#             */
-/*   Updated: 2023/07/20 09:37:57 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/08/28 17:44:05 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_pixel{
 
 extern void		pixel_rgb_set(t_pixel *set, unsigned char r,
 					unsigned char g, unsigned char b);
+extern t_pixel	pixel_rgb_local(unsigned char r, unsigned char g, unsigned char b);
 extern t_pixel	pixel_rgba_local(unsigned char r, unsigned char g,
 					unsigned char b, unsigned char a);
 extern void		pixel_from_abgr(t_pixel *set, int color);

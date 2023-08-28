@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   user-update.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
+/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 00:03:07 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/27 23:18:59 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/08/28 17:45:25 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,45 @@ static void	mouse_radius(t_place *set, t_vi2d pos)
 		return ;
 	begin = vi2d_start(pos.x, pos.y);
 	end = vi2d_start(set->gear->mouse->x, set->gear->mouse->y);
-	normal.x = ((end.x - begin.x) / (float)set->gear->size->x);
-	normal.y = ((end.y - begin.y) / (float)set->gear->size->y) * -1;
-	printf("%f %f\n", normal.x, normal.y);
-	// set->draw_line(set, begin, end, pixel_rgba_local(255, 0, 0, 255));
+	normal.x = ((end.x - begin.x) / (float)set->gear->size->x * 2);
+	normal.y = ((end.y - begin.y) / (float)set->gear->size->y * 2) * -1;
+	set->draw_line(set, begin, end, pixel_rgb_local(255, 255, 255));
+}
+
+static void	dot_input(t_place *set)
+{
+	t_object	*dot;
+
+	dot = set->object_select(set, 0);
+	if (set->key_down(set, KEY_LEFT))
+	{
+		dot->pos->x -= dot->vel->x;
+	}
+	if (set->key_down(set, KEY_RIGHT))
+	{
+		dot->pos->x += dot->vel->x;
+	}
+	if (set->key_down(set, KEY_UP))
+	{
+		dot->pos->y -= dot->vel->y;
+	}
+	if (set->key_down(set, KEY_DOWN))
+	{
+		dot->pos->y += dot->vel->y;
+	}
 }
 
 int	user_update(t_place *set)
 {
+	t_object	*obj;
+
 	if (!set)
 		return (0);
 	if (set->key_down(set, KEY_ESC))
 		set->stop(set);
-	mouse_radius(set, vi2d_start(set->gear->size->x / 2, set->gear->size->y / 2));
+	obj = set->object_select(set, 0);
+	dot_input(set);
+	mouse_radius(set, obj->pos[0]);
 	set->draw_bg(set);
 	return (!set->destroy(set));
 }

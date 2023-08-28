@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3D.h                                            :+:      :+:    :+:   */
+/*   mlx-focus.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/30 15:47:19 by lde-cast          #+#    #+#             */
-/*   Updated: 2023/08/28 11:29:09 by lde-cast         ###   ########.fr       */
+/*   Created: 2023/08/28 12:05:18 by lde-cast          #+#    #+#             */
+/*   Updated: 2023/08/28 13:06:05 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include <machine.h>
+#include <mlx_plugin.h>
 
-# include <place.h>
-# include <map_of.h>
+int	mlx_focus_in(t_machine *set)
+{
+	set->event |= (1 << MACHINE_FOCUS_IN);
+	return (1);
+}
 
-extern void	image_create(t_place *set, t_map *map, t_vi2d *pos, t_vi2d id);
-extern void	object_create(t_place *set, t_map *map);
-extern void	cube_3d_execute(char *path);
-
-#endif // CUB3D_H
+int	mlx_focus_out(t_machine *set)
+{
+	set->event &= ~(1 << MACHINE_FOCUS_IN);
+	return (1);
+}

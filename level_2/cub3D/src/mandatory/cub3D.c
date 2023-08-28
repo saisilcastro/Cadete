@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
+/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 15:49:09 by lde-cast          #+#    #+#             */
-/*   Updated: 2023/08/25 16:36:16 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/08/28 11:28:56 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 extern void	user_init(t_place *place, void *data);
 extern int	user_update(t_place *place);
 
-void	cube_3D_execute(char *path)
+void	cube_3d_execute(char *path)
 {
 	static t_place		place;
 	t_SystemSet			up;
