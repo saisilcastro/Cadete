@@ -6,7 +6,7 @@
 /*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 16:39:54 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/28 17:42:08 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/08/30 14:38:02 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ t_pixel	pixel_rgb_local(unsigned char r, unsigned char g, unsigned char b)
 	t_pixel	color;
 
 	color.r = r;
-	color.r = g;
-	color.r = b;
+	color.g = g;
+	color.b = b;
 	color.a = 255;
 	return (color);
 }

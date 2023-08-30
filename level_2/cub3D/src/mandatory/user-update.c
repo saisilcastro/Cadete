@@ -6,7 +6,7 @@
 /*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 00:03:07 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/28 17:45:25 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/08/30 17:40:54 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ static void	mouse_radius(t_place *set, t_vi2d pos)
 	if (!set)
 		return ;
 	begin = vi2d_start(pos.x, pos.y);
-	end = vi2d_start(set->gear->mouse->x, set->gear->mouse->y);
+	end = vi2d_start(10, 10); // set->gear->mouse->x, set->gear->mouse->y
 	normal.x = ((end.x - begin.x) / (float)set->gear->size->x * 2);
 	normal.y = ((end.y - begin.y) / (float)set->gear->size->y * 2) * -1;
-	set->draw_line(set, begin, end, pixel_rgb_local(255, 255, 255));
+	set->draw_line(set, begin, end, pixel_rgb_local(0, 0, 255));
 }
 
 static void	dot_input(t_place *set)

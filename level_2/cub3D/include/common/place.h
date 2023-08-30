@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   place.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
+/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 07:32:33 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/27 21:36:11 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/08/30 14:28:28 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ struct s_place
 
 extern void		place_set(t_place *set, t_SystemSet up, t_vi2d size);
 extern t_image	*place_image_select(t_place *set, int id);
-extern t_image	*place_image_create(t_place *set, int id, t_vi2d size, int color);
+extern t_image	*place_image_create(t_place *set, int id, t_vi2d size, int c);
 extern t_image	*place_image_load(t_place *set, char *path, int id);
 extern int		place_image_next_first(t_place *set, t_image *image);
 extern int		place_image_next_last(t_place *set, t_image *image);
@@ -69,8 +69,9 @@ extern t_object	*place_object_collision(t_place *set, t_object *selected);
 extern void		place_object_pop(t_chained **set, t_object *rem);
 extern void		place_map_create(t_place *set, t_image *image);
 extern void		place_map_set(t_place *set, int id);
+extern void		place_map_pixel(t_place	*set, int x, int y, t_pixel p);
 extern char		place_map_limit(t_place *set, t_vi2d min, t_vi2d max);
-extern void		place_draw_line(t_place *set, t_vi2d begin, t_vi2d end, t_pixel color);
+extern void		place_draw_line(t_place *set, t_vi2d b, t_vi2d e, t_pixel c);
 extern void		place_run(t_place *set, void *data);
 extern void		place_camera_object(t_place *set, t_object *obj);
 extern t_status	place_block_move(t_place *set, t_object *hero);
