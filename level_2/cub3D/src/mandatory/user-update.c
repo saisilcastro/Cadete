@@ -6,7 +6,7 @@
 /*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 00:03:07 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/30 17:40:54 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/08/31 17:11:31 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	mouse_radius(t_place *set, t_vi2d pos)
 	if (!set)
 		return ;
 	begin = vi2d_start(pos.x, pos.y);
-	end = vi2d_start(10, 10); // set->gear->mouse->x, set->gear->mouse->y
+	end = vi2d_start(set->gear->mouse->x, set->gear->mouse->y);
 	normal.x = ((end.x - begin.x) / (float)set->gear->size->x * 2);
 	normal.y = ((end.y - begin.y) / (float)set->gear->size->y * 2) * -1;
 	set->draw_line(set, begin, end, pixel_rgb_local(0, 0, 255));
@@ -56,7 +56,10 @@ static void	dot_input(t_place *set)
 
 int	user_update(t_place *set)
 {
-	t_object	*obj;
+	t_object		*obj;
+	t_mlx_plugin	*plugin;
+	int				color;
+	t_vi2d			i;
 
 	if (!set)
 		return (0);
@@ -64,7 +67,7 @@ int	user_update(t_place *set)
 		set->stop(set);
 	obj = set->object_select(set, 0);
 	dot_input(set);
-	mouse_radius(set, obj->pos[0]);
 	set->draw_bg(set);
+	mouse_radius(set, obj->pos[0]);
 	return (!set->destroy(set));
 }

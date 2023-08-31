@@ -6,7 +6,7 @@
 /*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 18:14:32 by lde-cast          #+#    #+#             */
-/*   Updated: 2023/08/30 14:40:55 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/08/31 15:55:09 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	place_draw_bg(t_place *set)
 	if (set->gear->up->system == SYSTEM_MINILIBX)
 	{
 		plugin = set->gear->plugin;
-		//background_clear(set);
+		background_clear(set);
 		mlx_clear_window(plugin->mlx, plugin->window);
 		map_lock(set);
 		if (set->gear->bg->image && set->gear->bg->image->buffer)
