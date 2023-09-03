@@ -6,15 +6,15 @@
 /*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 06:19:02 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/30 14:04:00 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/09/02 16:26:47 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mandatory/minitalk.h>
-#define	HIGH SIGUSR1
-#define	LOW	SIGUSR2
+#define HIGH SIGUSR1
+#define LOW SIGUSR2
 
-t_talk	data;
+t_talk	g_data;
 
 static void	client_update(int signal, siginfo_t *i, void *data);
 static void	client(t_talk *set, char *message);
@@ -24,13 +24,13 @@ int	main(int argc, char **argv)
 {
 	if (argc == 3)
 	{
-		data.id = ft_atoi_base(*(argv + 1), 10);
-		client(&data, *(argv + 2));
+		g_data.id = ft_atoi_base(*(argv + 1), 10);
+		client(&g_data, *(argv + 2));
 	}
 	return (0);
 }
 
-static void client(t_talk *set, char *message)
+static void	client(t_talk *set, char *message)
 {
 	struct sigaction	sa;
 
@@ -76,7 +76,7 @@ void	send_data(t_talk *set, char byte, size_t size)
 void	client_update(int signal, siginfo_t *i, void *context)
 {
 	if (signal == SIGUSR1 || signal == SIGUSR2)
-		data.enable = 0;
+		g_data.enable = 0;
 	(void)i;
 	(void)context;
 }

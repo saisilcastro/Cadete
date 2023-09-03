@@ -27,11 +27,10 @@ void	agenda_set(t_agenda *set, double eat, double sleep, double die)
 	set->eat_times = 0;
 }
 
-static void	*life_action(void *data)
+void	*life_action_(void *data)
 {
 	t_life		*life;
 	t_chained	*upd;
-	//static int	act;
 
 	life = (t_life *)data;
 	if (!life_going(data))
@@ -44,14 +43,33 @@ static void	*life_action(void *data)
 		return (life);
 	}
 	if (life_take_fork(life, upd->prev, upd, upd->next)
-				&& philo_is(upd->data, life->begin)
-				&& ((t_philo *)upd->data)->action == THINKING)
+			&& philo_is(upd->data, life->begin)
+			&& ((t_philo *)upd->data)->action == THINKING)
 	{
 		timer_set(((t_philo *)upd->data)->died);
 	}
 	life->thinker = life->thinker->next;
 	if (life->thinker == NULL)
 		life->thinker = life->man;
+	pthread_mutex_unlock(&life->change);
+	return (life);
+}
+
+static void	*life_action(void *data)
+{
+	t_life		*life;
+
+	life = (t_life *)data;
+	if (!life_going(data))
+	{
+		printf("life's not going\n");
+		return (NULL);
+	}
+	printf("%i\n", ((t_philo *)life->man->data)->id);
+	pthread_mutex_lock(&life->change);
+	life->man = life->man->next;
+	if (life->man == NULL)
+		life->man = life->thinker;
 	pthread_mutex_unlock(&life->change);
 	return (life);
 }
@@ -70,13 +88,12 @@ static void	philo_create(t_life *set)
 	{
 		man = philo_push(i, set->action->eat, set->action->sleep, set->action->die);
 		chained_next_last(&set->thinker, chained_push(man));
-		if (i == 0)
-			set->man = set->thinker;
 		if (pthread_create(&set->state[i], NULL, &life_action, set) != 0)
 			perror("failure creating pthread");
 	}
 	time.begin = 0;
 	set->begin = timer_elapsed(&time);
+	set->man = set->thinker;
 }
 
 void join(void)
@@ -92,20 +109,18 @@ void join(void)
 
 void	life_update(t_life *set)
 {
-	t_chained	*upd;
-	static int	i;
+	int	i;
 
+	i = 0;
 	while (set && !set->died)
 	{
-		upd = set->thinker;
-		if (((t_philo*)upd->data)->action == FLOATING)
-			((t_philo*)upd->data)->action = EATING;
+		if (((t_philo *)set->man->data)->action == FLOATING)
+			((t_philo *)set->man->data)->action = EATING;
 		if (pthread_join(set->state[i], (void **)&set) != 0)
 		{
 			i++;
-			if (i >= set->max_philo)
+			if (set->max_philo >= i)
 				i = 0;
-			upd = set->thinker;
 		}
 	}
 }

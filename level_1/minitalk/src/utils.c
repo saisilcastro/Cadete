@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
+/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 10:17:10 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/29 12:22:46 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/09/02 16:24:48 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_putchar_fd(char c, int fd)
 	write(fd, &c, 1);
 }
 
-void ft_putstr_fd(char *str, int fd)
+void	ft_putstr_fd(char *str, int fd)
 {
 	while (*str)
 		ft_putchar_fd(*str++, fd);
@@ -32,7 +32,7 @@ static int	base_number_get(int n, char upper)
 	return (48);
 }
 
-void	ft_putnbr_base_fd(int	n, char base, char upper, int fd)
+void	ft_putnbr_base_fd(int n, char base, char upper, int fd)
 {
 	if (n > -base && n < 0)
 		write(fd, "-", 1);
@@ -46,7 +46,7 @@ void	ft_putnbr_base_fd(int	n, char base, char upper, int fd)
 	ft_putchar_fd(n + base_number_get(n, upper), fd);
 }
 
-int	ft_strcmp(char *s1, char * s2)
+int	ft_strcmp(char *s1, char *s2)
 {
 	while (*s1 && *s2)
 	{

@@ -6,7 +6,7 @@
 /*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 07:48:33 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/12 21:33:25 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/09/02 14:35:46 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,21 @@
 
 void	sort_push(t_sort *set, char stack)
 {
+	t_stack	*letter;
+
 	if (set)
 	{
 		if (stack == 'a' && set->b)
 		{
-			stack_push_message(&set->a, stack_push(set->b->data), &set->a_max, "pa\n");
+			letter = stack_push(set->b->data);
+			stack_push_message(&set->a, letter, &set->a_max, "pa\n");
 			set->b_max--;
 			stack_pop_first(&set->b);
 		}
-		else if(stack == 'b' && set->a)
+		else if (stack == 'b' && set->a)
 		{
-			stack_push_message(&set->b, stack_push(set->a->data), &set->b_max, "pb\n");
+			letter = stack_push(set->b->data);
+			stack_push_message(&set->b, letter, &set->b_max, "pb\n");
 			set->a_max--;
 			stack_pop_first(&set->a);
 		}

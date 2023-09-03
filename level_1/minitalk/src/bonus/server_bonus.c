@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   server_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
+/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 06:18:52 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/29 13:34:22 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/09/02 16:30:45 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,12 @@ void	server(void)
 
 	sigemptyset(&sa.sa_mask);
 	sa.sa_flags = SA_SIGINFO;
-    sa.sa_sigaction = server_update;
+	sa.sa_sigaction = server_update;
 	server_begin();
 	if ((sigaction(SIGUSR1, &sa, 0)) == -1)
 		ft_putstr_fd("error calling SIGUSR1\n", 1);
-    if ((sigaction(SIGUSR2, &sa, 0)) == -1)
-        ft_putstr_fd("error calling SIGUSR2\n", 1);
-    while (1)
-        pause();
+	if ((sigaction(SIGUSR2, &sa, 0)) == -1)
+		ft_putstr_fd("error calling SIGUSR2\n", 1);
+	while (1)
+		pause();
 }
