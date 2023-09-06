@@ -6,12 +6,11 @@
 /*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 00:18:23 by mister-code       #+#    #+#             */
-/*   Updated: 2023/09/02 22:38:53 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/09/04 10:21:53 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stack_of.h>
-#include <ft_printf.h>
 #include <stdlib.h>
 
 t_stack	*stack_push(long data)
@@ -38,31 +37,6 @@ int	stack_size(t_stack *head)
 		upd = upd->next;
 	}
 	return (max);
-}
-
-void	stack_push_message(t_stack **head, t_stack *set,
-		int *max, char *message)
-{
-	if (!set || !message)
-		return ;
-	if (stack_next_last(head, set))
-	{
-		*max += 1;
-		ft_printf("%s", message);
-	}
-}
-
-void	stack_print(t_stack *head)
-{
-	t_stack	*upd;
-
-	upd = head;
-	while (upd)
-	{
-		ft_printf("%i ", upd->data);
-		upd = upd->next;
-	}
-	ft_printf("\n");
 }
 
 void	stack_pop_first(t_stack **head)

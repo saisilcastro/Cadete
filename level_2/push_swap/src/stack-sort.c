@@ -6,7 +6,7 @@
 /*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 19:46:01 by lde-cast          #+#    #+#             */
-/*   Updated: 2023/08/12 20:00:00 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/09/06 15:42:11 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	stack_buble_sort(t_stack **head, char *message)
 		inner = outter->next;
 		while (inner)
 		{
-			if (inner->data > outter->data)
+			if (inner->data < outter->data)
 			{
 				swap = 1;
 				swap_int(&inner->data, &outter->data);
@@ -56,7 +56,7 @@ int	stack_buble_sort(t_stack **head, char *message)
 			ft_printf("%s\n", message);
 		outter = outter->next;
 	}
-	return (0);
+	return (swap);
 }
 
 int	stack_sort_three(t_stack **head, char stack)

@@ -1,21 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort-b-apply.c                                     :+:      :+:    :+:   */
+/*   stack-message.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/11 17:32:45 by lde-cast          #+#    #+#             */
-/*   Updated: 2023/08/11 18:48:33 by lde-cast         ###   ########.fr       */
+/*   Created: 2023/09/04 10:19:00 by lde-cast          #+#    #+#             */
+/*   Updated: 2023/09/06 15:18:34 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <sort_of.h>
+#include <stack_of.h>
+#include <ft_printf.h>
 
-void	sort_b_apply(t_sort *set)
+void	stack_push_message(t_stack **head, t_stack *set,
+		int *max, char *message)
 {
-	if (!set)
+	if (!set || !message)
 		return ;
-	if (set->b_max < 3)
-		sort_pb(set);
+	if (stack_next_first(head, set))
+	{
+		*max += 1;
+		ft_printf("%s", message);
+	}
+}
+
+void	stack_print(t_stack *head)
+{
+	t_stack	*upd;
+
+	upd = head;
+	while (upd)
+	{
+		ft_printf("%i ", upd->data);
+		upd = upd->next;
+	}
+	ft_printf("\n");
 }
