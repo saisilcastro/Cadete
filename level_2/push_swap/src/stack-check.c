@@ -6,15 +6,15 @@
 /*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 12:25:11 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/26 12:36:53 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/09/08 23:32:57 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stack_of.h>
 
-int	stack_min(t_stack *head)
+long	stack_min(t_stack *head)
 {
-	int		min;
+	long	min;
 	t_stack	*upd;
 
 	if (!head)
@@ -30,9 +30,9 @@ int	stack_min(t_stack *head)
 	return (min);
 }
 
-int	stack_max(t_stack *head)
+long	stack_max(t_stack *head)
 {
-	int		max;
+	long	max;
 	t_stack	*upd;
 
 	max = 0;
@@ -46,9 +46,9 @@ int	stack_max(t_stack *head)
 	return (max);
 }
 
-int	stack_total(t_stack *head)
+long	stack_total(t_stack *head)
 {
-	int		total;
+	long	total;
 	t_stack	*upd;
 
 	total = 0;

@@ -6,14 +6,14 @@
 /*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 19:46:01 by lde-cast          #+#    #+#             */
-/*   Updated: 2023/09/06 15:42:11 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/09/09 00:56:26 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stack_of.h>
 #include <ft_printf.h>
 
-void	swap_int(long *a, long *b)
+static void	swap_long(long *a, long *b)
 {
 	long	temp;
 
@@ -22,53 +22,58 @@ void	swap_int(long *a, long *b)
 	*b = temp;
 }
 
-void	print_swap(char stack)
+static void	make_swap(t_stack **head, char stack)
 {
+	swap_long(&(*head)->data, &(*head)->next->data);
 	if (stack == 'a')
 		ft_printf("sa\n");
 	else
 		ft_printf("sb\n");
 }
 
-int	stack_buble_sort(t_stack **head, char *message)
+static void	make_r(t_stack	**head, char stack)
 {
-	t_stack	*outter;
-	t_stack	*inner;
-	char	swap;
+	stack_rotate_up(head);
+	if (stack == 'a')
+		ft_printf("ra\n");
+	else
+		ft_printf("rb\n");
+}
 
-	if (!head)
-		return (0);
-	outter = *head;
-	while (outter)
-	{
-		swap = 0;
-		inner = outter->next;
-		while (inner)
-		{
-			if (inner->data < outter->data)
-			{
-				swap = 1;
-				swap_int(&inner->data, &outter->data);
-			}				
-			inner = inner->next;
-		}
-		if (swap)
-			ft_printf("%s\n", message);
-		outter = outter->next;
-	}
-	return (swap);
+static void	make_rr(t_stack **head, char stack)
+{
+	stack_rotate_down(head);
+	if (stack == 'a')
+		ft_printf("rra\n");
+	else
+		ft_printf("rrb\n");
 }
 
 int	stack_sort_three(t_stack **head, char stack)
 {
-	char	*message;
-
 	if (stack_size(*head) != 3)
 		return (0);
-	if (stack == 'a')
-		message = "sa";
+	if (stack_pos(*head, stack_max(*head)) < 1)
+	{
+		if (stack_pos(*head, stack_min(*head)) == 1)
+			make_r(head, stack);
+		else
+		{
+			make_swap(head, stack);
+			make_rr(head, stack);
+		}
+	}
 	else
-		message = "sb";
-	stack_buble_sort(head, message);
+	{
+		if (stack_pos(*head, stack_min(*head)) == 1)
+			make_swap(head, stack);
+		else if (stack_pos(*head, stack_min(*head)) == 2)
+			make_rr(head, stack);
+		else
+		{
+			make_swap(head, stack);
+			make_r(head, stack);
+		}
+	}
 	return (1);
 }

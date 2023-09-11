@@ -6,7 +6,7 @@
 /*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 00:08:02 by mister-code       #+#    #+#             */
-/*   Updated: 2023/09/02 20:05:58 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/09/09 00:03:01 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ extern int		stack_rotate_down(t_stack **head);
 extern int		stack_swap(t_stack *head);
 extern int		stack_size(t_stack *head);
 extern int		stack_dup(t_stack *head);
-extern int		stack_min(t_stack *head);
-extern int		stack_max(t_stack *head);
-extern int		stack_pos(t_stack *head, long data);
-extern int		stack_total(t_stack *head);
+extern long		stack_min(t_stack *head);
+extern long		stack_max(t_stack *head);
+extern long		stack_pos(t_stack *head, long data);
+extern long		stack_total(t_stack *head);
 extern int		stack_sort_three(t_stack **head, char stack);
 extern void		stack_print(t_stack *head);
 extern void		stack_pop_first(t_stack **head);

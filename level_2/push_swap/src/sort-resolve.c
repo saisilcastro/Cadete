@@ -6,7 +6,7 @@
 /*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 18:48:38 by mister-code       #+#    #+#             */
-/*   Updated: 2023/09/06 15:51:14 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/09/11 17:20:49 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,18 +56,16 @@ int	sort_resolve(t_sort *set)
 		return (1);
 	if (!set || set->b_max > 0)
 		return (0);
-	i = stack_pos(set->a, stack_min(set->a));
-	while (set->a_max > 3)
+	while (set->a_max > 3 && is_sorted(set))
 	{
-		if (i < set->a_max / 2)
+		i = stack_pos(set->a, stack_min(set->a));
+		if (i > set->a_max / 2)
 			up_half(set, i);
 		else
 			down_half(set, i);
 	}
 	stack_sort_three(&set->a, 'a');
-	stack_print(set->a);
 	while (set->b_max)
 		sort_push(set, 'a');
-	stack_print(set->a);
 	return (1);
 }

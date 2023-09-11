@@ -6,11 +6,12 @@
 /*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 00:18:23 by mister-code       #+#    #+#             */
-/*   Updated: 2023/09/04 10:21:53 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/09/08 23:16:39 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stack_of.h>
+#include <ft_printf.h>
 #include <stdlib.h>
 
 t_stack	*stack_push(long data)
