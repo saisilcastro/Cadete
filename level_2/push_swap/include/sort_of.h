@@ -6,7 +6,7 @@
 /*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 00:12:06 by mister-code       #+#    #+#             */
-/*   Updated: 2023/09/20 20:04:31 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/09/21 17:03:00 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,12 @@
 # include <stack_of.h>
 # include <ft_printf.h>
 
-typedef struct s_cost	t_cost;
-struct s_cost{
-	int	a;
-	int	b;
-	int	index_a;
-	int	index_b;
-};
-
 typedef struct s_sort	t_sort;
 struct s_sort{
 	t_stack	*a;
 	t_stack	*b;
-	int		a_max;
-	int		b_max;
-	t_cost	cost;
+	long	a_max;
+	long	b_max;
 };
 
 extern void	sort_set(t_sort	*set);
@@ -45,7 +36,10 @@ extern void	sort_rr(t_sort *set, int i);
 extern void	sort_rra(t_sort *set, int i);
 extern void	sort_rrb(t_sort *set, int i);
 extern void	sort_rrr(t_sort *set, int i);
-extern int	sort_cheaper(t_sort *set);
+extern char	is_sorted(t_sort *set);
+extern void	sort_little(t_sort *set);
+extern void	sort_index(t_sort *set);
+extern void	sort_radix(t_sort *set);
 extern int	sort_resolve(t_sort *set);
 extern void	sort_a_apply(t_sort *set);
 extern void	sort_b_apply(t_sort *set);

@@ -6,13 +6,13 @@
 /*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 12:25:11 by mister-code       #+#    #+#             */
-/*   Updated: 2023/09/08 23:32:57 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/09/21 13:11:18 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stack_of.h>
 
-long	stack_min(t_stack *head)
+long	stack_shorter(t_stack *head)
 {
 	long	min;
 	t_stack	*upd;
@@ -30,7 +30,7 @@ long	stack_min(t_stack *head)
 	return (min);
 }
 
-long	stack_max(t_stack *head)
+long	stack_bigger(t_stack *head)
 {
 	long	max;
 	t_stack	*upd;

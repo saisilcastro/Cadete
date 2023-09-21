@@ -6,7 +6,7 @@
 /*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 19:46:01 by lde-cast          #+#    #+#             */
-/*   Updated: 2023/09/20 20:04:39 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/09/21 12:53:00 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ int	stack_sort_three(t_stack **head, char stack)
 {
 	if (stack_size(*head) != 3)
 		return (0);
-	if (stack_pos(*head, stack_max(*head)) < 1)
+	if (stack_pos(*head, stack_bigger(*head)) < 1)
 	{
-		if (stack_pos(*head, stack_min(*head)) == 1)
+		if (stack_pos(*head, stack_shorter(*head)) == 1)
 			make_r(head, stack);
 		else
 		{
@@ -65,9 +65,9 @@ int	stack_sort_three(t_stack **head, char stack)
 	}
 	else
 	{
-		if (stack_pos(*head, stack_min(*head)) == 1)
+		if (stack_pos(*head, stack_shorter(*head)) == 1)
 			make_swap(head, stack);
-		else if (stack_pos(*head, stack_min(*head)) == 2)
+		else if (stack_pos(*head, stack_shorter(*head)) == 2)
 			make_rr(head, stack);
 		else
 		{

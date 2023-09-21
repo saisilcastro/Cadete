@@ -6,7 +6,7 @@
 /*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 00:18:23 by mister-code       #+#    #+#             */
-/*   Updated: 2023/09/08 23:16:39 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/09/21 16:28:40 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_stack	*stack_push(long data)
 
 	set = (t_stack *)malloc(sizeof(t_stack));
 	set->data = data;
+	set->index = -1;
 	set->next = NULL;
 	set->prev = NULL;
 	return (set);

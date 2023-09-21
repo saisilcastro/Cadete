@@ -6,7 +6,7 @@
 /*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 10:19:00 by lde-cast          #+#    #+#             */
-/*   Updated: 2023/09/06 15:18:34 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/09/21 13:10:12 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <ft_printf.h>
 
 void	stack_push_message(t_stack **head, t_stack *set,
-		int *max, char *message)
+		long *max, char *message)
 {
 	if (!set || !message)
 		return ;
