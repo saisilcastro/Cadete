@@ -13,6 +13,7 @@ SRC = ft_atoi_base.c \
 	  stack-sort.c \
 	  sort-of.c \
 	  sort-push.c \
+	  sort-cheaper.c \
 	  sort-resolve.c \
 	  sort-swap.c \
 	  sort-rotate.c \
