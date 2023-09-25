@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
+/*   ft_atol_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
+/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 02:25:24 by mister-code       #+#    #+#             */
-/*   Updated: 2023/07/23 02:45:12 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/09/25 17:41:54 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_atoi_base.h>
+#include <ft_atol_base.h>
 #include <ft_printf.h>
 
 static int	base_get(int base)
@@ -29,18 +29,27 @@ static int	valid_char(char c)
 	return (0);
 }
 
+int	is_number(char *str)
+{
+	while ((*str && *str >= '0' && *str <= '9') || *str == '-')
+		str++;
+	if (*str)
+		return (0);
+	return (1);
+}
+
 static int	has_space(char c)
 {
-	if (c == ' ' || c == '\n' || c == '\t' 
+	if (c == ' ' || c == '\n' || c == '\t'
 		|| c == 'v' || c == '\f' || c == '\0')
 		return (1);
 	return (0);
 }
 
-int	ft_atoi_base(char *str, int base)
+long	ft_atol_base(char *str, int base)
 {
-	int	number;
-	int	mul;
+	long	number;
+	int		mul;
 
 	mul = 1;
 	if (!str)

@@ -2,7 +2,7 @@ MAKEFLAGS += --silent
 NAME = push_swap
 INCLUDE = -I./include -I./ft_printf/include/
 VPATH = src: ./src
-SRC = ft_atoi_base.c \
+SRC = ft_atol_base.c \
 	  push-swap.c \
 	  stack-of.c \
 	  stack-next.c \
@@ -12,6 +12,7 @@ SRC = ft_atoi_base.c \
 	  stack-rotate.c \
 	  stack-sort.c \
 	  sort-of.c \
+	  sort-populate.c \
 	  sort-push.c \
 	  sort-little.c \
 	  sort-index.c \

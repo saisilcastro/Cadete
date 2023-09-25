@@ -6,11 +6,27 @@
 /*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 18:48:38 by mister-code       #+#    #+#             */
-/*   Updated: 2023/09/21 17:02:30 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/09/25 10:26:35 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <sort_of.h>
+
+char	a_sorted(t_sort *set)
+{
+	t_stack	*sorted;
+
+	if (!set)
+		return (0);
+	sorted = set->a;
+	while (sorted)
+	{
+		if (sorted->next && sorted->data > sorted->next->data)
+			return (0);
+		sorted = sorted->next;
+	}
+	return (1);
+}
 
 char	is_sorted(t_sort *set)
 {

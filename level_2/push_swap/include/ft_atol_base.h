@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_base.h                                     :+:      :+:    :+:   */
+/*   ft_atol_base.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
+/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 02:23:55 by mister-code       #+#    #+#             */
-/*   Updated: 2023/07/23 02:24:59 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/09/25 17:42:06 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_ATOI_BASE_H
-# define FT_ATOI_BASE_H
+#ifndef FT_ATOL_BASE_H
+# define FT_ATOL_BASE_H
 
-extern int	ft_atoi_base(char *str, int base);
+extern long	ft_atol_base(char *str, int base);
+extern int	is_number(char *str);
 
 #endif

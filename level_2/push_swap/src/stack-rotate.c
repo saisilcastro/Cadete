@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack-rotate.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
+/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 00:56:13 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/09 07:06:30 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/09/25 16:13:11 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,12 @@ int	stack_rotate_down(t_stack **head)
 
 int	stack_swap(t_stack *head)
 {
-  int temp;
+	int	temp;
 
-  if (!head || !head->next)
-    return (0);
-  temp = head->data;
-  head->data = head->next->data;
-  head->next->data = temp;
-  return (1);
+	if (!head || !head->next)
+		return (0);
+	temp = head->data;
+	head->data = head->next->data;
+	head->next->data = temp;
+	return (1);
 }
-

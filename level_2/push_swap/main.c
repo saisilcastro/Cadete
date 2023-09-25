@@ -6,7 +6,7 @@
 /*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 01:24:46 by lde-cast          #+#    #+#             */
-/*   Updated: 2023/09/20 20:04:49 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/09/25 12:03:03 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(int argc, char **argv)
 {
-	if (argc > 1)
-		push_swap(argv);
+	if (argc >= 2)
+		push_swap(argv, argc);
 	return (0);
 }
