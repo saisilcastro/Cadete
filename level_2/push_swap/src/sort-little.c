@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort-little.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 10:41:38 by lde-cast          #+#    #+#             */
-/*   Updated: 2023/09/25 16:18:05 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/09/25 23:07:21 by mister-code      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	sort_little(t_sort *set)
 {
 	int	i;
 
-	while ((set->a_max > 3 && !is_sorted(set)) || !a_sorted(set))
+	while ((set->a_max > 3 && (!is_sorted(set) || !a_sorted(set))))
 	{
 		i = stack_pos(set->a, stack_shorter(set->a));
 		if (i > set->a_max / 2)

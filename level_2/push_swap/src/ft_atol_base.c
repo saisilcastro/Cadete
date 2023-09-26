@@ -6,7 +6,7 @@
 /*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 02:25:24 by mister-code       #+#    #+#             */
-/*   Updated: 2023/09/25 22:15:16 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/09/25 23:23:50 by mister-code      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,11 @@ static int	valid_char(char c)
 int	is_number(char *str)
 {
 	while ((*str && *str >= '0' && *str <= '9') || *str == '-')
+	{
+		if (*str == '-' && *(str + 1) == '-')
+			return (0);
 		str++;
+	}
 	if (*str)
 		return (0);
 	return (1);

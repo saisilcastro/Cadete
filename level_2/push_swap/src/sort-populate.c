@@ -6,7 +6,7 @@
 /*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 11:27:47 by lde-cast          #+#    #+#             */
-/*   Updated: 2023/09/25 22:39:20 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/09/25 23:21:58 by mister-code      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,15 @@ void	sort_populate(t_sort *set, char **argv)
 	{
 		if (!is_number(*argv))
 		{
-			ft_printf("Error\n");
-			if (set->a_max)
-				stack_pop(&set->a);
-			break ;
+			set->a_max = 0;
+			return ;
 		}
 		j = ft_atol_base(*argv, 10);
 		if (j < INT_MIN || j > __INT_MAX__)
-			break ;
+		{
+			set->a_max = 0;
+			return ;
+		}
 		stack_next_last(&set->a, stack_push(j));
 		set->a_max++;
 		argv++;

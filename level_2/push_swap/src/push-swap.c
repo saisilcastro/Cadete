@@ -6,7 +6,7 @@
 /*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 00:05:32 by mister-code       #+#    #+#             */
-/*   Updated: 2023/09/25 22:41:23 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/09/25 23:19:24 by mister-code      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	push_swap(char **argv, int argc)
 		sort_populate_int(&sort, argv);
 	else if (argc > 2)
 		sort_populate(&sort, argv);
-	if (!stack_dup(sort.a))
+	if (!stack_dup(sort.a) && sort.a_max)
 		sort_resolve(&sort);
 	else
 		write(2, "Error\n", 6);
