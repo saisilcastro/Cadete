@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   sort-populate.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 11:27:47 by lde-cast          #+#    #+#             */
-/*   Updated: 2023/09/25 17:42:14 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/09/25 22:39:20 by mister-code      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <sort_of.h>
 #include <ft_printf.h>
 #include <ft_atol_base.h>
+#include <stdio.h>
 #define INT_MIN -2147483648
 
 void	sort_populate(t_sort *set, char **argv)
@@ -62,16 +63,16 @@ int	is_valid(t_sort *set, char *buffer)
 void	sort_populate_int(t_sort *set, char **argv)
 {
 	char	*number;
-	char	buffer[12];
+	char	buffer[32];
 	int		i;
 	long	j;
 
-	i = 0;
 	number = argv[1];
 	while (*number)
 	{
 		while (*number && has_space(*number))
 			number++;
+		i = 0;
 		while (*number && !has_space(*number))
 			*(buffer + i++) = *number++;
 		*(buffer + i) = '\0';
@@ -82,6 +83,5 @@ void	sort_populate_int(t_sort *set, char **argv)
 			return ;
 		stack_next_last(&set->a, stack_push(j));
 		set->a_max++;
-		i = 0;
 	}
 }

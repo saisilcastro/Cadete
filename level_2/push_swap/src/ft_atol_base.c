@@ -3,17 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atol_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 02:25:24 by mister-code       #+#    #+#             */
-/*   Updated: 2023/09/25 17:41:54 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/09/25 22:15:16 by mister-code      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_atol_base.h>
 #include <ft_printf.h>
+#include <stdio.h>
 
-static int	base_get(int base)
+static long	base_get(int base)
 {
 	if (base == 10)
 		return (48);
@@ -49,7 +50,7 @@ static int	has_space(char c)
 long	ft_atol_base(char *str, int base)
 {
 	long	number;
-	int		mul;
+	int			mul;
 
 	mul = 1;
 	if (!str)
