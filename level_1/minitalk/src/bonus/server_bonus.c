@@ -6,12 +6,11 @@
 /*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 06:18:52 by mister-code       #+#    #+#             */
-/*   Updated: 2023/09/02 16:30:45 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/09/27 11:18:34 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <bonus/minitalk_bonus.h>
-#include <stdio.h>
 #define HIGH SIGUSR1
 
 static void	server_begin(void);
@@ -30,33 +29,24 @@ static void	server_begin(void)
 	ft_putchar_fd('\n', 1);
 }
 
-static void	server_update(int signal, siginfo_t *i, void *context)
+static void	server_update(int signal, siginfo_t *i, void *data)
 {
 	static unsigned char	byte;
 	static unsigned char	bit;
-	t_talk					send;
 
-	(void)context;
+	(void)data;
 	if (signal == HIGH)
 		byte |= (128 >> bit);
 	bit++;
 	if (bit == 8)
 	{
 		ft_putchar_fd(byte, 1);
+		if (byte == '\0')
+			kill(i->si_pid, SIGUSR2);
 		byte = 0;
 		bit = 0;
 	}
-	send.id = i->si_pid;
-	send.enable = 1;
-	send.data = "hello fucking client";
-	while (*send.data)
-	{
-		send_data(&send, *send.data, 8);
-		send.data++;
-	}
-	if (signal == SIGUSR1 || signal == SIGUSR2)
-		send.enable = 0;
-	if (kill(i->si_pid, signal))
+	if (kill(i->si_pid, HIGH))
 		ft_putstr_fd("error fucking things up\n", 1);
 }
 
