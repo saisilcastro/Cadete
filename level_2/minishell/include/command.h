@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   command.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
+/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 12:47:56 by mister-code       #+#    #+#             */
-/*   Updated: 2023/10/01 14:22:35 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/10/02 17:16:33 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef COMMAND_H
 # define COMMAND_H
 
-#include <stdlib.h>
+# include <stdlib.h>
 
-typedef struct s_flag	t_flag;
+typedef struct s_flag		t_flag;
 struct s_flag{
 	char	*name;
 	t_flag	*prev;

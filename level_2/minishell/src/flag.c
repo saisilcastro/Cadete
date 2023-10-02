@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flag.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
+/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 13:10:20 by mister-code       #+#    #+#             */
-/*   Updated: 2023/10/01 13:33:29 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/10/02 17:13:36 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	flag_next_first(t_flag **head, t_flag *set)
 void	flag_next_last(t_flag **head, t_flag *set)
 {
 	t_flag	*last;
-	
+
 	if (!set)
 		return ;
 	if (*head)
