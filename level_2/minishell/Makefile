@@ -1,6 +1,8 @@
 NAME = minishell
 VPATH = src: ./src
-SRC_FOLDER = minishell.c
+SRC_FOLDER = minishell.c \
+			 minishell-command.c \
+			 flag.c
 SRC = $(SRC_FOLDER) \
 	  main.c
 INCLUDE = -I./include
@@ -18,8 +20,7 @@ $(NAME): $(SRCOBJ)
 ${OBJ}/%.o : %.c
 	$(call CREATE, ${OBJ})
 	$(CC) -c $< -o $@ $(INCLUDE)
-clean:
-	$(call REMOVE, ${OBJ}/*.o)
+clean:	$(call REMOVE, ${OBJ}/*.o)
 fclean: clean
 	$(call REMOVE, ${NAME})
 re: fclean all
