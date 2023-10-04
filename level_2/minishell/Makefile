@@ -2,6 +2,7 @@ NAME = minishell
 VPATH = src: ./src
 SRC_FOLDER = minishell.c \
 			 minishell-command.c \
+			 common.c \
 			 flag.c
 SRC = $(SRC_FOLDER) \
 	  main.c
@@ -16,11 +17,12 @@ endif
 
 all: $(NAME)
 $(NAME): $(SRCOBJ)
-	$(CC) $^ $(LIB) -o $(NAME)
+	$(CC) $^ $(LIB) -o $(NAME) -g3
 ${OBJ}/%.o : %.c
 	$(call CREATE, ${OBJ})
 	$(CC) -c $< -o $@ $(INCLUDE)
-clean:	$(call REMOVE, ${OBJ}/*.o)
+clean:
+	$(call REMOVE, ${OBJ}/*.o)
 fclean: clean
 	$(call REMOVE, ${NAME})
 re: fclean all

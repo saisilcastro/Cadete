@@ -1,16 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell-exec.c                                   :+:      :+:    :+:   */
+/*   common.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/02 17:49:58 by lde-cast          #+#    #+#             */
-/*   Updated: 2023/10/04 10:12:36 by lde-cast         ###   ########.fr       */
+/*   Created: 2023/10/04 10:09:21 by lde-cast          #+#    #+#             */
+/*   Updated: 2023/10/04 10:10:13 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	minishell_console(char *command)
-{
-	return (0);
-}
+#ifndef COMMON_H
+# define COMMON_H
+
+extern char	has_space(char c);
+
+#endif
