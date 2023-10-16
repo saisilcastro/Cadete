@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Source/Checks/Curses/CheckCurses.c
+ncurses.h
+-
+ncurses/ncurses.h
+-
+ncurses/curses.h
+-
+curses.h
+-
+

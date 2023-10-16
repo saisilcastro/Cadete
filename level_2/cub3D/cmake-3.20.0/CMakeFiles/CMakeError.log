@@ -1,0 +1,3429 @@
+Determining if the environ exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_48747/fast && make  -f CMakeFiles/cmTC_48747.dir/build.make CMakeFiles/cmTC_48747.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_48747.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -std=gnu11 -o CMakeFiles/cmTC_48747.dir/CheckSymbolExists.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘environ’ undeclared (first use in this function)
+    8 |   return ((int*)(&environ))[argc];
+      |                   ^~~~~~~
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_48747.dir/build.make:78: CMakeFiles/cmTC_48747.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_48747/fast] Error 2
+
+
+File /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef environ
+  return ((int*)(&environ))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_9feef/fast && make  -f CMakeFiles/cmTC_9feef.dir/build.make CMakeFiles/cmTC_9feef.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9feef.dir/src.c.o
+/usr/bin/gcc -DCMAKE_HAVE_LIBC_PTHREAD  -std=gnu11 -o CMakeFiles/cmTC_9feef.dir/src.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_9feef
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_9feef.dir/link.txt --verbose=1
+/usr/bin/gcc CMakeFiles/cmTC_9feef.dir/src.c.o -o cmTC_9feef 
+/usr/bin/ld: CMakeFiles/cmTC_9feef.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x5e): undefined reference to `pthread_cancel'
+/usr/bin/ld: src.c:(.text+0x6f): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_9feef.dir/build.make:99: cmTC_9feef] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_9feef/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_0dd30/fast && make  -f CMakeFiles/cmTC_0dd30.dir/build.make CMakeFiles/cmTC_0dd30.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0dd30.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -DCHECK_FUNCTION_EXISTS=pthread_create -std=gnu11 -o CMakeFiles/cmTC_0dd30.dir/CheckFunctionExists.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_0dd30
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_0dd30.dir/link.txt --verbose=1
+/usr/bin/gcc  -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_0dd30.dir/CheckFunctionExists.c.o -o cmTC_0dd30  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_0dd30.dir/build.make:99: cmTC_0dd30] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_0dd30/fast] Error 2
+
+
+
+Checking whether CXX compiler has environ in stdlib.h failed to compile with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Source/kwsys/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_7edb3/fast && make  -f CMakeFiles/cmTC_7edb3.dir/build.make CMakeFiles/cmTC_7edb3.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Source/kwsys/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_7edb3.dir/kwsysPlatformTestsCXX.cxx.o
+/usr/bin/g++ -DTEST_KWSYS_CXX_HAS_ENVIRON_IN_STDLIB_H  -std=gnu++17 -o CMakeFiles/cmTC_7edb3.dir/kwsysPlatformTestsCXX.cxx.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Source/kwsys/kwsysPlatformTestsCXX.cxx
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Source/kwsys/kwsysPlatformTestsCXX.cxx: In function ‘int main()’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Source/kwsys/kwsysPlatformTestsCXX.cxx:53:13: error: ‘environ’ was not declared in this scope; did you mean ‘union’?
+   53 |   char* e = environ[0];
+      |             ^~~~~~~
+      |             union
+make[1]: *** [CMakeFiles/cmTC_7edb3.dir/build.make:78: CMakeFiles/cmTC_7edb3.dir/kwsysPlatformTestsCXX.cxx.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Source/kwsys/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_7edb3/fast] Error 2
+
+
+
+Checking whether CXX compiler struct stat has st_mtimespec member failed to compile with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Source/kwsys/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_d9df4/fast && make  -f CMakeFiles/cmTC_d9df4.dir/build.make CMakeFiles/cmTC_d9df4.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Source/kwsys/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_d9df4.dir/kwsysPlatformTestsCXX.cxx.o
+/usr/bin/g++ -DTEST_KWSYS_CXX_STAT_HAS_ST_MTIMESPEC  -std=gnu++17 -o CMakeFiles/cmTC_d9df4.dir/kwsysPlatformTestsCXX.cxx.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Source/kwsys/kwsysPlatformTestsCXX.cxx
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Source/kwsys/kwsysPlatformTestsCXX.cxx: In function ‘int main()’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Source/kwsys/kwsysPlatformTestsCXX.cxx:26:15: error: ‘struct stat’ has no member named ‘st_mtimespec’
+   26 |   (void)stat1.st_mtimespec.tv_sec;
+      |               ^~~~~~~~~~~~
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Source/kwsys/kwsysPlatformTestsCXX.cxx:27:15: error: ‘struct stat’ has no member named ‘st_mtimespec’
+   27 |   (void)stat1.st_mtimespec.tv_nsec;
+      |               ^~~~~~~~~~~~
+make[1]: *** [CMakeFiles/cmTC_d9df4.dir/build.make:78: CMakeFiles/cmTC_d9df4.dir/kwsysPlatformTestsCXX.cxx.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Source/kwsys/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_d9df4/fast] Error 2
+
+
+
+Determining if the function connect exists in the socket;dl failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_c90d4/fast && make  -f CMakeFiles/cmTC_c90d4.dir/build.make CMakeFiles/cmTC_c90d4.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c90d4.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=connect -std=gnu11 -o CMakeFiles/cmTC_c90d4.dir/CheckFunctionExists.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_c90d4
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_c90d4.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=connect CMakeFiles/cmTC_c90d4.dir/CheckFunctionExists.c.o -o cmTC_c90d4  -lsocket -ldl 
+/usr/bin/ld: cannot find -lsocket
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_c90d4.dir/build.make:99: cmTC_c90d4] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_c90d4/fast] Error 2
+
+
+
+Determining if the function recv exists in the network;dl failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_0710d/fast && make  -f CMakeFiles/cmTC_0710d.dir/build.make CMakeFiles/cmTC_0710d.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0710d.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=recv -std=gnu11 -o CMakeFiles/cmTC_0710d.dir/CheckFunctionExists.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_0710d
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_0710d.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=recv CMakeFiles/cmTC_0710d.dir/CheckFunctionExists.c.o -o cmTC_0710d  -lnetwork -ldl 
+/usr/bin/ld: cannot find -lnetwork
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_0710d.dir/build.make:99: cmTC_0710d] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_0710d/fast] Error 2
+
+
+
+Determining if the RAND_status exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_b00b2/fast && make  -f CMakeFiles/cmTC_b00b2.dir/build.make CMakeFiles/cmTC_b00b2.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b00b2.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_b00b2.dir/CheckSymbolExists.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:7:19: error: ‘RAND_status’ undeclared (first use in this function)
+    7 |   return ((int*)(&RAND_status))[argc];
+      |                   ^~~~~~~~~~~
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:7:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_b00b2.dir/build.make:78: CMakeFiles/cmTC_b00b2.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_b00b2/fast] Error 2
+
+
+File /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef RAND_status
+  return ((int*)(&RAND_status))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the RAND_screen exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_d0b74/fast && make  -f CMakeFiles/cmTC_d0b74.dir/build.make CMakeFiles/cmTC_d0b74.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d0b74.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_d0b74.dir/CheckSymbolExists.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:7:19: error: ‘RAND_screen’ undeclared (first use in this function)
+    7 |   return ((int*)(&RAND_screen))[argc];
+      |                   ^~~~~~~~~~~
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:7:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_d0b74.dir/build.make:78: CMakeFiles/cmTC_d0b74.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_d0b74/fast] Error 2
+
+
+File /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef RAND_screen
+  return ((int*)(&RAND_screen))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the RAND_egd exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_7cd0f/fast && make  -f CMakeFiles/cmTC_7cd0f.dir/build.make CMakeFiles/cmTC_7cd0f.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7cd0f.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_7cd0f.dir/CheckSymbolExists.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:7:19: error: ‘RAND_egd’ undeclared (first use in this function)
+    7 |   return ((int*)(&RAND_egd))[argc];
+      |                   ^~~~~~~~
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:7:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_7cd0f.dir/build.make:78: CMakeFiles/cmTC_7cd0f.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_7cd0f/fast] Error 2
+
+
+File /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef RAND_egd
+  return ((int*)(&RAND_egd))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the function dlopen exists in the dl;/usr/lib/x86_64-linux-gnu/libssl.so;/usr/lib/x86_64-linux-gnu/libcrypto.so;cmnghttp2 failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_1bd31/fast && make  -f CMakeFiles/cmTC_1bd31.dir/build.make CMakeFiles/cmTC_1bd31.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1bd31.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=dlopen -std=gnu11 -o CMakeFiles/cmTC_1bd31.dir/CheckFunctionExists.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_1bd31
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_1bd31.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=dlopen CMakeFiles/cmTC_1bd31.dir/CheckFunctionExists.c.o -o cmTC_1bd31  -ldl /usr/lib/x86_64-linux-gnu/libssl.so /usr/lib/x86_64-linux-gnu/libcrypto.so -lcmnghttp2 
+/usr/bin/ld: cannot find -lcmnghttp2
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_1bd31.dir/build.make:101: cmTC_1bd31] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_1bd31/fast] Error 2
+
+
+
+Determining if files stdio.h;inttypes.h;sys/filio.h exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_aa519/fast && make  -f CMakeFiles/cmTC_aa519.dir/build.make CMakeFiles/cmTC_aa519.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_aa519.dir/HAVE_SYS_FILIO_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_aa519.dir/HAVE_SYS_FILIO_H.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_FILIO_H.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_FILIO_H.c:4:10: fatal error: sys/filio.h: No such file or directory
+    4 | #include <sys/filio.h>
+      |          ^~~~~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_aa519.dir/build.make:78: CMakeFiles/cmTC_aa519.dir/HAVE_SYS_FILIO_H.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_aa519/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/filio.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/sockio.h exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_fba18/fast && make  -f CMakeFiles/cmTC_fba18.dir/build.make CMakeFiles/cmTC_fba18.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fba18.dir/HAVE_SYS_SOCKIO_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_fba18.dir/HAVE_SYS_SOCKIO_H.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_SOCKIO_H.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_SOCKIO_H.c:10:10: fatal error: sys/sockio.h: No such file or directory
+   10 | #include <sys/sockio.h>
+      |          ^~~~~~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_fba18.dir/build.make:78: CMakeFiles/cmTC_fba18.dir/HAVE_SYS_SOCKIO_H.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_fba18/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/sockio.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/utime.h exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_fce43/fast && make  -f CMakeFiles/cmTC_fce43.dir/build.make CMakeFiles/cmTC_fce43.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fce43.dir/HAVE_SYS_UTIME_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_fce43.dir/HAVE_SYS_UTIME_H.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_UTIME_H.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_UTIME_H.c:15:10: fatal error: sys/utime.h: No such file or directory
+   15 | #include <sys/utime.h>
+      |          ^~~~~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_fce43.dir/build.make:78: CMakeFiles/cmTC_fce43.dir/HAVE_SYS_UTIME_H.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_fce43/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/utime.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;crypto.h exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_1e407/fast && make  -f CMakeFiles/cmTC_1e407.dir/build.make CMakeFiles/cmTC_1e407.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1e407.dir/HAVE_CRYPTO_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_1e407.dir/HAVE_CRYPTO_H.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_CRYPTO_H.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_CRYPTO_H.c:20:10: fatal error: crypto.h: No such file or directory
+   20 | #include <crypto.h>
+      |          ^~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_1e407.dir/build.make:78: CMakeFiles/cmTC_1e407.dir/HAVE_CRYPTO_H.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_1e407/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <crypto.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;idn2.h exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_44b69/fast && make  -f CMakeFiles/cmTC_44b69.dir/build.make CMakeFiles/cmTC_44b69.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_44b69.dir/HAVE_IDN2_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_44b69.dir/HAVE_IDN2_H.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_IDN2_H.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_IDN2_H.c:23:10: fatal error: idn2.h: No such file or directory
+   23 | #include <idn2.h>
+      |          ^~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_44b69.dir/build.make:78: CMakeFiles/cmTC_44b69.dir/HAVE_IDN2_H.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_44b69/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <idn2.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;ifaddrs.h;io.h exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_b2e4b/fast && make  -f CMakeFiles/cmTC_b2e4b.dir/build.make CMakeFiles/cmTC_b2e4b.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b2e4b.dir/HAVE_IO_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_b2e4b.dir/HAVE_IO_H.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_IO_H.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_IO_H.c:24:10: fatal error: io.h: No such file or directory
+   24 | #include <io.h>
+      |          ^~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_b2e4b.dir/build.make:78: CMakeFiles/cmTC_b2e4b.dir/HAVE_IO_H.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_b2e4b/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <io.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;ifaddrs.h;krb.h exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_b06b5/fast && make  -f CMakeFiles/cmTC_b06b5.dir/build.make CMakeFiles/cmTC_b06b5.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b06b5.dir/HAVE_KRB_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_b06b5.dir/HAVE_KRB_H.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_KRB_H.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_KRB_H.c:24:10: fatal error: krb.h: No such file or directory
+   24 | #include <krb.h>
+      |          ^~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_b06b5.dir/build.make:78: CMakeFiles/cmTC_b06b5.dir/HAVE_KRB_H.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_b06b5/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <krb.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;ifaddrs.h;libgen.h;locale.h;net/if.h;netdb.h;netinet/in.h;netinet/tcp.h;pem.h exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_7e9dd/fast && make  -f CMakeFiles/cmTC_7e9dd.dir/build.make CMakeFiles/cmTC_7e9dd.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7e9dd.dir/HAVE_PEM_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_7e9dd.dir/HAVE_PEM_H.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_PEM_H.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_PEM_H.c:30:10: fatal error: pem.h: No such file or directory
+   30 | #include <pem.h>
+      |          ^~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_7e9dd.dir/build.make:78: CMakeFiles/cmTC_7e9dd.dir/HAVE_PEM_H.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_7e9dd/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <pem.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;ifaddrs.h;libgen.h;locale.h;net/if.h;netdb.h;netinet/in.h;netinet/tcp.h;poll.h;pwd.h;rsa.h exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_ffeff/fast && make  -f CMakeFiles/cmTC_ffeff.dir/build.make CMakeFiles/cmTC_ffeff.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ffeff.dir/HAVE_RSA_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_ffeff.dir/HAVE_RSA_H.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_RSA_H.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_RSA_H.c:32:10: fatal error: rsa.h: No such file or directory
+   32 | #include <rsa.h>
+      |          ^~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_ffeff.dir/build.make:78: CMakeFiles/cmTC_ffeff.dir/HAVE_RSA_H.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_ffeff/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <rsa.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;ifaddrs.h;libgen.h;locale.h;net/if.h;netdb.h;netinet/in.h;netinet/tcp.h;poll.h;pwd.h;setjmp.h;sgtty.h;signal.h;ssl.h exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_8fb85/fast && make  -f CMakeFiles/cmTC_8fb85.dir/build.make CMakeFiles/cmTC_8fb85.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8fb85.dir/HAVE_SSL_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_8fb85.dir/HAVE_SSL_H.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_SSL_H.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_SSL_H.c:35:10: fatal error: ssl.h: No such file or directory
+   35 | #include <ssl.h>
+      |          ^~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_8fb85.dir/build.make:78: CMakeFiles/cmTC_8fb85.dir/HAVE_SSL_H.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_8fb85/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <ssl.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;ifaddrs.h;libgen.h;locale.h;net/if.h;netdb.h;netinet/in.h;netinet/tcp.h;poll.h;pwd.h;setjmp.h;sgtty.h;signal.h;stdbool.h;stdint.h;stdio.h;stdlib.h;string.h;strings.h;stropts.h exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_9c5ce/fast && make  -f CMakeFiles/cmTC_9c5ce.dir/build.make CMakeFiles/cmTC_9c5ce.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9c5ce.dir/HAVE_STROPTS_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_9c5ce.dir/HAVE_STROPTS_H.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_STROPTS_H.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_STROPTS_H.c:41:10: fatal error: stropts.h: No such file or directory
+   41 | #include <stropts.h>
+      |          ^~~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_9c5ce.dir/build.make:78: CMakeFiles/cmTC_9c5ce.dir/HAVE_STROPTS_H.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_9c5ce/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <stropts.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;ifaddrs.h;libgen.h;locale.h;net/if.h;netdb.h;netinet/in.h;netinet/tcp.h;poll.h;pwd.h;setjmp.h;sgtty.h;signal.h;stdbool.h;stdint.h;stdio.h;stdlib.h;string.h;strings.h;termio.h;termios.h;time.h;unistd.h;utime.h;x509.h exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_c0487/fast && make  -f CMakeFiles/cmTC_c0487.dir/build.make CMakeFiles/cmTC_c0487.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c0487.dir/HAVE_X509_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_c0487.dir/HAVE_X509_H.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_X509_H.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_X509_H.c:46:10: fatal error: x509.h: No such file or directory
+   46 | #include <x509.h>
+      |          ^~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_c0487.dir/build.make:78: CMakeFiles/cmTC_c0487.dir/HAVE_X509_H.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_c0487/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <x509.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;ifaddrs.h;libgen.h;locale.h;net/if.h;netdb.h;netinet/in.h;netinet/tcp.h;poll.h;pwd.h;setjmp.h;sgtty.h;signal.h;stdbool.h;stdint.h;stdio.h;stdlib.h;string.h;strings.h;termio.h;termios.h;time.h;unistd.h;utime.h;process.h exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_f6e7b/fast && make  -f CMakeFiles/cmTC_f6e7b.dir/build.make CMakeFiles/cmTC_f6e7b.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f6e7b.dir/HAVE_PROCESS_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_f6e7b.dir/HAVE_PROCESS_H.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_PROCESS_H.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_PROCESS_H.c:46:10: fatal error: process.h: No such file or directory
+   46 | #include <process.h>
+      |          ^~~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_f6e7b.dir/build.make:78: CMakeFiles/cmTC_f6e7b.dir/HAVE_PROCESS_H.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_f6e7b/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <process.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;ifaddrs.h;libgen.h;locale.h;net/if.h;netdb.h;netinet/in.h;netinet/tcp.h;poll.h;pwd.h;setjmp.h;sgtty.h;signal.h;stdbool.h;stdint.h;stdio.h;stdlib.h;string.h;strings.h;termio.h;termios.h;time.h;unistd.h;utime.h;stddef.h;dlfcn.h;malloc.h;memory.h;netinet/if_ether.h;stdint.h;sockio.h exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_4315e/fast && make  -f CMakeFiles/cmTC_4315e.dir/build.make CMakeFiles/cmTC_4315e.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4315e.dir/HAVE_SOCKIO_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_4315e.dir/HAVE_SOCKIO_H.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_SOCKIO_H.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_SOCKIO_H.c:52:10: fatal error: sockio.h: No such file or directory
+   52 | #include <sockio.h>
+      |          ^~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_4315e.dir/build.make:78: CMakeFiles/cmTC_4315e.dir/HAVE_SOCKIO_H.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_4315e/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sockio.h>
+
+
+int main(void){return 0;}
+
+Determining if the stricmp exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_bb91f/fast && make  -f CMakeFiles/cmTC_bb91f.dir/build.make CMakeFiles/cmTC_bb91f.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_bb91f.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_bb91f.dir/CheckSymbolExists.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: error: ‘stricmp’ undeclared (first use in this function); did you mean ‘strncmp’?
+   58 |   return ((int*)(&stricmp))[argc];
+      |                   ^~~~~~~
+      |                   strncmp
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_bb91f.dir/build.make:78: CMakeFiles/cmTC_bb91f.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_bb91f/fast] Error 2
+
+
+File /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef stricmp
+  return ((int*)(&stricmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strcmpi exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_333e6/fast && make  -f CMakeFiles/cmTC_333e6.dir/build.make CMakeFiles/cmTC_333e6.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_333e6.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_333e6.dir/CheckSymbolExists.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: error: ‘strcmpi’ undeclared (first use in this function); did you mean ‘strcmp’?
+   58 |   return ((int*)(&strcmpi))[argc];
+      |                   ^~~~~~~
+      |                   strcmp
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_333e6.dir/build.make:78: CMakeFiles/cmTC_333e6.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_333e6/fast] Error 2
+
+
+File /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strcmpi
+  return ((int*)(&strcmpi))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strncmpi exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_e22cd/fast && make  -f CMakeFiles/cmTC_e22cd.dir/build.make CMakeFiles/cmTC_e22cd.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e22cd.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_e22cd.dir/CheckSymbolExists.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: error: ‘strncmpi’ undeclared (first use in this function); did you mean ‘strncmp’?
+   58 |   return ((int*)(&strncmpi))[argc];
+      |                   ^~~~~~~~
+      |                   strncmp
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_e22cd.dir/build.make:78: CMakeFiles/cmTC_e22cd.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_e22cd/fast] Error 2
+
+
+File /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strncmpi
+  return ((int*)(&strncmpi))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the inet_ntoa_r exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_ed29a/fast && make  -f CMakeFiles/cmTC_ed29a.dir/build.make CMakeFiles/cmTC_ed29a.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ed29a.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_ed29a.dir/CheckSymbolExists.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: error: ‘inet_ntoa_r’ undeclared (first use in this function); did you mean ‘inet_ntoa’?
+   58 |   return ((int*)(&inet_ntoa_r))[argc];
+      |                   ^~~~~~~~~~~
+      |                   inet_ntoa
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_ed29a.dir/build.make:78: CMakeFiles/cmTC_ed29a.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_ed29a/fast] Error 2
+
+
+File /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef inet_ntoa_r
+  return ((int*)(&inet_ntoa_r))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the closesocket exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_6c972/fast && make  -f CMakeFiles/cmTC_6c972.dir/build.make CMakeFiles/cmTC_6c972.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6c972.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_6c972.dir/CheckSymbolExists.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: error: ‘closesocket’ undeclared (first use in this function)
+   58 |   return ((int*)(&closesocket))[argc];
+      |                   ^~~~~~~~~~~
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_6c972.dir/build.make:78: CMakeFiles/cmTC_6c972.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_6c972/fast] Error 2
+
+
+File /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef closesocket
+  return ((int*)(&closesocket))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the getpass_r exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_6300a/fast && make  -f CMakeFiles/cmTC_6300a.dir/build.make CMakeFiles/cmTC_6300a.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6300a.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_6300a.dir/CheckSymbolExists.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: error: ‘getpass_r’ undeclared (first use in this function); did you mean ‘getpass’?
+   58 |   return ((int*)(&getpass_r))[argc];
+      |                   ^~~~~~~~~
+      |                   getpass
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_6300a.dir/build.make:78: CMakeFiles/cmTC_6300a.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_6300a/fast] Error 2
+
+
+File /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef getpass_r
+  return ((int*)(&getpass_r))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strlcat exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_ce4d9/fast && make  -f CMakeFiles/cmTC_ce4d9.dir/build.make CMakeFiles/cmTC_ce4d9.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ce4d9.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_ce4d9.dir/CheckSymbolExists.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: error: ‘strlcat’ undeclared (first use in this function); did you mean ‘strncat’?
+   58 |   return ((int*)(&strlcat))[argc];
+      |                   ^~~~~~~
+      |                   strncat
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_ce4d9.dir/build.make:78: CMakeFiles/cmTC_ce4d9.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_ce4d9/fast] Error 2
+
+
+File /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strlcat
+  return ((int*)(&strlcat))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the _strtoi64 exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_1caaf/fast && make  -f CMakeFiles/cmTC_1caaf.dir/build.make CMakeFiles/cmTC_1caaf.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1caaf.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_1caaf.dir/CheckSymbolExists.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: error: ‘_strtoi64’ undeclared (first use in this function)
+   58 |   return ((int*)(&_strtoi64))[argc];
+      |                   ^~~~~~~~~
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_1caaf.dir/build.make:78: CMakeFiles/cmTC_1caaf.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_1caaf/fast] Error 2
+
+
+File /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef _strtoi64
+  return ((int*)(&_strtoi64))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the setmode exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_c565d/fast && make  -f CMakeFiles/cmTC_c565d.dir/build.make CMakeFiles/cmTC_c565d.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c565d.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_c565d.dir/CheckSymbolExists.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: error: ‘setmode’ undeclared (first use in this function)
+   58 |   return ((int*)(&setmode))[argc];
+      |                   ^~~~~~~
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:58:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_c565d.dir/build.make:78: CMakeFiles/cmTC_c565d.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_c565d/fast] Error 2
+
+
+File /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef setmode
+  return ((int*)(&setmode))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the function mach_absolute_time exists failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_c65ab/fast && make  -f CMakeFiles/cmTC_c65ab.dir/build.make CMakeFiles/cmTC_c65ab.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c65ab.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=mach_absolute_time -std=gnu11 -o CMakeFiles/cmTC_c65ab.dir/CheckFunctionExists.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_c65ab
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_c65ab.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=mach_absolute_time CMakeFiles/cmTC_c65ab.dir/CheckFunctionExists.c.o -o cmTC_c65ab 
+/usr/bin/ld: CMakeFiles/cmTC_c65ab.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x14): undefined reference to `mach_absolute_time'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_c65ab.dir/build.make:99: cmTC_c65ab] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_c65ab/fast] Error 2
+
+
+
+Performing Curl Test HAVE_FSETXATTR_6 failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_009cc/fast && make  -f CMakeFiles/cmTC_009cc.dir/build.make CMakeFiles/cmTC_009cc.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_009cc.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_FSETXATTR_6  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_009cc.dir/CurlTests.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c:544:3: error: too many arguments to function ‘fsetxattr’
+  544 |   fsetxattr(0, 0, 0, 0, 0, 0);
+      |   ^~~~~~~~~
+In file included from /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c:541:
+/usr/include/x86_64-linux-gnu/sys/xattr.h:54:12: note: declared here
+   54 | extern int fsetxattr (int __fd, const char *__name, const void *__value,
+      |            ^~~~~~~~~
+make[1]: *** [CMakeFiles/cmTC_009cc.dir/build.make:78: CMakeFiles/cmTC_009cc.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_009cc/fast] Error 2
+
+
+Performing Curl Test HAVE_IOCTLSOCKET failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_90997/fast && make  -f CMakeFiles/cmTC_90997.dir/build.make CMakeFiles/cmTC_90997.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_90997.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_IOCTLSOCKET  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_90997.dir/CurlTests.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c:326:44: error: ‘FIONBIO’ undeclared (first use in this function)
+  326 |  unsigned long flags = ioctlsocket(socket, FIONBIO, &flags);
+      |                                            ^~~~~~~
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c:326:44: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_90997.dir/build.make:78: CMakeFiles/cmTC_90997.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_90997/fast] Error 2
+
+
+Performing Curl Test HAVE_IOCTLSOCKET_CAMEL failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_37b7c/fast && make  -f CMakeFiles/cmTC_37b7c.dir/build.make CMakeFiles/cmTC_37b7c.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_37b7c.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_IOCTLSOCKET_CAMEL  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_37b7c.dir/CurlTests.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c
+Linking C executable cmTC_37b7c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_37b7c.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DHAVE_IOCTLSOCKET_CAMEL  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H CMakeFiles/cmTC_37b7c.dir/CurlTests.c.o -o cmTC_37b7c 
+/usr/bin/ld: CMakeFiles/cmTC_37b7c.dir/CurlTests.c.o: in function `main':
+CurlTests.c:(.text+0x1d): undefined reference to `IoctlSocket'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_37b7c.dir/build.make:99: cmTC_37b7c] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_37b7c/fast] Error 2
+
+
+Performing Curl Test HAVE_IOCTLSOCKET_CAMEL_FIONBIO failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_7a1a9/fast && make  -f CMakeFiles/cmTC_7a1a9.dir/build.make CMakeFiles/cmTC_7a1a9.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7a1a9.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_IOCTLSOCKET_CAMEL_FIONBIO  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_7a1a9.dir/CurlTests.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c:382:32: error: ‘FIONBIO’ undeclared (first use in this function)
+  382 |         if(0 != ioctlsocket(0, FIONBIO, &flags))
+      |                                ^~~~~~~
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c:382:32: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_7a1a9.dir/build.make:78: CMakeFiles/cmTC_7a1a9.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_7a1a9/fast] Error 2
+
+
+Performing Curl Test HAVE_IOCTLSOCKET_FIONBIO failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_87f93/fast && make  -f CMakeFiles/cmTC_87f93.dir/build.make CMakeFiles/cmTC_87f93.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_87f93.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_IOCTLSOCKET_FIONBIO  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_87f93.dir/CurlTests.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c:409:32: error: ‘FIONBIO’ undeclared (first use in this function)
+  409 |         if(0 != ioctlsocket(0, FIONBIO, &flags))
+      |                                ^~~~~~~
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c:409:32: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_87f93.dir/build.make:78: CMakeFiles/cmTC_87f93.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_87f93/fast] Error 2
+
+
+Performing Curl Test HAVE_SETSOCKOPT_SO_NONBLOCK failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_a6d3e/fast && make  -f CMakeFiles/cmTC_a6d3e.dir/build.make CMakeFiles/cmTC_a6d3e.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a6d3e.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_SETSOCKOPT_SO_NONBLOCK  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_a6d3e.dir/CurlTests.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c:505:43: error: ‘SO_NONBLOCK’ undeclared (first use in this function); did you mean ‘SOCK_NONBLOCK’?
+  505 |         if(0 != setsockopt(0, SOL_SOCKET, SO_NONBLOCK, 0, 0))
+      |                                           ^~~~~~~~~~~
+      |                                           SOCK_NONBLOCK
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c:505:43: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_a6d3e.dir/build.make:78: CMakeFiles/cmTC_a6d3e.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_a6d3e/fast] Error 2
+
+
+Performing Curl Test HAVE_O_NONBLOCK failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_c3334/fast && make  -f CMakeFiles/cmTC_c3334.dir/build.make CMakeFiles/cmTC_c3334.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c3334.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_O_NONBLOCK  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_c3334.dir/CurlTests.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c
+Linking C executable cmTC_c3334
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_c3334.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DHAVE_O_NONBLOCK  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H CMakeFiles/cmTC_c3334.dir/CurlTests.c.o -o cmTC_c3334 
+/usr/bin/ld: /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o: in function `_start':
+(.text+0x24): undefined reference to `main'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_c3334.dir/build.make:99: cmTC_c3334] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_c3334/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYADDR_R_5 failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_43499/fast && make  -f CMakeFiles/cmTC_43499.dir/build.make CMakeFiles/cmTC_43499.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_43499.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GETHOSTBYADDR_R_5  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_43499.dir/CurlTests.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c:106:23: error: storage size of ‘hdata’ isn’t known
+  106 |   struct hostent_data hdata;
+      |                       ^~~~~
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c:127:8: error: too few arguments to function ‘gethostbyaddr_r’
+  127 |   rc = gethostbyaddr_r(address, length, type, &h, &hdata);
+      |        ^~~~~~~~~~~~~~~
+In file included from /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c:93:
+/usr/include/netdb.h:170:12: note: declared here
+  170 | extern int gethostbyaddr_r (const void *__restrict __addr, __socklen_t __len,
+      |            ^~~~~~~~~~~~~~~
+make[1]: *** [CMakeFiles/cmTC_43499.dir/build.make:78: CMakeFiles/cmTC_43499.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_43499/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYADDR_R_7 failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_ae8ea/fast && make  -f CMakeFiles/cmTC_ae8ea.dir/build.make CMakeFiles/cmTC_ae8ea.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ae8ea.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GETHOSTBYADDR_R_7  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_ae8ea.dir/CurlTests.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c:131:8: error: too few arguments to function ‘gethostbyaddr_r’
+  131 |   hp = gethostbyaddr_r(address, length, type, &h, buffer, 8192, &h_errnop);
+      |        ^~~~~~~~~~~~~~~
+In file included from /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c:93:
+/usr/include/netdb.h:170:12: note: declared here
+  170 | extern int gethostbyaddr_r (const void *__restrict __addr, __socklen_t __len,
+      |            ^~~~~~~~~~~~~~~
+make[1]: *** [CMakeFiles/cmTC_ae8ea.dir/build.make:78: CMakeFiles/cmTC_ae8ea.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_ae8ea/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYADDR_R_5_REENTRANT failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_c8c22/fast && make  -f CMakeFiles/cmTC_c8c22.dir/build.make CMakeFiles/cmTC_c8c22.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c8c22.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GETHOSTBYADDR_R_5_REENTRANT  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_c8c22.dir/CurlTests.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c:106:23: error: storage size of ‘hdata’ isn’t known
+  106 |   struct hostent_data hdata;
+      |                       ^~~~~
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c:127:8: error: too few arguments to function ‘gethostbyaddr_r’
+  127 |   rc = gethostbyaddr_r(address, length, type, &h, &hdata);
+      |        ^~~~~~~~~~~~~~~
+In file included from /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c:93:
+/usr/include/netdb.h:170:12: note: declared here
+  170 | extern int gethostbyaddr_r (const void *__restrict __addr, __socklen_t __len,
+      |            ^~~~~~~~~~~~~~~
+make[1]: *** [CMakeFiles/cmTC_c8c22.dir/build.make:78: CMakeFiles/cmTC_c8c22.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_c8c22/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYADDR_R_7_REENTRANT failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_8907d/fast && make  -f CMakeFiles/cmTC_8907d.dir/build.make CMakeFiles/cmTC_8907d.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8907d.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GETHOSTBYADDR_R_7_REENTRANT  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_8907d.dir/CurlTests.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c:131:8: error: too few arguments to function ‘gethostbyaddr_r’
+  131 |   hp = gethostbyaddr_r(address, length, type, &h, buffer, 8192, &h_errnop);
+      |        ^~~~~~~~~~~~~~~
+In file included from /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c:93:
+/usr/include/netdb.h:170:12: note: declared here
+  170 | extern int gethostbyaddr_r (const void *__restrict __addr, __socklen_t __len,
+      |            ^~~~~~~~~~~~~~~
+make[1]: *** [CMakeFiles/cmTC_8907d.dir/build.make:78: CMakeFiles/cmTC_8907d.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_8907d/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYNAME_R_3 failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_49708/fast && make  -f CMakeFiles/cmTC_49708.dir/build.make CMakeFiles/cmTC_49708.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_49708.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GETHOSTBYNAME_R_3  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_49708.dir/CurlTests.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c:106:23: error: storage size of ‘hdata’ isn’t known
+  106 |   struct hostent_data hdata;
+      |                       ^~~~~
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c:141:8: error: too few arguments to function ‘gethostbyname_r’
+  141 |   rc = gethostbyname_r(address, &h, &hdata);
+      |        ^~~~~~~~~~~~~~~
+In file included from /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c:93:
+/usr/include/netdb.h:177:12: note: declared here
+  177 | extern int gethostbyname_r (const char *__restrict __name,
+      |            ^~~~~~~~~~~~~~~
+make[1]: *** [CMakeFiles/cmTC_49708.dir/build.make:78: CMakeFiles/cmTC_49708.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_49708/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYNAME_R_5 failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_a23c2/fast && make  -f CMakeFiles/cmTC_a23c2.dir/build.make CMakeFiles/cmTC_a23c2.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a23c2.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GETHOSTBYNAME_R_5  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_a23c2.dir/CurlTests.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c:144:8: error: too few arguments to function ‘gethostbyname_r’
+  144 |   rc = gethostbyname_r(address, &h, buffer, 8192, &h_errnop);
+      |        ^~~~~~~~~~~~~~~
+In file included from /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c:93:
+/usr/include/netdb.h:177:12: note: declared here
+  177 | extern int gethostbyname_r (const char *__restrict __name,
+      |            ^~~~~~~~~~~~~~~
+make[1]: *** [CMakeFiles/cmTC_a23c2.dir/build.make:78: CMakeFiles/cmTC_a23c2.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_a23c2/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYNAME_R_3_REENTRANT failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_328f5/fast && make  -f CMakeFiles/cmTC_328f5.dir/build.make CMakeFiles/cmTC_328f5.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_328f5.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GETHOSTBYNAME_R_3_REENTRANT  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_328f5.dir/CurlTests.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c:106:23: error: storage size of ‘hdata’ isn’t known
+  106 |   struct hostent_data hdata;
+      |                       ^~~~~
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c:141:8: error: too few arguments to function ‘gethostbyname_r’
+  141 |   rc = gethostbyname_r(address, &h, &hdata);
+      |        ^~~~~~~~~~~~~~~
+In file included from /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c:93:
+/usr/include/netdb.h:177:12: note: declared here
+  177 | extern int gethostbyname_r (const char *__restrict __name,
+      |            ^~~~~~~~~~~~~~~
+make[1]: *** [CMakeFiles/cmTC_328f5.dir/build.make:78: CMakeFiles/cmTC_328f5.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_328f5/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYNAME_R_5_REENTRANT failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_dac08/fast && make  -f CMakeFiles/cmTC_dac08.dir/build.make CMakeFiles/cmTC_dac08.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_dac08.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GETHOSTBYNAME_R_5_REENTRANT  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_dac08.dir/CurlTests.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c:144:8: error: too few arguments to function ‘gethostbyname_r’
+  144 |   rc = gethostbyname_r(address, &h, buffer, 8192, &h_errnop);
+      |        ^~~~~~~~~~~~~~~
+In file included from /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c:93:
+/usr/include/netdb.h:177:12: note: declared here
+  177 | extern int gethostbyname_r (const char *__restrict __name,
+      |            ^~~~~~~~~~~~~~~
+make[1]: *** [CMakeFiles/cmTC_dac08.dir/build.make:78: CMakeFiles/cmTC_dac08.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_dac08/fast] Error 2
+
+
+Performing Curl Test HAVE_INET_NTOA_R_DECL failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_776e7/fast && make  -f CMakeFiles/cmTC_776e7.dir/build.make CMakeFiles/cmTC_776e7.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_776e7.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_INET_NTOA_R_DECL  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_776e7.dir/CurlTests.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c:244:21: error: ‘inet_ntoa_r’ undeclared (first use in this function); did you mean ‘inet_ntoa’?
+  244 |   func = (func_type)inet_ntoa_r;
+      |                     ^~~~~~~~~~~
+      |                     inet_ntoa
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c:244:21: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_776e7.dir/build.make:78: CMakeFiles/cmTC_776e7.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_776e7/fast] Error 2
+
+
+Performing Curl Test HAVE_INET_NTOA_R_DECL_REENTRANT failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_a8888/fast && make  -f CMakeFiles/cmTC_a8888.dir/build.make CMakeFiles/cmTC_a8888.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a8888.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_INET_NTOA_R_DECL_REENTRANT  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_a8888.dir/CurlTests.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c:260:22: error: ‘inet_ntoa_r’ undeclared (first use in this function); did you mean ‘inet_ntoa’?
+  260 |   func = (func_type)&inet_ntoa_r;
+      |                      ^~~~~~~~~~~
+      |                      inet_ntoa
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c:260:22: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_a8888.dir/build.make:78: CMakeFiles/cmTC_a8888.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_a8888/fast] Error 2
+
+
+Performing Curl Test HAVE_GLIBC_STRERROR_R failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_22a61/fast && make  -f CMakeFiles/cmTC_22a61.dir/build.make CMakeFiles/cmTC_22a61.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_22a61.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_GLIBC_STRERROR_R  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_22a61.dir/CurlTests.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c:521:51: error: subscripted value is neither array nor pointer nor vector
+  521 |   check(strerror_r(EACCES, buffer, sizeof(buffer))[0]);
+      |                                                   ^
+make[1]: *** [CMakeFiles/cmTC_22a61.dir/build.make:78: CMakeFiles/cmTC_22a61.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_22a61/fast] Error 2
+
+
+Performing Curl Test HAVE_BUILTIN_AVAILABLE failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_9f05c/fast && make  -f CMakeFiles/cmTC_9f05c.dir/build.make CMakeFiles/cmTC_9f05c.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9f05c.dir/CurlTests.c.o
+/usr/bin/gcc   -w -DHAVE_BUILTIN_AVAILABLE  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_9f05c.dir/CurlTests.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c:568:26: error: ‘macOS’ undeclared (first use in this function)
+  568 |   if(__builtin_available(macOS 10.12, *)) {}
+      |                          ^~~~~
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c:568:26: note: each undeclared identifier is reported only once for each function it appears in
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmcurl/CMake/CurlTests.c:568:31: error: expected ‘)’ before numeric constant
+  568 |   if(__builtin_available(macOS 10.12, *)) {}
+      |                               ^~~~~~
+      |                               )
+make[1]: *** [CMakeFiles/cmTC_9f05c.dir/build.make:78: CMakeFiles/cmTC_9f05c.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_9f05c/fast] Error 2
+
+
+Determining if the arc4random_buf exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_0d9a3/fast && make  -f CMakeFiles/cmTC_0d9a3.dir/build.make CMakeFiles/cmTC_0d9a3.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0d9a3.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_0d9a3.dir/CheckSymbolExists.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘arc4random_buf’ undeclared (first use in this function)
+    8 |   return ((int*)(&arc4random_buf))[argc];
+      |                   ^~~~~~~~~~~~~~
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_0d9a3.dir/build.make:78: CMakeFiles/cmTC_0d9a3.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_0d9a3/fast] Error 2
+
+
+File /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef arc4random_buf
+  return ((int*)(&arc4random_buf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the arc4random exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_e34aa/fast && make  -f CMakeFiles/cmTC_e34aa.dir/build.make CMakeFiles/cmTC_e34aa.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e34aa.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_e34aa.dir/CheckSymbolExists.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘arc4random’ undeclared (first use in this function); did you mean ‘srandom’?
+    8 |   return ((int*)(&arc4random))[argc];
+      |                   ^~~~~~~~~~
+      |                   srandom
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_e34aa.dir/build.make:78: CMakeFiles/cmTC_e34aa.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_e34aa/fast] Error 2
+
+
+File /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef arc4random
+  return ((int*)(&arc4random))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if files sys/types.h;ctype.h;copyfile.h exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_8513f/fast && make  -f CMakeFiles/cmTC_8513f.dir/build.make CMakeFiles/cmTC_8513f.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8513f.dir/HAVE_COPYFILE_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_8513f.dir/HAVE_COPYFILE_H.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_COPYFILE_H.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_COPYFILE_H.c:4:10: fatal error: copyfile.h: No such file or directory
+    4 | #include <copyfile.h>
+      |          ^~~~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_8513f.dir/build.make:78: CMakeFiles/cmTC_8513f.dir/HAVE_COPYFILE_H.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_8513f/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <copyfile.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;direct.h exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_2923d/fast && make  -f CMakeFiles/cmTC_2923d.dir/build.make CMakeFiles/cmTC_2923d.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2923d.dir/HAVE_DIRECT_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_2923d.dir/HAVE_DIRECT_H.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_DIRECT_H.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_DIRECT_H.c:4:10: fatal error: direct.h: No such file or directory
+    4 | #include <direct.h>
+      |          ^~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_2923d.dir/build.make:78: CMakeFiles/cmTC_2923d.dir/HAVE_DIRECT_H.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_2923d/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <direct.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;ext2fs/ext2_fs.h exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_16e97/fast && make  -f CMakeFiles/cmTC_16e97.dir/build.make CMakeFiles/cmTC_16e97.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_16e97.dir/HAVE_EXT2FS_EXT2_FS_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_16e97.dir/HAVE_EXT2FS_EXT2_FS_H.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_EXT2FS_EXT2_FS_H.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_EXT2FS_EXT2_FS_H.c:6:10: fatal error: ext2fs/ext2_fs.h: No such file or directory
+    6 | #include <ext2fs/ext2_fs.h>
+      |          ^~~~~~~~~~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_16e97.dir/build.make:78: CMakeFiles/cmTC_16e97.dir/HAVE_EXT2FS_EXT2_FS_H.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_16e97/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <ext2fs/ext2_fs.h>
+
+
+int main(void){return 0;}
+
+Performing C SOURCE FILE Test HAVE_WORKING_EXT2_IOC_GETFLAGS failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_cd15c/fast && make  -f CMakeFiles/cmTC_cd15c.dir/build.make CMakeFiles/cmTC_cd15c.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_cd15c.dir/src.c.o
+/usr/bin/gcc -DHAVE_WORKING_EXT2_IOC_GETFLAGS  -w  -std=gnu11 -o CMakeFiles/cmTC_cd15c.dir/src.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c:2:10: fatal error: ext2fs/ext2_fs.h: No such file or directory
+    2 | #include <ext2fs/ext2_fs.h>
+      |          ^~~~~~~~~~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_cd15c.dir/build.make:78: CMakeFiles/cmTC_cd15c.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_cd15c/fast] Error 2
+
+
+Source file was:
+#include <sys/ioctl.h>
+#include <ext2fs/ext2_fs.h>
+int main(void) { return EXT2_IOC_GETFLAGS; }
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;membership.h exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_df7c6/fast && make  -f CMakeFiles/cmTC_df7c6.dir/build.make CMakeFiles/cmTC_df7c6.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_df7c6.dir/HAVE_MEMBERSHIP_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_df7c6.dir/HAVE_MEMBERSHIP_H.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_MEMBERSHIP_H.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_MEMBERSHIP_H.c:15:10: fatal error: membership.h: No such file or directory
+   15 | #include <membership.h>
+      |          ^~~~~~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_df7c6.dir/build.make:78: CMakeFiles/cmTC_df7c6.dir/HAVE_MEMBERSHIP_H.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_df7c6/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <membership.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;readpassphrase.h exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_a65e8/fast && make  -f CMakeFiles/cmTC_a65e8.dir/build.make CMakeFiles/cmTC_a65e8.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a65e8.dir/HAVE_READPASSPHRASE_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_a65e8.dir/HAVE_READPASSPHRASE_H.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_READPASSPHRASE_H.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_READPASSPHRASE_H.c:20:10: fatal error: readpassphrase.h: No such file or directory
+   20 | #include <readpassphrase.h>
+      |          ^~~~~~~~~~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_a65e8.dir/build.make:78: CMakeFiles/cmTC_a65e8.dir/HAVE_READPASSPHRASE_H.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_a65e8/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <readpassphrase.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/acl.h exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_7b122/fast && make  -f CMakeFiles/cmTC_7b122.dir/build.make CMakeFiles/cmTC_7b122.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7b122.dir/HAVE_SYS_ACL_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_7b122.dir/HAVE_SYS_ACL_H.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_ACL_H.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_ACL_H.c:27:10: fatal error: sys/acl.h: No such file or directory
+   27 | #include <sys/acl.h>
+      |          ^~~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_7b122.dir/build.make:78: CMakeFiles/cmTC_7b122.dir/HAVE_SYS_ACL_H.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_7b122/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/acl.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/extattr.h exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_66d27/fast && make  -f CMakeFiles/cmTC_66d27.dir/build.make CMakeFiles/cmTC_66d27.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_66d27.dir/HAVE_SYS_EXTATTR_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_66d27.dir/HAVE_SYS_EXTATTR_H.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_EXTATTR_H.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_EXTATTR_H.c:28:10: fatal error: sys/extattr.h: No such file or directory
+   28 | #include <sys/extattr.h>
+      |          ^~~~~~~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_66d27.dir/build.make:78: CMakeFiles/cmTC_66d27.dir/HAVE_SYS_EXTATTR_H.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_66d27/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/extattr.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/ioctl.h;sys/mkdev.h exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_d5588/fast && make  -f CMakeFiles/cmTC_d5588.dir/build.make CMakeFiles/cmTC_d5588.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d5588.dir/HAVE_SYS_MKDEV_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_d5588.dir/HAVE_SYS_MKDEV_H.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_MKDEV_H.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_MKDEV_H.c:29:10: fatal error: sys/mkdev.h: No such file or directory
+   29 | #include <sys/mkdev.h>
+      |          ^~~~~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_d5588.dir/build.make:78: CMakeFiles/cmTC_d5588.dir/HAVE_SYS_MKDEV_H.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_d5588/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/mkdev.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/ioctl.h;sys/mount.h exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_15f07/fast && make  -f CMakeFiles/cmTC_15f07.dir/build.make CMakeFiles/cmTC_15f07.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_15f07.dir/HAVE_SYS_MOUNT_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_15f07.dir/HAVE_SYS_MOUNT_H.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_MOUNT_H.c
+In file included from /usr/include/linux/fs.h:19,
+                 from /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_MOUNT_H.c:12:
+/usr/include/x86_64-linux-gnu/sys/mount.h:35:3: error: expected identifier before numeric constant
+   35 |   MS_RDONLY = 1,  /* Mount read-only.  */
+      |   ^~~~~~~~~
+make[1]: *** [CMakeFiles/cmTC_15f07.dir/build.make:78: CMakeFiles/cmTC_15f07.dir/HAVE_SYS_MOUNT_H.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_15f07/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/mount.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/richacl.h exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_2622d/fast && make  -f CMakeFiles/cmTC_2622d.dir/build.make CMakeFiles/cmTC_2622d.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2622d.dir/HAVE_SYS_RICHACL_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_2622d.dir/HAVE_SYS_RICHACL_H.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_RICHACL_H.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_SYS_RICHACL_H.c:31:10: fatal error: sys/richacl.h: No such file or directory
+   31 | #include <sys/richacl.h>
+      |          ^~~~~~~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_2622d.dir/build.make:78: CMakeFiles/cmTC_2622d.dir/HAVE_SYS_RICHACL_H.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_2622d/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/richacl.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/select.h;sys/stat.h;sys/statfs.h;sys/statvfs.h;sys/sysmacros.h;sys/time.h;sys/utsname.h;sys/vfs.h;sys/wait.h;sys/xattr.h;time.h;unistd.h;utime.h;wchar.h;wctype.h;windows.h exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_8fc61/fast && make  -f CMakeFiles/cmTC_8fc61.dir/build.make CMakeFiles/cmTC_8fc61.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8fc61.dir/HAVE_WINDOWS_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_8fc61.dir/HAVE_WINDOWS_H.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_WINDOWS_H.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_WINDOWS_H.c:46:10: fatal error: windows.h: No such file or directory
+   46 | #include <windows.h>
+      |          ^~~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_8fc61.dir/build.make:78: CMakeFiles/cmTC_8fc61.dir/HAVE_WINDOWS_H.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_8fc61/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/select.h>
+#include <sys/stat.h>
+#include <sys/statfs.h>
+#include <sys/statvfs.h>
+#include <sys/sysmacros.h>
+#include <sys/time.h>
+#include <sys/utsname.h>
+#include <sys/vfs.h>
+#include <sys/wait.h>
+#include <sys/xattr.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <wchar.h>
+#include <wctype.h>
+#include <windows.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/select.h;sys/stat.h;sys/statfs.h;sys/statvfs.h;sys/sysmacros.h;sys/time.h;sys/utsname.h;sys/vfs.h;sys/wait.h;sys/xattr.h;time.h;unistd.h;utime.h;wchar.h;wctype.h;wincrypt.h exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_9ca09/fast && make  -f CMakeFiles/cmTC_9ca09.dir/build.make CMakeFiles/cmTC_9ca09.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9ca09.dir/HAVE_WINCRYPT_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_9ca09.dir/HAVE_WINCRYPT_H.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_WINCRYPT_H.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_WINCRYPT_H.c:46:10: fatal error: wincrypt.h: No such file or directory
+   46 | #include <wincrypt.h>
+      |          ^~~~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_9ca09.dir/build.make:78: CMakeFiles/cmTC_9ca09.dir/HAVE_WINCRYPT_H.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_9ca09/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/select.h>
+#include <sys/stat.h>
+#include <sys/statfs.h>
+#include <sys/statvfs.h>
+#include <sys/sysmacros.h>
+#include <sys/time.h>
+#include <sys/utsname.h>
+#include <sys/vfs.h>
+#include <sys/wait.h>
+#include <sys/xattr.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <wchar.h>
+#include <wctype.h>
+#include <wincrypt.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/select.h;sys/stat.h;sys/statfs.h;sys/statvfs.h;sys/sysmacros.h;sys/time.h;sys/utsname.h;sys/vfs.h;sys/wait.h;sys/xattr.h;time.h;unistd.h;utime.h;wchar.h;wctype.h;winioctl.h exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_c7ff9/fast && make  -f CMakeFiles/cmTC_c7ff9.dir/build.make CMakeFiles/cmTC_c7ff9.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c7ff9.dir/HAVE_WINIOCTL_H.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_c7ff9.dir/HAVE_WINIOCTL_H.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_WINIOCTL_H.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CheckIncludeFiles/HAVE_WINIOCTL_H.c:46:10: fatal error: winioctl.h: No such file or directory
+   46 | #include <winioctl.h>
+      |          ^~~~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_c7ff9.dir/build.make:78: CMakeFiles/cmTC_c7ff9.dir/HAVE_WINIOCTL_H.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_c7ff9/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/select.h>
+#include <sys/stat.h>
+#include <sys/statfs.h>
+#include <sys/statvfs.h>
+#include <sys/sysmacros.h>
+#include <sys/time.h>
+#include <sys/utsname.h>
+#include <sys/vfs.h>
+#include <sys/wait.h>
+#include <sys/xattr.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <wchar.h>
+#include <wctype.h>
+#include <winioctl.h>
+
+
+int main(void){return 0;}
+
+Determining if the function getvfsbyname exists failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_deb17/fast && make  -f CMakeFiles/cmTC_deb17.dir/build.make CMakeFiles/cmTC_deb17.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_deb17.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=getvfsbyname  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_deb17.dir/CheckFunctionExists.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_deb17
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_deb17.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=getvfsbyname  -fno-builtin CMakeFiles/cmTC_deb17.dir/CheckFunctionExists.c.o -o cmTC_deb17 
+/usr/bin/ld: CMakeFiles/cmTC_deb17.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x14): undefined reference to `getvfsbyname'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_deb17.dir/build.make:99: cmTC_deb17] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_deb17/fast] Error 2
+
+
+
+Determining if the function lchflags exists failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_37913/fast && make  -f CMakeFiles/cmTC_37913.dir/build.make CMakeFiles/cmTC_37913.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_37913.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=lchflags  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_37913.dir/CheckFunctionExists.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_37913
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_37913.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=lchflags  -fno-builtin CMakeFiles/cmTC_37913.dir/CheckFunctionExists.c.o -o cmTC_37913 
+/usr/bin/ld: CMakeFiles/cmTC_37913.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x14): undefined reference to `lchflags'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_37913.dir/build.make:99: cmTC_37913] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_37913/fast] Error 2
+
+
+
+Determining if the function readpassphrase exists failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_24172/fast && make  -f CMakeFiles/cmTC_24172.dir/build.make CMakeFiles/cmTC_24172.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_24172.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=readpassphrase  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_24172.dir/CheckFunctionExists.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_24172
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_24172.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=readpassphrase  -fno-builtin CMakeFiles/cmTC_24172.dir/CheckFunctionExists.c.o -o cmTC_24172 
+/usr/bin/ld: CMakeFiles/cmTC_24172.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x14): undefined reference to `readpassphrase'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_24172.dir/build.make:99: cmTC_24172] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_24172/fast] Error 2
+
+
+
+Determining if the function strncpy_s exists failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_e7c53/fast && make  -f CMakeFiles/cmTC_e7c53.dir/build.make CMakeFiles/cmTC_e7c53.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e7c53.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=strncpy_s  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_e7c53.dir/CheckFunctionExists.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_e7c53
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_e7c53.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=strncpy_s  -fno-builtin CMakeFiles/cmTC_e7c53.dir/CheckFunctionExists.c.o -o cmTC_e7c53 
+/usr/bin/ld: CMakeFiles/cmTC_e7c53.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x14): undefined reference to `strncpy_s'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_e7c53.dir/build.make:99: cmTC_e7c53] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_e7c53/fast] Error 2
+
+
+
+Determining if the function _ctime64_s exists failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_fa999/fast && make  -f CMakeFiles/cmTC_fa999.dir/build.make CMakeFiles/cmTC_fa999.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fa999.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=_ctime64_s  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_fa999.dir/CheckFunctionExists.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_fa999
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_fa999.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=_ctime64_s  -fno-builtin CMakeFiles/cmTC_fa999.dir/CheckFunctionExists.c.o -o cmTC_fa999 
+/usr/bin/ld: CMakeFiles/cmTC_fa999.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x14): undefined reference to `_ctime64_s'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_fa999.dir/build.make:99: cmTC_fa999] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_fa999/fast] Error 2
+
+
+
+Determining if the function _fseeki64 exists failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_98f72/fast && make  -f CMakeFiles/cmTC_98f72.dir/build.make CMakeFiles/cmTC_98f72.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_98f72.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=_fseeki64  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_98f72.dir/CheckFunctionExists.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_98f72
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_98f72.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=_fseeki64  -fno-builtin CMakeFiles/cmTC_98f72.dir/CheckFunctionExists.c.o -o cmTC_98f72 
+/usr/bin/ld: CMakeFiles/cmTC_98f72.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x14): undefined reference to `_fseeki64'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_98f72.dir/build.make:99: cmTC_98f72] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_98f72/fast] Error 2
+
+
+
+Determining if the function _get_timezone exists failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_d1451/fast && make  -f CMakeFiles/cmTC_d1451.dir/build.make CMakeFiles/cmTC_d1451.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d1451.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=_get_timezone  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_d1451.dir/CheckFunctionExists.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_d1451
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_d1451.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=_get_timezone  -fno-builtin CMakeFiles/cmTC_d1451.dir/CheckFunctionExists.c.o -o cmTC_d1451 
+/usr/bin/ld: CMakeFiles/cmTC_d1451.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x14): undefined reference to `_get_timezone'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_d1451.dir/build.make:99: cmTC_d1451] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_d1451/fast] Error 2
+
+
+
+Determining if the function _gmtime64_s exists failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_1d278/fast && make  -f CMakeFiles/cmTC_1d278.dir/build.make CMakeFiles/cmTC_1d278.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1d278.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=_gmtime64_s  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_1d278.dir/CheckFunctionExists.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_1d278
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_1d278.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=_gmtime64_s  -fno-builtin CMakeFiles/cmTC_1d278.dir/CheckFunctionExists.c.o -o cmTC_1d278 
+/usr/bin/ld: CMakeFiles/cmTC_1d278.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x14): undefined reference to `_gmtime64_s'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_1d278.dir/build.make:99: cmTC_1d278] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_1d278/fast] Error 2
+
+
+
+Determining if the function _localtime64_s exists failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_15222/fast && make  -f CMakeFiles/cmTC_15222.dir/build.make CMakeFiles/cmTC_15222.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_15222.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=_localtime64_s  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_15222.dir/CheckFunctionExists.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_15222
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_15222.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=_localtime64_s  -fno-builtin CMakeFiles/cmTC_15222.dir/CheckFunctionExists.c.o -o cmTC_15222 
+/usr/bin/ld: CMakeFiles/cmTC_15222.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x14): undefined reference to `_localtime64_s'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_15222.dir/build.make:99: cmTC_15222] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_15222/fast] Error 2
+
+
+
+Determining if the function _mkgmtime64 exists failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_f969b/fast && make  -f CMakeFiles/cmTC_f969b.dir/build.make CMakeFiles/cmTC_f969b.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f969b.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=_mkgmtime64  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_f969b.dir/CheckFunctionExists.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_f969b
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_f969b.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=_mkgmtime64  -fno-builtin CMakeFiles/cmTC_f969b.dir/CheckFunctionExists.c.o -o cmTC_f969b 
+/usr/bin/ld: CMakeFiles/cmTC_f969b.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x14): undefined reference to `_mkgmtime64'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_f969b.dir/build.make:99: cmTC_f969b] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_f969b/fast] Error 2
+
+
+
+Determining if the function cygwin_conv_path exists failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_6596b/fast && make  -f CMakeFiles/cmTC_6596b.dir/build.make CMakeFiles/cmTC_6596b.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6596b.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -w -DCHECK_FUNCTION_EXISTS=cygwin_conv_path  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_6596b.dir/CheckFunctionExists.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Modules/CheckFunctionExists.c
+Linking C executable cmTC_6596b
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_6596b.dir/link.txt --verbose=1
+/usr/bin/gcc  -w -DCHECK_FUNCTION_EXISTS=cygwin_conv_path  -fno-builtin CMakeFiles/cmTC_6596b.dir/CheckFunctionExists.c.o -o cmTC_6596b 
+/usr/bin/ld: CMakeFiles/cmTC_6596b.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x14): undefined reference to `cygwin_conv_path'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_6596b.dir/build.make:99: cmTC_6596b] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_6596b/fast] Error 2
+
+
+
+Performing C SOURCE FILE Test HAVE_STRUCT_VFSCONF failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_4c82d/fast && make  -f CMakeFiles/cmTC_4c82d.dir/build.make CMakeFiles/cmTC_4c82d.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4c82d.dir/src.c.o
+/usr/bin/gcc -DHAVE_STRUCT_VFSCONF  -w  -std=gnu11 -o CMakeFiles/cmTC_4c82d.dir/src.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c:3:33: error: storage size of ‘v’ isn’t known
+    3 | int main(void) { struct vfsconf v; return sizeof(v);}
+      |                                 ^
+make[1]: *** [CMakeFiles/cmTC_4c82d.dir/build.make:78: CMakeFiles/cmTC_4c82d.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_4c82d/fast] Error 2
+
+
+Source file was:
+#include <sys/types.h>
+#include <sys/mount.h>
+int main(void) { struct vfsconf v; return sizeof(v);}
+Performing C SOURCE FILE Test HAVE_STRUCT_XVFSCONF failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_978a3/fast && make  -f CMakeFiles/cmTC_978a3.dir/build.make CMakeFiles/cmTC_978a3.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_978a3.dir/src.c.o
+/usr/bin/gcc -DHAVE_STRUCT_XVFSCONF  -w  -std=gnu11 -o CMakeFiles/cmTC_978a3.dir/src.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c:3:34: error: storage size of ‘v’ isn’t known
+    3 | int main(void) { struct xvfsconf v; return sizeof(v);}
+      |                                  ^
+make[1]: *** [CMakeFiles/cmTC_978a3.dir/build.make:78: CMakeFiles/cmTC_978a3.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_978a3/fast] Error 2
+
+
+Source file was:
+#include <sys/types.h>
+#include <sys/mount.h>
+int main(void) { struct xvfsconf v; return sizeof(v);}
+Performing C SOURCE FILE Test MAJOR_IN_MKDEV failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_5dec7/fast && make  -f CMakeFiles/cmTC_5dec7.dir/build.make CMakeFiles/cmTC_5dec7.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5dec7.dir/src.c.o
+/usr/bin/gcc -DMAJOR_IN_MKDEV  -w  -std=gnu11 -o CMakeFiles/cmTC_5dec7.dir/src.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c:1:10: fatal error: sys/mkdev.h: No such file or directory
+    1 | #include <sys/mkdev.h>
+      |          ^~~~~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_5dec7.dir/build.make:78: CMakeFiles/cmTC_5dec7.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_5dec7/fast] Error 2
+
+
+Source file was:
+#include <sys/mkdev.h>
+int main() { return major(256); }
+Performing C SOURCE FILE Test HAVE_LZMA_STREAM_ENCODER_MT failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_a2668/fast && make  -f CMakeFiles/cmTC_a2668.dir/build.make CMakeFiles/cmTC_a2668.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a2668.dir/src.c.o
+/usr/bin/gcc -DHAVE_LZMA_STREAM_ENCODER_MT -I/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Utilities/cmliblzma/liblzma/api -w  -std=gnu11 -o CMakeFiles/cmTC_a2668.dir/src.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_a2668
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Bootstrap.cmk/cmake -E cmake_link_script CMakeFiles/cmTC_a2668.dir/link.txt --verbose=1
+/usr/bin/gcc  -w  CMakeFiles/cmTC_a2668.dir/src.c.o -o cmTC_a2668  -lcmliblzma 
+/usr/bin/ld: cannot find -lcmliblzma
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_a2668.dir/build.make:99: cmTC_a2668] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_a2668/fast] Error 2
+
+
+Source file was:
+#include <lzma.h>
+#if LZMA_VERSION < 50020000
+#error unsupported
+#endif
+int main(void){lzma_stream_encoder_mt(0, 0); return 0;}
+Determining if the EFTYPE exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_cb46f/fast && make  -f CMakeFiles/cmTC_cb46f.dir/build.make CMakeFiles/cmTC_cb46f.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_cb46f.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_cb46f.dir/CheckSymbolExists.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘EFTYPE’ undeclared (first use in this function)
+    8 |   return ((int*)(&EFTYPE))[argc];
+      |                   ^~~~~~
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_cb46f.dir/build.make:78: CMakeFiles/cmTC_cb46f.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_cb46f/fast] Error 2
+
+
+File /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <errno.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef EFTYPE
+  return ((int*)(&EFTYPE))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the D_MD_ORDER exist failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_7c924/fast && make  -f CMakeFiles/cmTC_7c924.dir/build.make CMakeFiles/cmTC_7c924.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7c924.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -w  -std=gnu11 -o CMakeFiles/cmTC_7c924.dir/CheckSymbolExists.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘D_MD_ORDER’ undeclared (first use in this function)
+    8 |   return ((int*)(&D_MD_ORDER))[argc];
+      |                   ^~~~~~~~~~
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_7c924.dir/build.make:78: CMakeFiles/cmTC_7c924.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_7c924/fast] Error 2
+
+
+File /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <langinfo.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef D_MD_ORDER
+  return ((int*)(&D_MD_ORDER))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C SOURCE FILE Test HAVE_STRUCT_TM___TM_GMTOFF failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_55234/fast && make  -f CMakeFiles/cmTC_55234.dir/build.make CMakeFiles/cmTC_55234.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_55234.dir/src.c.o
+/usr/bin/gcc -DHAVE_STRUCT_TM___TM_GMTOFF  -w  -std=gnu11 -o CMakeFiles/cmTC_55234.dir/src.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c:6:34: error: ‘struct tm’ has no member named ‘__tm_gmtoff’; did you mean ‘tm_gmtoff’?
+    6 |   (void)sizeof(((struct tm *)0)->__tm_gmtoff);
+      |                                  ^~~~~~~~~~~
+      |                                  tm_gmtoff
+make[1]: *** [CMakeFiles/cmTC_55234.dir/build.make:78: CMakeFiles/cmTC_55234.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_55234/fast] Error 2
+
+
+Source file was:
+
+#include <time.h>
+
+int main()
+{
+  (void)sizeof(((struct tm *)0)->__tm_gmtoff);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STATFS_F_NAMEMAX failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_caf75/fast && make  -f CMakeFiles/cmTC_caf75.dir/build.make CMakeFiles/cmTC_caf75.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_caf75.dir/src.c.o
+/usr/bin/gcc -DHAVE_STRUCT_STATFS_F_NAMEMAX  -w  -std=gnu11 -o CMakeFiles/cmTC_caf75.dir/src.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c:7:36: error: dereferencing pointer to incomplete type ‘struct statfs’
+    7 |   (void)sizeof(((struct statfs *)0)->f_namemax);
+      |                                    ^~
+make[1]: *** [CMakeFiles/cmTC_caf75.dir/build.make:78: CMakeFiles/cmTC_caf75.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_caf75/fast] Error 2
+
+
+Source file was:
+
+#include <sys/param.h>
+#include <sys/mount.h>
+
+int main()
+{
+  (void)sizeof(((struct statfs *)0)->f_namemax);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_BIRTHTIME failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_82b98/fast && make  -f CMakeFiles/cmTC_82b98.dir/build.make CMakeFiles/cmTC_82b98.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_82b98.dir/src.c.o
+/usr/bin/gcc -DHAVE_STRUCT_STAT_ST_BIRTHTIME  -w  -std=gnu11 -o CMakeFiles/cmTC_82b98.dir/src.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c:7:34: error: ‘struct stat’ has no member named ‘st_birthtime’
+    7 |   (void)sizeof(((struct stat *)0)->st_birthtime);
+      |                                  ^~
+make[1]: *** [CMakeFiles/cmTC_82b98.dir/build.make:78: CMakeFiles/cmTC_82b98.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_82b98/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_birthtime);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_BIRTHTIMESPEC_TV_NSEC failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_701e5/fast && make  -f CMakeFiles/cmTC_701e5.dir/build.make CMakeFiles/cmTC_701e5.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_701e5.dir/src.c.o
+/usr/bin/gcc -DHAVE_STRUCT_STAT_ST_BIRTHTIMESPEC_TV_NSEC  -w  -std=gnu11 -o CMakeFiles/cmTC_701e5.dir/src.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c:7:34: error: ‘struct stat’ has no member named ‘st_birthtimespec’
+    7 |   (void)sizeof(((struct stat *)0)->st_birthtimespec.tv_nsec);
+      |                                  ^~
+make[1]: *** [CMakeFiles/cmTC_701e5.dir/build.make:78: CMakeFiles/cmTC_701e5.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_701e5/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_birthtimespec.tv_nsec);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_MTIMESPEC_TV_NSEC failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_b5b3f/fast && make  -f CMakeFiles/cmTC_b5b3f.dir/build.make CMakeFiles/cmTC_b5b3f.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b5b3f.dir/src.c.o
+/usr/bin/gcc -DHAVE_STRUCT_STAT_ST_MTIMESPEC_TV_NSEC  -w  -std=gnu11 -o CMakeFiles/cmTC_b5b3f.dir/src.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c:7:34: error: ‘struct stat’ has no member named ‘st_mtimespec’
+    7 |   (void)sizeof(((struct stat *)0)->st_mtimespec.tv_nsec);
+      |                                  ^~
+make[1]: *** [CMakeFiles/cmTC_b5b3f.dir/build.make:78: CMakeFiles/cmTC_b5b3f.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_b5b3f/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_mtimespec.tv_nsec);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_MTIME_N failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_a9c25/fast && make  -f CMakeFiles/cmTC_a9c25.dir/build.make CMakeFiles/cmTC_a9c25.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a9c25.dir/src.c.o
+/usr/bin/gcc -DHAVE_STRUCT_STAT_ST_MTIME_N  -w  -std=gnu11 -o CMakeFiles/cmTC_a9c25.dir/src.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c:7:36: error: ‘struct stat’ has no member named ‘st_mtime_n’; did you mean ‘st_mtim’?
+    7 |   (void)sizeof(((struct stat *)0)->st_mtime_n);
+      |                                    ^~~~~~~~~~
+      |                                    st_mtim
+make[1]: *** [CMakeFiles/cmTC_a9c25.dir/build.make:78: CMakeFiles/cmTC_a9c25.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_a9c25/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_mtime_n);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_UMTIME failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_83c41/fast && make  -f CMakeFiles/cmTC_83c41.dir/build.make CMakeFiles/cmTC_83c41.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_83c41.dir/src.c.o
+/usr/bin/gcc -DHAVE_STRUCT_STAT_ST_UMTIME  -w  -std=gnu11 -o CMakeFiles/cmTC_83c41.dir/src.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c:7:36: error: ‘struct stat’ has no member named ‘st_umtime’; did you mean ‘st_mtim’?
+    7 |   (void)sizeof(((struct stat *)0)->st_umtime);
+      |                                    ^~~~~~~~~
+      |                                    st_mtim
+make[1]: *** [CMakeFiles/cmTC_83c41.dir/build.make:78: CMakeFiles/cmTC_83c41.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_83c41/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_umtime);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_MTIME_USEC failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_97070/fast && make  -f CMakeFiles/cmTC_97070.dir/build.make CMakeFiles/cmTC_97070.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_97070.dir/src.c.o
+/usr/bin/gcc -DHAVE_STRUCT_STAT_ST_MTIME_USEC  -w  -std=gnu11 -o CMakeFiles/cmTC_97070.dir/src.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c:7:34: error: ‘struct stat’ has no member named ‘st_mtime_usec’
+    7 |   (void)sizeof(((struct stat *)0)->st_mtime_usec);
+      |                                  ^~
+make[1]: *** [CMakeFiles/cmTC_97070.dir/build.make:78: CMakeFiles/cmTC_97070.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_97070/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_mtime_usec);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_FLAGS failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_702b8/fast && make  -f CMakeFiles/cmTC_702b8.dir/build.make CMakeFiles/cmTC_702b8.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_702b8.dir/src.c.o
+/usr/bin/gcc -DHAVE_STRUCT_STAT_ST_FLAGS  -w  -std=gnu11 -o CMakeFiles/cmTC_702b8.dir/src.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c:7:34: error: ‘struct stat’ has no member named ‘st_flags’
+    7 |   (void)sizeof(((struct stat *)0)->st_flags);
+      |                                  ^~
+make[1]: *** [CMakeFiles/cmTC_702b8.dir/build.make:78: CMakeFiles/cmTC_702b8.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_702b8/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_flags);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STATVFS_F_IOSIZE failed with the following output:
+Change Dir: /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_8e70a/fast && make  -f CMakeFiles/cmTC_8e70a.dir/build.make CMakeFiles/cmTC_8e70a.dir/build
+make[1]: Entering directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8e70a.dir/src.c.o
+/usr/bin/gcc -DHAVE_STRUCT_STATVFS_F_IOSIZE  -w  -std=gnu11 -o CMakeFiles/cmTC_8e70a.dir/src.c.o -c /home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp/src.c:7:39: error: ‘struct statvfs’ has no member named ‘f_iosize’; did you mean ‘f_bsize’?
+    7 |   (void)sizeof(((struct statvfs *)0)->f_iosize);
+      |                                       ^~~~~~~~
+      |                                       f_bsize
+make[1]: *** [CMakeFiles/cmTC_8e70a.dir/build.make:78: CMakeFiles/cmTC_8e70a.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_8e70a/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/statvfs.h>
+
+int main()
+{
+  (void)sizeof(((struct statvfs *)0)->f_iosize);
+  return 0;
+}
+
+Looking for a Fortran compiler failed with the following output:
+CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 2.8.12 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+-- The Fortran compiler identification is unknown
+CMake Error at CMakeLists.txt:2 (project):
+  No CMAKE_Fortran_COMPILER could be found.
+
+  Tell CMake where to find the compiler by setting either the environment
+  variable "FC" or the CMake cache entry CMAKE_Fortran_COMPILER to the full
+  path to the compiler, or to the compiler name if it is in the PATH.
+
+
+-- Configuring incomplete, errors occurred!
+See also "/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Tests/CMakeFiles/CheckFortran/CMakeFiles/CMakeOutput.log".
+See also "/home/mister-coder/Documents/Cadete/level_2/cub3D/cmake-3.20.0/Tests/CMakeFiles/CheckFortran/CMakeFiles/CMakeError.log".
+

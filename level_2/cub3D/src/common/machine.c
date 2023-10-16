@@ -5,85 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/30 17:51:44 by lde-cast          #+#    #+#             */
-/*   Updated: 2023/07/20 19:40:56 by mister-code      ###   ########.fr       */
+/*   Created: 2023/10/15 10:02:28 by mister-code       #+#    #+#             */
+/*   Updated: 2023/10/15 14:34:58 by mister-code      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <machine.h>
-#include <mlx_plugin.h>
 
-void	machine_set(t_machine *set, t_SystemSet up, char *title, t_vi2d size)
+void	machine_set(t_machine *set)
 {
 	if (!set)
 		return ;
-	set->up[0] = up;
-	set->title = title;
-	set->size[0] = size;
-	set->pos[0] = vi2d_start(0, 0);
-	set->bg[0] = object_start(0, "background", NULL);
 	set->plugin = NULL;
-	set->image = NULL;
-	set->object = NULL;
-	mouse_of_set(&set->mouse[0], 0, 0, 0x00);
-	set->event = 0x01;
+	set->bg->img = NULL;
+	mouse_of_set(&set->mouse[0], 0, 0, 0);
 }
 
-t_status	machine_start(t_machine *set)
+t_status	machine_start(t_machine *set, int32_t w, int32_t h, char *title, bool resize)
 {
 	if (!set)
 		return (Off);
-	if (set->up->system == SYSTEM_CONSOLE)
-		return (On);
-	else if (set->up->system == SYSTEM_MINILIBX)
-	{
-		set->plugin = mlx_plugin_push();
-		return (mlx_plugin_start(set));
-	}
-	return (Off);
-}
-
-static void	machine_object_pop(t_machine *set)
-{
-	t_chained	*next;
-
-	if (!set)
-		return ;
-	while (set->object)
-	{
-		next = set->object->next;
-		if (set->object->data)
-			free(set->object->data);
-		free(set->object);
-		set->object = next;
-	}
-}
-
-static void	console_pop(t_machine *set)
-{
-	t_chained	*next;
-
-	if (!set)
-		return ;
-	while (set->image)
-	{
-		next = set->image->next;
-		image_of_pop(set->image->data, set->plugin, set->up[0]);
-		free(set->image);
-		set->image = next;
-	}
-	machine_object_pop(set);
-}
-
-void	machine_pop(t_machine *set)
-{
-	if (!set || !set->plugin)
-		return ;
-	if (set->up->system == SYSTEM_CONSOLE)
-		console_pop(set);
-	else if (set->up->system == SYSTEM_MINILIBX)
-	{
-		mlx_plugin_pop(set);
-		machine_object_pop(set);
-	}
+	set->plugin = mlx_init(w, h, title, resize);
+	if (!set->plugin)
+		return (Off);
+	//mlx_get_mouse_pos(set->plugin, &set->mouse->x, &set->mouse->y);
+	return (On);
 }

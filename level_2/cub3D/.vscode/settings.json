@@ -1,0 +1,7 @@
+{
+	"files.associations": {
+		"mlx42.h": "c",
+		"object_of.h": "c"
+	},
+	"git.ignoreLimitWarning": true
+}

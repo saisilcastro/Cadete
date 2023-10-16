@@ -1,1 +1,1 @@
-sudo apt-get install xorg openbox libxext-dev
+sudo apt install build-essential libx11-dev libglfw3-dev libglfw3 xorg-dev

@@ -5,15 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/30 19:42:00 by lde-cast          #+#    #+#             */
-/*   Updated: 2023/07/20 09:25:37 by mister-code      ###   ########.fr       */
+/*   Created: 2023/10/15 10:22:35 by mister-code       #+#    #+#             */
+/*   Updated: 2023/10/15 10:24:21 by mister-code      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mouse_of.h>
 
-void	mouse_of_set(t_mouse *set, int x, int y,
-	unsigned int button)
+void	mouse_of_set(t_mouse *set, int x, int y, unsigned int button)
 {
 	if (!set)
 		return ;

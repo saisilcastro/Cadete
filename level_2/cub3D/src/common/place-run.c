@@ -3,46 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   place-run.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/30 18:22:08 by lde-cast          #+#    #+#             */
-/*   Updated: 2023/07/12 10:46:54 by lde-cast         ###   ########.fr       */
+/*   Created: 2023/10/15 12:41:07 by mister-code       #+#    #+#             */
+/*   Updated: 2023/10/15 12:54:49 by mister-code      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <place.h>
-#include <stdio.h>
 
 static void	mlx_plugin_run(t_place *set)
 {
-	void	*plugin;
-
-	if (!set)
-		return ;
-	plugin = NULL;
-	plugin = ((t_mlx_plugin *)set->gear->plugin)->mlx;
-	if (!plugin)
-		return ;
 	if (set->update)
-		mlx_loop_hook(plugin, set->update, set->gear);
-	mlx_start_event(set->gear);
+		mlx_loop_hook(set->gear->plugin, set->update, set);
 }
 
-void	place_run(t_place *set, void *data)
+void	place_run(t_place *set)
 {
 	if (!set)
 		return ;
 	if (set->init)
-		set->init(set, data);
-	if (set->gear->up->system == SYSTEM_CONSOLE)
-		return ;
-	else if (set->gear->up->system == SYSTEM_MINILIBX)
-		mlx_plugin_run(set);
+		set->init(set);
+	mlx_plugin_run(set);
 	if (set->update)
 		set->update(set);
-	if (set->gear->up->system == SYSTEM_MINILIBX)
-		mlx_loop(((t_mlx_plugin *)set->gear->plugin)->mlx);
-	if (set->pop)
-		set->pop(set);
-	place_pop(set);
+	mlx_loop(set->gear->plugin);
+	mlx_terminate(set->gear->plugin);
 }
