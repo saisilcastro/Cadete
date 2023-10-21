@@ -75,7 +75,8 @@ OBJ = obj
 SRCOBJ = $(SRC:%.c=${OBJ}/%.o)
 LIB = -L./mlx-linux
 ENGINE = -lmlx -lX11 -lXext -lm
-ifneq ($(OS),Windows_NT)
+ifeq ($(OS),Windows_NT)
+else
 	CREATE = mkdir -p $(1)
 	REMOVE = rm -rf $(1)
 endif

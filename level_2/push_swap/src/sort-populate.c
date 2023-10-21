@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort-populate.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
+/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 11:27:47 by lde-cast          #+#    #+#             */
-/*   Updated: 2023/09/25 23:21:58 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/10/09 10:56:36 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,10 @@ void	sort_populate_int(t_sort *set, char **argv)
 			break ;
 		j = ft_atol_base(buffer, 10);
 		if (j < INT_MIN || j > __INT_MAX__)
+		{
+			set->a_max = 0;
 			return ;
+		}
 		stack_next_last(&set->a, stack_push(j));
 		set->a_max++;
 	}

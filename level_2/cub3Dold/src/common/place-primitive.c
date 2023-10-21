@@ -6,7 +6,7 @@
 /*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 21:13:23 by mister-code       #+#    #+#             */
-/*   Updated: 2023/09/29 15:23:38 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/10/14 02:42:39 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_vi2d	line_maker(t_vi2d b, t_vi2d e)
 	step += 0.0001;
 	way.x = (1 - step) * b.x + step * e.x;
 	way.y = (1 - step) * b.y + step * e.y;
-	if (step >= 1)
+	if (step >= (int)1)
 		step = 0;
 	return (way);
 }
