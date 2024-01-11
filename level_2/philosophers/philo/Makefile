@@ -1,27 +1,28 @@
-NAME = philo
-INCLUDE = -I./
-SRC = utils.c \
-	  philo-status.c \
-	  action-of.c \
-	  philo.c \
-	  chained-of.c \
-	  timer-of.c \
-	  life.c \
-	  life-take-fork.c \
-	  main.c
-OBJ = ./obj
-SRCOBJ = $(SRC:%.c=${OBJ}/%.o)
-CFLAG = -Wall -Wextra -Werror -fPIE
-ENGINE = -pthread
+ifneq ($(OS), Windows_NT)
+	CREATE = mkdir -p $(1)
+	REMOVE = rm -rf $(1)
+	NAME = philo
+endif
+INCLUDE = ./
+SRC = 	pl_atoul_base.c \
+		timer.c \
+		life-command.c \
+		philo-timer-init.c \
+		philo.c \
+		main.c
+OBJ = obj
+SRCOBJ = $(SRC: %.c=${OBJ}/%.o)
+FLAG = -Wall -Werror -Wextra
+LIB = -pthread
 
 all: $(NAME)
 $(NAME): $(SRCOBJ)
-	$(CC) $^ -o $(NAME) $(ENGINE) $(CFLAG)
+	$(CC) $^ $(LIB) -I$(INCLUDE) -o $(NAME)
 ${OBJ}/%.o : %.c
-	mkdir -p ${OBJ}
-	$(CC) -c $< -o $@ $(INCLUDE) $(CFLAG)
+	$(call CREATE,${OBJ})
+	$(CC) -c $< -o $@ $(FLAG)
 clean:
-	rm -rf ${OBJ}/*.o
+	$(call REMOVE,${OBJ}/*.o)
 fclean: clean
-	rm -rf $(NAME)
+	$(call REMOVE,${NAME})
 re: fclean all

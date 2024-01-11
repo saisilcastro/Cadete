@@ -12,6 +12,7 @@
 /* ************************************************************************** */
 
 #include <life.h>
+#include <unistd.h>
 #include <philo.h>
 #include <utils.h>
 #include <string.h>
@@ -26,77 +27,105 @@ void	agenda_set(t_agenda *set, double eat, double sleep, double die)
 	set->eat_times = 0;
 }
 
-static void	*life_action(void *data)
+void	*life_action_(void *data)
 {
-	t_philo	*philo;
-	//int		act;
+	t_life		*life;
+	t_chained	*upd;
 
-	philo = data;
-	printf("%i\n", philo->id);
-	// pthread_mutex_lock(&life->change);
-	// act = 0;
-	// while (act < 3)
-	// {
-	// 	if (act == 0)
-	// 	{
-	// 		((t_philo *)life->philo)->wait->interval = life->action->eat;
-	// 		philo_has_taken(life->philo);
-	// 		if (philo_is(life->philo, 0))
-	// 			act++;
-	// 	}
-	// 	else if (act == 1)
-	// 	{
-	// 		((t_philo *)life->philo)->wait->interval = life->action->sleep;
-	// 		if (philo_is(life->philo, 1))
-	// 			act++;
-	// 	}				
-	// 	else if (act == 2)
-	// 	{
-	// 		((t_philo *)life->philo)->wait->interval = life->action->die;
-	// 		if (philo_is(life->philo, 2))
-	// 			act++;
-	// 	}
-	// }
-	// pthread_mutex_unlock(&life->change);
-	return (data);
+	life = (t_life *)data;
+	if (!life_going(data))
+		return (NULL);
+	upd = life->thinker;
+	pthread_mutex_lock(&life->change);
+	if (philo_died(life->thinker->data, life->begin))
+	{
+		life->died = 1;
+		return (life);
+	}
+	if (life_take_fork(life, upd->prev, upd, upd->next)
+			&& philo_is(upd->data, life->begin)
+			&& ((t_philo *)upd->data)->action == THINKING)
+	{
+		timer_set(((t_philo *)upd->data)->died);
+	}
+	life->thinker = life->thinker->next;
+	if (life->thinker == NULL)
+		life->thinker = life->man;
+	pthread_mutex_unlock(&life->change);
+	return (life);
 }
 
-void life_update(t_life *set)
+static void	*life_action(void *data)
 {
-	t_chained	*upd;
-	if (!set)
-		return ;
+	t_life		*life;
 
-	while (1)
+	life = (t_life *)data;
+	if (!life_going(data))
 	{
-		upd = set->man;
-		while (upd)
-		{
-			set->philo = upd->data;
-			//printf("%i\n", ((t_philo *)set->philo)->id);
-			// if (set->philo)
-			// 	pthread_join(((t_philo *)set->philo)->state, NULL);
-			upd = upd->next;
-		}
+		printf("life's not going\n");
+		return (NULL);
 	}
+	printf("%i\n", ((t_philo *)life->man->data)->id);
+	pthread_mutex_lock(&life->change);
+	life->man = life->man->next;
+	if (life->man == NULL)
+		life->man = life->thinker;
+	pthread_mutex_unlock(&life->change);
+	return (life);
 }
 
 static void	philo_create(t_life *set)
 {
-	t_philo		*man;
-	int		i;
+	t_philo			*man;
+	int				i;
+	t_timer			time;
 
 	if (!set)
 		return ;
+	set->state = malloc((set->max_philo + 1) * sizeof(pthread_t));
 	i = -1;
 	while (++i < set->max_philo)
 	{
-		man = philo_push(i, 0x00, set->action->eat);
-		pthread_create(&man->state, NULL, life_action, man);
-	}	
+		man = philo_push(i, set->action->eat, set->action->sleep, set->action->die);
+		chained_next_last(&set->thinker, chained_push(man));
+		if (pthread_create(&set->state[i], NULL, &life_action, set) != 0)
+			perror("failure creating pthread");
+	}
+	time.begin = 0;
+	set->begin = timer_elapsed(&time);
+	set->man = set->thinker;
 }
 
-void	 life_command(t_life *set, char **command)
+void join(void)
+{
+	//i = -1;
+	//while (++i < set->max_philo)
+	//{
+	//	//printf("%i\n", i);
+	//	if (pthread_join(set->state[i], (void **)&set) != 0)
+	//		perror("failure join the thread");
+	//}
+}
+
+void	life_update(t_life *set)
+{
+	int	i;
+
+	i = 0;
+	while (set && !set->died)
+	{
+		if (((t_philo *)set->man->data)->action == FLOATING)
+			((t_philo *)set->man->data)->action = EATING;
+		if (pthread_join(set->state[i], (void **)&set) != 0)
+		{
+			i++;
+			if (set->max_philo >= i)
+				i = 0;
+		}
+	}
+}
+
+void	life_command(t_life *set, char **command)
 {
 	int	i;
 

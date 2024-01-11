@@ -3,61 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
+/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/28 20:42:59 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/25 20:08:07 by mister-code      ###   ########.fr       */
+/*   Created: 2024/01/10 14:07:58 by lde-cast          #+#    #+#             */
+/*   Updated: 2024/01/11 15:32:26 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <philo.h>
-#include <stdlib.h>
+#include <string.h>
 #include <stdio.h>
 
-t_philo	*philo_push(int id, long eat, long sleep, long died)
+t_life	*life_get(void)
 {
-	t_philo	*set;
+	static t_life	life;
 
-	set = (t_philo *)malloc(sizeof(t_philo));
-	if (!set)
-		return (NULL);
-	set->id = id;
-	set->hand = 0x1;
-	set->action = FLOATING;
-	timer_start(&set->wait[0], eat);
-	timer_start(&set->wait[1], sleep);
-	if ((eat + sleep) * 0.5 > 0)
-		timer_start(&set->wait[2], (eat + sleep) * 0.5);
-	else
-		timer_start(&set->wait[2], 1000);
-	timer_start(set->died, died);
-	return (set);
+	return (&life);
 }
 
-void	philo_set(t_philo *set, int id, long eat, long died)
+void	life_set(t_life *set)
 {
-	if (!set)
-		return ;
-	set->id = id;
-	set->hand = 0x1;
-	set->action = 0x0;
-	set->wait[0].interval = eat;
-	set->died->interval = died;
+	set->alive = On;
 }
 
-int	philo_hand(t_philo *set, t_hand hand)
+void	life_is_going(t_life *set, char **argv)
 {
-	if (!set || !set->hand)
-		return (0);
-	if (set->hand & (1 << hand))
-		return (1);
-	return (0);
-}
-
-void	philo_pop(void **set)
-{
-	if (!*set)
-		return ;
-	free(*set);
-	*set = NULL;
+	life_command(set, argv);
+	while (set->alive)
+	{
+	}
 }

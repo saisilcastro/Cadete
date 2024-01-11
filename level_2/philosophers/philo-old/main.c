@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
+/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 20:23:50 by mister-code       #+#    #+#             */
-/*   Updated: 2023/07/31 00:14:01 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/08/26 11:52:42 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,14 @@ int	main(int argc, char **argv)
 {
 	t_life	tales;
 
-	if (argc > 3 && argv)
+	if (argc > 4 && argv)
 		philosophe_loop(&tales, argv);
 	return (0);
+}
+
+long	divided_thousand(long i)
+{
+	return ((i >> 10) + 1);
 }
 
 void	philosophe_loop(t_life *set, char **argv)

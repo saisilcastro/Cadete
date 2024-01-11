@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atol_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 02:25:24 by mister-code       #+#    #+#             */
-/*   Updated: 2023/10/05 16:39:48 by lde-cast         ###   ########.fr       */
+/*   Updated: 2023/09/25 23:23:50 by mister-code      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static int	has_space(char c)
 long	ft_atol_base(char *str, int base)
 {
 	long	number;
-	int		mul;
+	int			mul;
 
 	mul = 1;
 	if (!str)

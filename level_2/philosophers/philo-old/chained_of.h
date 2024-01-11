@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   chained_of.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
+/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 21:36:15 by mister-code       #+#    #+#             */
-/*   Updated: 2023/07/30 19:56:00 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/08/21 17:20:02 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ struct s_chained{
 extern t_chained	*chained_push(void *data);
 extern int			chained_next_first(t_chained **head, t_chained *set);
 extern int			chained_next_last(t_chained **head, t_chained *set);
-extern void			chained_pop(t_chained **head, void (*pop)(void *data));
+extern t_chained	*chained_last(t_chained *head);
+extern void			chained_pop(t_chained **head, void (*pop)(void **data));
 
 #endif

@@ -5,35 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/28 20:23:50 by mister-code       #+#    #+#             */
-/*   Updated: 2023/08/26 11:52:42 by lde-cast         ###   ########.fr       */
+/*   Created: 2024/01/10 17:12:14 by lde-cast          #+#    #+#             */
+/*   Updated: 2024/01/11 12:12:48 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <life.h>
-#include <timer_of.h>
+#include <philo.h>
 #include <stdio.h>
-
-void	philosophe_loop(t_life *set, char **argv);
 
 int	main(int argc, char **argv)
 {
-	t_life	tales;
+	t_life	*tale;
 
 	if (argc > 4 && argv)
-		philosophe_loop(&tales, argv);
+	{
+		tale = life_get();
+		life_set(tale);
+		life_is_going(tale, argv);
+	}
 	return (0);
-}
-
-long	divided_thousand(long i)
-{
-	return ((i >> 10) + 1);
-}
-
-void	philosophe_loop(t_life *set, char **argv)
-{
-	life_set(set);
-	life_command(set, argv);
-	life_update(set);
-	life_pop(set);
 }

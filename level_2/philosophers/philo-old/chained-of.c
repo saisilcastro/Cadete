@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   chained-of.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mister-coder <mister-coder@student.42.f    +#+  +:+       +#+        */
+/*   By: lde-cast <lde-cast@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 21:35:36 by mister-code       #+#    #+#             */
-/*   Updated: 2023/07/30 19:57:47 by mister-code      ###   ########.fr       */
+/*   Updated: 2023/08/21 17:19:36 by lde-cast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <chained_of.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 t_chained	*chained_push(void *data)
 {
@@ -56,7 +57,17 @@ int	chained_next_last(t_chained **head, t_chained *set)
 	return (1);
 }
 
-void	chained_pop(t_chained **head, void (*pop)(void *data))
+t_chained	*chained_last(t_chained *head)
+{
+	t_chained	*last;
+
+	last = head;
+	while (last->next)
+		last = last->next;
+	return (last);
+}
+
+void	chained_pop(t_chained **head, void (*pop)(void **data))
 {
 	t_chained	*next;
 	t_chained	*current;
@@ -66,7 +77,7 @@ void	chained_pop(t_chained **head, void (*pop)(void *data))
 	{
 		next = current->next;
 		if (pop)
-			pop(current->data);
+			pop((void **)&current->data);
 		free(current);
 		current = next;
 	}
