@@ -1,0 +1,10 @@
+#norminette
+if [ "$1" == "debian" ]; then
+	sudo apt install pip
+else
+	sudo pacman -S python3
+	sudo pacman -S python-pip
+fi
+python3 -m pip install --upgrade pip setuptools
+python3 -m pip install norminette
+export PATH=~/$USER/.local/bin:$PATH

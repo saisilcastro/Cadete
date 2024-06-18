@@ -1,0 +1,6 @@
+#!/bash/bin
+#arch
+sudo pacman -Sy glfw-wayland
+#debian
+sudo apt install build-essentials
+sudo apt install libglfw3-dev
